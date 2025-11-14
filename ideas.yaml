@@ -1,0 +1,59 @@
+- name: TripSpark
+  slug: tripspark
+  category: travel
+  idea: "AI trip planner that builds 3-day city itineraries with morning/afternoon/evening blocks, budget estimates, and a shareable link."
+  monetization: "Free for 1 itinerary; subscription unlocks unlimited trips + export."
+
+- name: LiftShift
+  slug: liftshift
+  category: fitness
+  idea: "Generates 8-week progressive gym plans based on goals, equipment, and schedule. Tracks progress and deload weeks."
+  monetization: "Free sample week; subscription for full plan + progression tracking."
+
+- name: MealMind
+  slug: mealmind
+  category: lifestyle
+  idea: "Weekly meal planner with grocery list, budget targets, and prep time constraints."
+  monetization: "Free 3-day plan; subscription unlocks full weeks + saved profiles."
+
+- name: MoneyMicro
+  slug: moneymicro
+  category: finance
+  idea: "'Can I afford this?' micro-calculator that projects monthly impact of a purchase vs savings target."
+  monetization: "Free basic calc; subscription for saved scenarios + recommendations."
+
+- name: FocusTiles
+  slug: focustiles
+  category: productivity
+  idea: "Pomodoro-style focus timer that dynamically adjusts session lengths based on your past focus performance."
+  monetization: "Free basic timer; subscription unlocks analytics + custom rhythms."
+
+- name: StorySpark
+  slug: storyspark
+  category: creator
+  idea: "Social caption + hook generator for Twitter, IG, TikTok based on a rough idea or draft."
+  monetization: "Free limited uses per day; subscription unlocks unlimited + presets."
+
+- name: HookLab
+  slug: hooklab
+  category: creator
+  idea: "Generates A/B tested video hook lines and thumbnail text for YouTube/TikTok."
+  monetization: "Free for 3 hooks/day; subscription for more + saved templates."
+
+- name: BrainBite
+  slug: brainbite
+  category: games
+  idea: "Daily bite-sized logic puzzles and trivia, tailored to difficulty preference."
+  monetization: "Free daily puzzle; subscription for back catalog + streak protection."
+
+- name: HabitGrid
+  slug: habitgrid
+  category: lifestyle
+  idea: "Micro habit tracker that turns 3–5 daily habits into a simple heatmap grid."
+  monetization: "Free for one grid; subscription for multiple boards + export."
+
+- name: PrepCoach
+  slug: prepcoach
+  category: career
+  idea: "Interview prep mini-app that generates behavioral questions, lets you draft answers, and gives AI feedback."
+  monetization: "Free small question set; subscription unlocks full banks + saved answers."

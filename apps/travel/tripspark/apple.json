@@ -1,0 +1,9 @@
+{
+  "displayName": "TripSpark",
+  "subtitle": "3-day AI itineraries with budgets & share links",
+  "category": "travel",
+  "ageRating": "4+",
+  "iapModel": "subscription",
+  "priceTier": "0",
+  "keywords": ["travel", "itinerary", "planner", "city guide", "budget", "ai", "weekend", "shareable"]
+}
