@@ -18,3 +18,11 @@ Free baseline cadence; SipSync Pro adds smart bottle sync, streak boosts, and tr
 python3 -m http.server 8080 -d apps/lifestyle/sipsync
 # Visit http://localhost:8080
 ```
+
+## QA checklist (Phase 2)
+- [x] Wake/sleep validation ensures both times exist before syncing; helper text displays with focus.
+- [x] Keyboard navigation covers time inputs, selects, tags, and share buttons.
+- [x] Responsive at 375px with scroll-friendly stacking; no layout shifts.
+- [x] Copy/labels match `UX_NOTES.md` (CTA, highlight labels, flavor/travel copy).
+- [x] Color contrast + `prefers-reduced-motion` handled via shared tokens.
+- [x] Local QA server `python3 -m http.server 8080 -d apps/lifestyle/sipsync` (verified via curl 2025-11-14).
