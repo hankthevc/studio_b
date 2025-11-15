@@ -18,3 +18,11 @@ Free unlimited quick lists; PocketPorter Pro unlocks saved wardrobes, airline au
 python3 -m http.server 8080 -d apps/travel/pocketporter
 # Visit http://localhost:8080
 ```
+
+## QA checklist (Phase 2)
+- [x] Destination validation shows helper + focuses input.
+- [x] Keyboard + screen reader labels confirmed for all inputs/buttons.
+- [x] Responsive at 375px; no horizontal scroll; cards stack cleanly.
+- [x] Copy matches `UX_NOTES.md` (CTA, compliance copy, share label, upsell).
+- [x] Color contrast meets AA; animations respect `prefers-reduced-motion`.
+- [x] Local QA server `python3 -m http.server 8080 -d apps/travel/pocketporter` (verified via curl 2025-11-14).
