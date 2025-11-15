@@ -18,3 +18,11 @@ Free three hook sets/day; HookLab Pro unlocks unlimited variants, saved template
 python3 -m http.server 8080 -d apps/creator/hooklab
 # Visit http://localhost:8080
 ```
+
+## QA checklist (Phase 2)
+- [x] Idea textarea required; helper/focus tested.
+- [x] Keyboard navigation covers textarea, select, vibe tags, CTA, copy buttons.
+- [x] Responsive at 375px; variant cards stack cleanly and scroll vertically.
+- [x] Copy matches `UX_NOTES.md` (CTA, highlight label, share copy, upsell).
+- [x] Color contrast + motion preferences handled via shared tokens.
+- [x] Local QA server `python3 -m http.server 8080 -d apps/creator/hooklab` (curl port 8100 on 2025-11-14).
