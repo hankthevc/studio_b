@@ -1,0 +1,14 @@
+{
+  "displayName": "BrainBite",
+  "subtitle": "Daily micro-puzzle",
+  "category": "games",
+  "ageRating": "4+",
+  "iapModel": "free",
+  "priceTier": "0",
+  "keywords": [
+    "puzzle",
+    "trivia",
+    "logic",
+    "daily"
+  ]
+}

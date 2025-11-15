@@ -1,59 +1,179 @@
 - name: TripSpark
   slug: tripspark
   category: travel
-  idea: "AI trip planner that builds 3-day city itineraries with morning/afternoon/evening blocks, budget estimates, and a shareable link."
-  monetization: "Free for 1 itinerary; subscription unlocks unlimited trips + export."
+  idea: "AI trip planner delivering 3-day city itineraries with morning/afternoon/evening blocks, budget chips, and a shareable short link."
+  monetization: "Free first itinerary; subscription unlocks unlimited exports, saved trips, and calendar sync."
+
+- name: PocketPorter
+  slug: pocketporter
+  category: travel
+  idea: "Smart packing list that adapts to destination weather, activities, and airline baggage rules with swipe-to-remove clarity."
+  monetization: "Free baseline list; Pro saves outfits, auto packs repeat routes, and adds bag allowance alerts."
+
+- name: LayoverLoop
+  slug: layoverloop
+  category: travel
+  idea: "Builds 2–4 hour layover playbooks with lounge picks, quick detours, and transit timing so airport downtime feels intentional."
+  monetization: "Free first layover; Pro unlocks offline cards, lounge perk reminders, and ride-share credits."
 
 - name: LiftShift
   slug: liftshift
   category: fitness
-  idea: "Generates 8-week progressive gym plans based on goals, equipment, and schedule. Tracks progress and deload weeks."
-  monetization: "Free sample week; subscription for full plan + progression tracking."
+  idea: "Progressive strength blocks tuned to equipment, goals, and schedule complete with deload cues and session notes."
+  monetization: "Free sample week; subscription unlocks full cycles, progression tracking, and exportable logs."
+
+- name: FlexDesk
+  slug: flexdesk
+  category: fitness
+  idea: "Desk-friendly stretch and mobility bursts triggered by time of day or posture prompts to keep remote workers limber."
+  monetization: "Free three flows/day; Pro personalizes sequences, adds reminder scheduling, and syncs with calendar breaks."
+
+- name: PulsePath
+  slug: pulsepath
+  category: fitness
+  idea: "Adaptive HIIT/interval builder that responds to current energy, available gear, and target burn with guided pacing."
+  monetization: "Free standard session; Pro unlocks adaptive progressions, Health export, and saved circuits."
+
+- name: TempoBuddy
+  slug: tempobuddy
+  category: fitness
+  idea: "Micro run/ride pacer that designs interval cues, surfaces playlist tempos, and delivers friendly post-run recaps."
+  monetization: "Free daily pacer; Pro adds adaptive pacing, long-run blocks, and watch pairing placeholders."
 
 - name: MealMind
   slug: mealmind
   category: lifestyle
-  idea: "Weekly meal planner with grocery list, budget targets, and prep time constraints."
-  monetization: "Free 3-day plan; subscription unlocks full weeks + saved profiles."
-
-- name: MoneyMicro
-  slug: moneymicro
-  category: finance
-  idea: "'Can I afford this?' micro-calculator that projects monthly impact of a purchase vs savings target."
-  monetization: "Free basic calc; subscription for saved scenarios + recommendations."
-
-- name: FocusTiles
-  slug: focustiles
-  category: productivity
-  idea: "Pomodoro-style focus timer that dynamically adjusts session lengths based on your past focus performance."
-  monetization: "Free basic timer; subscription unlocks analytics + custom rhythms."
-
-- name: StorySpark
-  slug: storyspark
-  category: creator
-  idea: "Social caption + hook generator for Twitter, IG, TikTok based on a rough idea or draft."
-  monetization: "Free limited uses per day; subscription unlocks unlimited + presets."
-
-- name: HookLab
-  slug: hooklab
-  category: creator
-  idea: "Generates A/B tested video hook lines and thumbnail text for YouTube/TikTok."
-  monetization: "Free for 3 hooks/day; subscription for more + saved templates."
-
-- name: BrainBite
-  slug: brainbite
-  category: games
-  idea: "Daily bite-sized logic puzzles and trivia, tailored to difficulty preference."
-  monetization: "Free daily puzzle; subscription for back catalog + streak protection."
+  idea: "Weekly meal planner with calories, prep cues, and grocery shortlist tuned to budget and dietary targets."
+  monetization: "Free 3-day preview; subscription unlocks full weeks, saved profiles, and seasonal swaps."
 
 - name: HabitGrid
   slug: habitgrid
   category: lifestyle
-  idea: "Micro habit tracker that turns 3–5 daily habits into a simple heatmap grid."
-  monetization: "Free for one grid; subscription for multiple boards + export."
+  idea: "Simple 3–5 habit tracker that paints a heatmap grid, nudges streaks, and celebrates consistency."
+  monetization: "Free single grid; Pro supports multiple boards, export, and accountability reminders."
+
+- name: SipSync
+  slug: sipsync
+  category: lifestyle
+  idea: "Hydration micro-coach that maps reminders to daily schedule and adds flavor/mood boosts to keep sipping fun."
+  monetization: "Free baseline reminders; Pro syncs smart bottles, tracks streak perks, and unlocks travel modes."
+
+- name: RestNest
+  slug: restnest
+  category: lifestyle
+  idea: "Ten-minute wind-down routines blending breathwork, journaling prompts, and ambient cues before bed."
+  monetization: "Free nightly routine; Pro unlocks multi-night stacks, soundscapes, and partner wind-down sharing."
+
+- name: MoneyMicro
+  slug: moneymicro
+  category: finance
+  idea: "“Can I afford this?” micro-calculator showing monthly impact of a purchase versus savings goals with instant nudges."
+  monetization: "Free basic calc; Pro enables saved scenarios, advisor-style recommendations, and timeline exports."
+
+- name: SliceSaver
+  slug: slicesaver
+  category: finance
+  idea: "Bill-splitting optimizer for roommates or trip crews with fairness suggestions and gentle reminder scripts."
+  monetization: "Free single split; Pro saves households, tracks balances, and automates reminder nudges."
+
+- name: TipTally
+  slug: tiptally
+  category: finance
+  idea: "Tip + split calculator infused with local norms, quick QR payment shortcuts, and round-up suggestions."
+  monetization: "Free calculator; Pro unlocks saved venues, preferred splits, and expense export."
+
+- name: BillBreeze
+  slug: billbreeze
+  category: finance
+  idea: "Turns recurring bills into a visual cash-flow lane with upcoming alerts and “safe to spend” guidance."
+  monetization: "Free up to two bills; Pro supports unlimited, projected balances, and PDF export."
+
+- name: FocusTiles
+  slug: focustiles
+  category: productivity
+  idea: "Adaptive Pomodoro tiles that adjust session lengths based on prior focus success and energy check-ins."
+  monetization: "Free single workspace; Pro adds analytics, custom rhythms, and calendar sync."
+
+- name: FlowStreak
+  slug: flowstreak
+  category: productivity
+  idea: "Daily three-wins board that animates streak momentum and suggests the next micro goal."
+  monetization: "Free one board; Pro syncs calendar tasks, adds widgets, and unlocks team sharing."
+
+- name: InboxZen
+  slug: inboxzen
+  category: productivity
+  idea: "Inbox triage coach summarizing top emails and drafting reply prompts to clear the queue fast."
+  monetization: "Free five summaries/day; Pro provides unlimited, reusable reply presets, and CRM export."
+
+- name: MeetingMinder
+  slug: meetingminder
+  category: productivity
+  idea: "Auto-builds prep checklists and post-meeting follow-ups using calendar context so nothing slips."
+  monetization: "Free two meetings/day; Pro syncs across calendars, adds shared notes, and exports actions."
+
+- name: SkillSnack
+  slug: skillsnack
+  category: education
+  idea: "Five-minute micro-lessons covering practical skills (Excel, negotiation, design) you can swipe through daily."
+  monetization: "Free daily snack; Pro unlocks learning tracks, spaced review, and certification prep."
+
+- name: LanguageLoop
+  slug: languageloop
+  category: education
+  idea: "Phrase-practice loops with roleplay prompts, pronunciation tips, and cultural context for quick language reps."
+  monetization: "Free one loop/day; Pro offers unlimited practice, accent notes, and offline packs."
+
+- name: StudySprint
+  slug: studysprint
+  category: education
+  idea: "Turns study topics into 25-minute sprints with recall prompts, confidence check, and quick recap notes."
+  monetization: "Free one plan/day; Pro saves syllabi, adds push reminders, and exports study logs."
+
+- name: StorySpark
+  slug: storyspark
+  category: creator
+  idea: "Caption and hook generator for social posts using rough ideas or drafts, ready for multiple platforms."
+  monetization: "Free limited uses per day; Pro unlocks unlimited runs, preset banks, and tone tweaking."
+
+- name: HookLab
+  slug: hooklab
+  category: creator
+  idea: "A/B tested hook lines and thumbnail text drafts for video platforms with vibe sliders."
+  monetization: "Free three hooks/day; Pro offers deeper variants, saved templates, and collaboration links."
+
+- name: ClipChoreo
+  slug: clipchoreo
+  category: creator
+  idea: "Transforms an idea into a three-shot storyboard with on-screen text guidance and beat suggestions."
+  monetization: "Free one storyboard/day; Pro unlocks unlimited boards, brand kits, and asset export."
+
+- name: BeatBoard
+  slug: beatboard
+  category: creator
+  idea: "Produces short audio hooks/loops tuned to vibe sliders for reels or podcast bumpers."
+  monetization: "Free three loops/day; Pro provides unlimited stems, favorite banks, and licensing notes."
+
+- name: BrainBite
+  slug: brainbite
+  category: games
+  idea: "Daily bite-sized logic and trivia puzzles tailored to difficulty preference with instant feedback."
+  monetization: "Free daily puzzle; Pro grants archive access, streak shields, and category filters."
+
+- name: QuestDash
+  slug: questdash
+  category: games
+  idea: "Generates micro adventure challenges for friends or couples with photo-proof prompts and shareable results."
+  monetization: "Free daily quest; Pro unlocks themed challenge packs, group history, and leaderboard modes."
 
 - name: PrepCoach
   slug: prepcoach
   category: career
-  idea: "Interview prep mini-app that generates behavioral questions, lets you draft answers, and gives AI feedback."
-  monetization: "Free small question set; subscription unlocks full banks + saved answers."
+  idea: "Interview coach surfacing behavioral prompts, drafting responses, and giving quick feedback cues."
+  monetization: "Free small question set; Pro unlocks full banks, saved answers, and recruiter export."
+
+- name: PitchPulse
+  slug: pitchpulse
+  category: career
+  idea: "Elevator-pitch builder that scores clarity, suggests trims, and preps you for lightning intros."
+  monetization: "Free single pitch; Pro stores multiple role profiles, rehearsal mode, and share links."

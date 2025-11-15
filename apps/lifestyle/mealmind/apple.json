@@ -1,0 +1,14 @@
+{
+  "displayName": "MealMind",
+  "subtitle": "AI meal planner",
+  "category": "lifestyle",
+  "ageRating": "4+",
+  "iapModel": "free",
+  "priceTier": "0",
+  "keywords": [
+    "meal",
+    "planner",
+    "nutrition",
+    "grocery"
+  ]
+}
