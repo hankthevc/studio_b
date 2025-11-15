@@ -26,3 +26,11 @@ python3 -m http.server 8080 -d apps/productivity/focustiles
 - [x] Copy matches `UX_NOTES.md` (CTA, highlight labels, share copy).
 - [x] Contrast + motion preferences handled via shared tokens.
 - [x] Local QA server `python3 -m http.server 8080 -d apps/productivity/focustiles` (curl port 8103 on 2025-11-14).
+
+## Monetization instrumentation
+- `focustiles:freeLimitHit` – fires when a free user exceeds three tile plans.
+- `focustiles:regenerate` – fires whenever the user requests a new flow.
+- `focustiles:saveRhythm` – fires when a Pro user saves a rhythm or exports.
+- `focustiles:logSession` – fires when a Pro user logs the highlight tile.
+- `focustiles:upsellViewed` – fires when upsell surfaces show (post-plan, log session, save rhythm).
+- `focustiles:upsellClicked` – fires when the upgrade CTA is tapped.

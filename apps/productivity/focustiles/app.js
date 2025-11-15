@@ -2,6 +2,7 @@ import * as sharedUI from "../../../shared/ui.js";
 import { planTiles } from "./logic.js";
 
 const MIN_PLAN_DELAY = 360;
+const FREE_PLAN_LIMIT = 3;
 const energyOptions = [
   { key: "low", label: "Low" },
   { key: "steady", label: "Steady" },
@@ -11,7 +12,8 @@ const energyOptions = [
 const state = {
   planCount: 0,
   lastFormValues: null,
-  lastPlan: null
+  lastPlan: null,
+  isSubscribed: false
 };
 
 export function initMiniApp(container) {
@@ -50,6 +52,10 @@ async function startPlanning(formValues, resultsSection, upsell) {
     state.planCount += 1;
     state.lastPlan = tiles;
     renderTiles(resultsSection, tiles, upsell);
+    if (state.planCount > FREE_PLAN_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("focustiles:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for analytics, custom rhythms, and calendar sync.");
+    }
   } catch (error) {
     console.error("FocusTiles failed to generate:", error);
     await loadDelay;
@@ -217,11 +223,13 @@ function renderTiles(container, plan, upsell) {
         return;
       }
       startPlanning(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("focustiles:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
 
   if (state.planCount >= 1) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("focustiles:upsellViewed", { detail: { surface: "postPlan" } }));
   }
 }
 
@@ -238,8 +246,21 @@ function buildTileCard(tile, isHighlight = false) {
   `;
   if (isHighlight) {
     const actions = card.querySelector(".tile-actions");
-    const logButton = createButton({ label: "Log session", variant: "primary", type: "button" });
-    logButton.addEventListener("click", () => showToast("Session logged"));
+    const logButton = createButton({
+      label: state.isSubscribed ? "Log session" : "Log session (Pro)",
+      variant: "primary",
+      type: "button",
+      disabled: !state.isSubscribed
+    });
+    logButton.addEventListener("click", () => {
+      if (state.isSubscribed) {
+        window.dispatchEvent(new CustomEvent("focustiles:logSession", { detail: { tile } }));
+        showToast("Session logged");
+      } else {
+        window.dispatchEvent(new CustomEvent("focustiles:upsellViewed", { detail: { surface: "logSession" } }));
+        showToast("Upgrade for analytics & logging.");
+      }
+    });
     actions.append(logButton);
   }
   return card;
@@ -289,15 +310,30 @@ function buildShareRow(link, onRegenerate) {
     }
   });
 
-  const exportButton = createButton({ label: "Save rhythm (Pro)", variant: "secondary", type: "button" });
-  exportButton.addEventListener("click", () => showToast("Upgrade for custom rhythms."));
+  const exportButton = createButton({
+    label: "Save rhythm (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  exportButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("focustiles:saveRhythm", { detail: { plan: state.lastPlan } }));
+      showToast("Rhythm saved!");
+    } else {
+      window.dispatchEvent(new CustomEvent("focustiles:upsellViewed", { detail: { surface: "saveRhythm" } }));
+      showToast("Upgrade for custom rhythms.");
+    }
+  });
 
   const shareActions = document.createElement("div");
   shareActions.className = "share-actions";
   shareActions.append(copyButton, exportButton);
 
   const regenerate = createButton({ label: "Regenerate flow", variant: "outline", type: "button" });
-  regenerate.addEventListener("click", () => onRegenerate?.());
+  regenerate.addEventListener("click", () => {
+    onRegenerate?.();
+  });
 
   card.append(label, linkInput, shareActions, regenerate);
   return card;
@@ -309,7 +345,10 @@ function buildUpsell() {
   copy.textContent = "Unlock custom rhythms, analytics, and calendar sync with FocusTiles Pro.";
 
   const button = createButton({ label: "Upgrade to Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("focustiles:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
 
   card.append(copy, button);
   return card;

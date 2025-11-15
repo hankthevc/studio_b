@@ -216,6 +216,11 @@ body {
 
 .tile-actions {
   margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+.tile-actions .focustiles-button {
+  width: 100%;
 }
 
 .tile-stack-card h3 {
