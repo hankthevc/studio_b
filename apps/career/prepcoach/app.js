@@ -4,7 +4,8 @@ import { generateMockRound } from "./logic.js";
 const state = {
   planCount: 0,
   lastPlan: null,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 const companyOptions = ["startup", "mid", "enterprise"];
@@ -42,6 +43,10 @@ async function startRound(values, container, upsell) {
     state.planCount += 1;
     state.lastPlan = plan;
     renderRound(container, plan, upsell);
+    if (state.planCount > FREE_ROUND_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("prepcoach:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for full banks & recruiter exports.");
+    }
   } catch (error) {
     console.error("PrepCoach failed:", error);
     showError(container, "Could not run your mock round. Try again.");
@@ -164,9 +169,13 @@ function renderRound(container, plan, upsell) {
         return;
       }
       startRound(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("prepcoach:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
-  if (state.planCount > 0) upsell.classList.remove("is-hidden");
+  if (state.planCount > 0) {
+    upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("prepcoach:upsellViewed", { detail: { surface: "postRound" } }));
+  }
 }
 
 function buildHighlightCard(text) {
@@ -241,8 +250,21 @@ function buildShareRow(link, onRegenerate) {
   const copyButton = createButton({ label: "Copy link", variant: "outline", type: "button" });
   copyButton.addEventListener("click", () => copyText(link));
 
-  const exportButton = createButton({ label: "Export to doc (Pro)", variant: "secondary", type: "button" });
-  exportButton.addEventListener("click", () => showToast("Upgrade to export answers."));
+  const exportButton = createButton({
+    label: "Export to doc (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  exportButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("prepcoach:export", { detail: { plan: state.lastPlan } }));
+      showToast("Export ready!");
+    } else {
+      window.dispatchEvent(new CustomEvent("prepcoach:upsellViewed", { detail: { surface: "exportButton" } }));
+      showToast("Upgrade to export answers.");
+    }
+  });
 
   const regenerate = createButton({ label: "Run again", variant: "outline", type: "button" });
   regenerate.addEventListener("click", () => onRegenerate?.());
@@ -260,7 +282,10 @@ function buildUpsellBanner() {
   const copy = document.createElement("p");
   copy.textContent = "Upgrade for full banks, saved answers, and recruiter-ready exports.";
   const button = createButton({ label: "Upgrade to PrepCoach Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("prepcoach:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
   card.append(copy, button);
   return card;
 }

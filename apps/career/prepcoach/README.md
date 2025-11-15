@@ -26,3 +26,10 @@ python3 -m http.server 8080 -d apps/career/prepcoach
 - [x] Copy matches `UX_NOTES.md` (CTA text, highlight labels, notes/follow-up copy).
 - [x] Color contrast meets AA; shared tokens handle motion preferences.
 - [x] Local QA server `python3 -m http.server 8080 -d apps/career/prepcoach` (curl port 8099 on 2025-11-14).
+
+## Monetization instrumentation
+- `prepcoach:freeLimitHit` – fires when the free mock-round limit is exceeded.
+- `prepcoach:regenerate` – fires whenever the user runs another round.
+- `prepcoach:export` – fires when a Pro user exports answers (host should listen to trigger export flow).
+- `prepcoach:upsellViewed` – fires when upsell surfaces appear (post-round, export button).
+- `prepcoach:upsellClicked` – fires when the upgrade CTA is tapped.
