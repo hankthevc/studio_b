@@ -18,3 +18,11 @@ Free unlimited quick calcs; MoneyMicro Pro unlocks saved scenarios, advisor nudg
 python3 -m http.server 8080 -d apps/finance/moneymicro
 # Visit http://localhost:8080
 ```
+
+## QA checklist (Phase 2)
+- [x] Price input required; helper + focus verified.
+- [x] Keyboard navigation covers price/down payment inputs, selects, slider, share buttons.
+- [x] Responsive at 375px; verdict/timeline cards stack vertically.
+- [x] Copy matches `UX_NOTES.md` (CTA, verdict states, tip copy, share label).
+- [x] Color contrast respects AA, and animations honor `prefers-reduced-motion`.
+- [x] Local QA server `python3 -m http.server 8080 -d apps/finance/moneymicro` (curl port 8101 on 2025-11-14).
