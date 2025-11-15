@@ -2,6 +2,7 @@ import * as sharedUI from "../../../shared/ui.js";
 import { planPuzzle } from "./logic.js";
 
 const MIN_PLAN_DELAY = 320;
+const FREE_PUZZLE_LIMIT = 3;
 const difficultyOptions = [
   { key: "chill", label: "Chill" },
   { key: "tricky", label: "Tricky" },
@@ -11,7 +12,8 @@ const difficultyOptions = [
 const state = {
   puzzleCount: 0,
   lastFormValues: null,
-  lastPuzzle: null
+  lastPuzzle: null,
+  isSubscribed: false
 };
 
 export function initMiniApp(container) {
@@ -50,6 +52,10 @@ async function startPuzzle(formValues, resultsSection, upsell) {
     state.puzzleCount += 1;
     state.lastPuzzle = puzzle;
     renderPuzzle(resultsSection, puzzle, upsell);
+    if (state.puzzleCount > FREE_PUZZLE_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("brainbite:freeLimitHit", { detail: { puzzleCount: state.puzzleCount } }));
+      showToast("Upgrade for unlimited bites & streak shields.");
+    }
   } catch (error) {
     console.error("BrainBite failed to load puzzle:", error);
     await loadDelay;
@@ -175,11 +181,13 @@ function renderPuzzle(container, puzzle, upsell) {
         return;
       }
       startPuzzle(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("brainbite:regenerate", { detail: { puzzleCount: state.puzzleCount } }));
     })
   );
 
   if (state.puzzleCount >= 1) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("brainbite:upsellViewed", { detail: { surface: "postPuzzle" } }));
   }
 }
 
@@ -287,6 +295,22 @@ function buildStreakCard(streak) {
     </div>
     <p class="streak-count">${streak.count} days in a row</p>
   `;
+  const shieldButton = createButton({
+    label: "Streak shield (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  shieldButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("brainbite:shieldApplied", { detail: { streak } }));
+      showToast("Shield applied.");
+    } else {
+      window.dispatchEvent(new CustomEvent("brainbite:upsellViewed", { detail: { surface: "streakShield" } }));
+      showToast("Upgrade to protect streaks.");
+    }
+  });
+  card.append(shieldButton);
   return card;
 }
 
@@ -313,15 +337,30 @@ function buildShareRow(link, onRegenerate) {
     }
   });
 
-  const exportButton = createButton({ label: "Unlock archives (Pro)", variant: "secondary", type: "button" });
-  exportButton.addEventListener("click", () => showToast("Upgrade for archives + shields."));
+  const exportButton = createButton({
+    label: "Unlock archives (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  exportButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("brainbite:archiveExport", { detail: { puzzle: state.lastPuzzle } }));
+      showToast("Archive unlocked!");
+    } else {
+      window.dispatchEvent(new CustomEvent("brainbite:upsellViewed", { detail: { surface: "archiveButton" } }));
+      showToast("Upgrade for archives + shields.");
+    }
+  });
 
   const shareActions = document.createElement("div");
   shareActions.className = "share-actions";
   shareActions.append(copyButton, exportButton);
 
   const regenerate = createButton({ label: "New bite", variant: "outline", type: "button" });
-  regenerate.addEventListener("click", () => onRegenerate?.());
+  regenerate.addEventListener("click", () => {
+    onRegenerate?.();
+  });
 
   card.append(label, linkInput, shareActions, regenerate);
   return card;
@@ -333,7 +372,10 @@ function buildUpsell() {
   copy.textContent = "Unlock archives, streak shields, and custom categories with BrainBite Pro.";
 
   const button = createButton({ label: "Upgrade to Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("brainbite:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
 
   card.append(copy, button);
   return card;

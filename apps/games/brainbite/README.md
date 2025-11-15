@@ -26,3 +26,11 @@ python3 -m http.server 8080 -d apps/games/brainbite
 - [x] Copy/labels match `UX_NOTES.md` (button text, toasts, share copy, upsell).
 - [x] Contrast + motion handled via shared tokens.
 - [x] Local QA server `python3 -m http.server 8080 -d apps/games/brainbite` (curl port 8102 on 2025-11-14).
+
+## Monetization instrumentation
+- `brainbite:freeLimitHit` – fires when a free user runs more than three bites.
+- `brainbite:regenerate` – fires each time the user requests another puzzle.
+- `brainbite:archiveExport` – fires when a Pro user unlocks/downloads archives.
+- `brainbite:shieldApplied` – fires when a Pro user protects their streak.
+- `brainbite:upsellViewed` – fires when upsell surfaces show (post-puzzle, archive button, streak shield).
+- `brainbite:upsellClicked` – fires when the upgrade CTA is tapped.

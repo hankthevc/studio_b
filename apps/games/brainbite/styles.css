@@ -240,6 +240,10 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
 }
+.streak-card .brainbite-button {
+  width: 100%;
+  margin-top: 0.75rem;
+}
 
 .share-card .share-label {
   font-size: 0.85rem;
