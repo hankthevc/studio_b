@@ -32,6 +32,9 @@ The first itinerary is free. Upgrading (placeholder $4.99/month) unlocks unlimit
 - `tripspark:export` – fired after a Pro export succeeds (host should listen and start export flow).
 - `tripspark:regenerate` – fired whenever a user tweaks & regenerates a plan.
 
+## Embed & Host Enablement
+- See `EMBED.md` for integration snippets, theming knobs, event wiring, and rollout QA checklists.
+
 ## Host Integration Notes
 - Initialize via `initMiniApp(containerElement)` once the host DOM is ready; the entry point attaches listeners and renders the hero/form/results stack.
 - Replace the toast inside `buildUpsellBanner` with the host purchase flow and emit analytics (e.g., `tripspark.upgradeTapped`, `tripspark.subscriptionStarted`) to respect the “one free itinerary” rule.
