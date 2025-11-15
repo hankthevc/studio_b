@@ -2,6 +2,7 @@ import * as sharedUI from "../../../shared/ui.js";
 import { planScenario, formatCurrency } from "./logic.js";
 
 const MIN_PLAN_DELAY = 360;
+const FREE_SCENARIO_LIMIT = 2;
 const timelineTags = [
   { key: "three", label: "3 mo" },
   { key: "six", label: "6 mo" },
@@ -11,7 +12,8 @@ const timelineTags = [
 const state = {
   calcCount: 0,
   lastFormValues: null,
-  lastScenario: null
+  lastScenario: null,
+  isSubscribed: false
 };
 
 export function initMiniApp(container) {
@@ -50,6 +52,10 @@ async function startCalculation(formValues, resultsSection, upsell) {
     state.calcCount += 1;
     state.lastScenario = scenario;
     renderScenario(resultsSection, scenario, upsell);
+    if (state.calcCount > FREE_SCENARIO_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("moneymicro:freeLimitHit", { detail: { calcCount: state.calcCount } }));
+      showToast("Upgrade for unlimited saved scenarios & advisors.");
+    }
   } catch (error) {
     console.error("MoneyMicro failed to calculate:", error);
     await loadDelay;
@@ -190,11 +196,13 @@ function renderScenario(container, scenario, upsell) {
         return;
       }
       startCalculation(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("moneymicro:regenerate", { detail: { calcCount: state.calcCount } }));
     })
   );
 
   if (state.calcCount >= 1) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("moneymicro:upsellViewed", { detail: { surface: "postScenario" } }));
   }
 }
 
@@ -267,9 +275,20 @@ function buildShareRow(link, onRegenerate) {
     }
   });
 
-  const exportButton = createButton({ label: "Save & export (Pro)", variant: "secondary", type: "button" });
+  const exportButton = createButton({
+    label: "Save & export (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
   exportButton.addEventListener("click", () => {
-    showToast("Upgrade for saved scenarios.");
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("moneymicro:export", { detail: { scenario: state.lastScenario } }));
+      showToast("Scenario exported!");
+    } else {
+      window.dispatchEvent(new CustomEvent("moneymicro:upsellViewed", { detail: { surface: "exportButton" } }));
+      showToast("Upgrade for saved scenarios.");
+    }
   });
 
   const shareActions = document.createElement("div");
@@ -289,7 +308,10 @@ function buildUpsell() {
   copy.textContent = "Upgrade for saved scenarios, advisor nudges, and export.";
 
   const button = createButton({ label: "Upgrade to MoneyMicro Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("moneymicro:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
 
   card.append(copy, button);
   return card;

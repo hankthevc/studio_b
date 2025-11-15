@@ -26,3 +26,10 @@ python3 -m http.server 8080 -d apps/finance/moneymicro
 - [x] Copy matches `UX_NOTES.md` (CTA, verdict states, tip copy, share label).
 - [x] Color contrast respects AA, and animations honor `prefers-reduced-motion`.
 - [x] Local QA server `python3 -m http.server 8080 -d apps/finance/moneymicro` (curl port 8101 on 2025-11-14).
+
+## Monetization instrumentation
+- `moneymicro:freeLimitHit` – fires when a free user exceeds the saved scenario limit.
+- `moneymicro:regenerate` – fires whenever the user re-runs a scenario.
+- `moneymicro:export` – fires when a Pro user exports or saves a scenario.
+- `moneymicro:upsellViewed` – fires when upsell surfaces show (post-scenario + export button).
+- `moneymicro:upsellClicked` – fires when the upgrade CTA is tapped.
