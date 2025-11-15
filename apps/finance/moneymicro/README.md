@@ -33,3 +33,6 @@ python3 -m http.server 8080 -d apps/finance/moneymicro
 - `moneymicro:export` – fires when a Pro user exports or saves a scenario.
 - `moneymicro:upsellViewed` – fires when upsell surfaces show (post-scenario + export button).
 - `moneymicro:upsellClicked` – fires when the upgrade CTA is tapped.
+
+## Embed & Host Enablement
+- Review `EMBED.md` for drop-in snippet, analytics wiring guidance, theming knobs, and rollout QA checklist.
