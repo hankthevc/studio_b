@@ -2,6 +2,7 @@ import * as sharedUI from "../../../shared/ui.js";
 import { planMeals, formatCalories } from "./logic.js";
 
 const MIN_PLAN_DELAY = 420;
+const FREE_PLAN_LIMIT = 2;
 const effortOptions = [
   { key: "speedy", label: "Speedy" },
   { key: "balanced", label: "Balanced" },
@@ -11,7 +12,8 @@ const effortOptions = [
 const state = {
   planCount: 0,
   lastPlan: null,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 export function initMiniApp(container) {
@@ -50,6 +52,10 @@ async function startPlanning(formValues, resultsSection, upsell) {
     state.planCount += 1;
     state.lastPlan = plan;
     renderPlan(resultsSection, plan, upsell);
+    if (state.planCount > FREE_PLAN_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("mealmind:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for full-week menus & exports.");
+    }
   } catch (error) {
     console.error("MealMind failed to plan menu:", error);
     await loadDelay;
@@ -200,6 +206,22 @@ function renderPlan(container, plan, upsell) {
     <h2>${plan.highlight}</h2>
     <p class="highlight-copy">3-day preview · ${plan.diet.replace(/([A-Z])/g, " $1").trim()}</p>
   `;
+  const presetButton = createButton({
+    label: "Save household preset (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  presetButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("mealmind:savePreset", { detail: { plan } }));
+      showToast("Preset saved!");
+    } else {
+      window.dispatchEvent(new CustomEvent("mealmind:upsellViewed", { detail: { surface: "highlightPreset" } }));
+      showToast("Upgrade to save presets.");
+    }
+  });
+  highlightCard.append(presetButton);
   container.append(highlightCard);
 
   plan.days.forEach((day) => {
@@ -241,11 +263,13 @@ function renderPlan(container, plan, upsell) {
         return;
       }
       startPlanning(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("mealmind:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
 
   if (state.planCount >= 1) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("mealmind:upsellViewed", { detail: { surface: "postPlan" } }));
   }
 }
 
@@ -321,9 +345,20 @@ function buildShareRow(link, onRegenerate) {
     }
   });
 
-  const exportButton = createButton({ label: "Export grocery list (Pro)", variant: "secondary", type: "button" });
+  const exportButton = createButton({
+    label: "Export grocery list (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
   exportButton.addEventListener("click", () => {
-    showToast("Upgrade to MealMind Pro to export.");
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("mealmind:export", { detail: { plan: state.lastPlan } }));
+      showToast("Grocery list exported!");
+    } else {
+      window.dispatchEvent(new CustomEvent("mealmind:upsellViewed", { detail: { surface: "exportButton" } }));
+      showToast("Upgrade to MealMind Pro to export.");
+    }
   });
 
   const shareActions = document.createElement("div");
@@ -347,7 +382,10 @@ function buildUpsellBanner() {
   copy.textContent = "Upgrade for full-week menus, saved households, and grocery exports.";
 
   const button = createButton({ label: "Upgrade to MealMind Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("mealmind:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
 
   card.append(copy, button);
   return card;
