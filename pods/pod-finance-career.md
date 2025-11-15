@@ -15,7 +15,8 @@
 Future tasks: monitor MoneyMicro for new requirements (log here before starting).
 
 ## Status Log
-- _Use timestamps for major checkpoints (scaffold complete, SPEC ready, UI ready, QA done)._
+- 2025-11-14 17:20 – PrepCoach scaffolded, SPEC.md + UX_NOTES.md replaced, deterministic logic implemented.
+- 2025-11-14 17:35 – PrepCoach UI/UX built (form, loader, prompt cards, notes, follow-up, share/upsell), README + apple metadata updated; QA server returned 200.
 
 ### Agent Ledger Briefing
 - **Kickoff:** Scaffold `prepcoach`, replace SPEC/UX files, and confirm Monetization copy matches `ideas.yaml`.
