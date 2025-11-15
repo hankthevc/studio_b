@@ -33,3 +33,6 @@ python3 -m http.server 8080 -d apps/lifestyle/sipsync
 - `sipsync:upsellViewed` – fired when upsell surfaces appear (post-plan, smart bottle button).
 - `sipsync:upsellClicked` – fired when upgrade CTA is tapped.
 - `sipsync:regenerate` – fired whenever the cadence is regenerated.
+
+## Embed & Host Enablement
+- Review `EMBED.md` for integration snippets, event wiring guidance, theming knobs, and rollout QA steps.
