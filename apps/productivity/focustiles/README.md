@@ -18,3 +18,11 @@ Free single workspace; FocusTiles Pro unlocks analytics, custom rhythms, and cal
 python3 -m http.server 8080 -d apps/productivity/focustiles
 # Visit http://localhost:8080
 ```
+
+## QA checklist (Phase 2)
+- [x] Idea/goal optional, but theme + energy validation confirmed (helper + focus).
+- [x] Keyboard navigation covers dropdown, energy tags, slider, CTA, tile buttons.
+- [x] Responsive at 375px; tiles stack, flow cards scroll vertically.
+- [x] Copy matches `UX_NOTES.md` (CTA, highlight labels, share copy).
+- [x] Contrast + motion preferences handled via shared tokens.
+- [x] Local QA server `python3 -m http.server 8080 -d apps/productivity/focustiles` (curl port 8103 on 2025-11-14).
