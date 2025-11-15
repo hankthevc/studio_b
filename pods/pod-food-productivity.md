@@ -20,6 +20,7 @@
 - 2025-11-14 19:15 – FocusTiles Phase 2 QA checklist complete; README updated, QA server verified via port 8103.
 - 2025-11-14 19:35 – StorySpark monetization instrumentation added (free limit events, preset save gating, upsell analytics).
 - 2025-11-15 09:55 – FocusTiles monetization instrumentation added (free limit gating, log/save pro events, analytics hooks).
+- 2025-11-15 11:20 – FocusTiles Phase 4 embed kit created (`EMBED.md`) and README linked for host rollout.
 - 2025-11-15 10:15 – MealMind monetization instrumentation added (free limit, preset/export gating, analytics events).
 
 ### Agent Bento Briefing

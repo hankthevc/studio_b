@@ -34,3 +34,6 @@ python3 -m http.server 8080 -d apps/productivity/focustiles
 - `focustiles:logSession` – fires when a Pro user logs the highlight tile.
 - `focustiles:upsellViewed` – fires when upsell surfaces show (post-plan, log session, save rhythm).
 - `focustiles:upsellClicked` – fires when the upgrade CTA is tapped.
+
+## Embed & Host Enablement
+- See `EMBED.md` for integration snippets, event wiring, theming controls, and rollout QA steps.
