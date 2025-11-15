@@ -34,3 +34,6 @@ python3 -m http.server 8080 -d apps/games/brainbite
 - `brainbite:shieldApplied` – fires when a Pro user protects their streak.
 - `brainbite:upsellViewed` – fires when upsell surfaces show (post-puzzle, archive button, streak shield).
 - `brainbite:upsellClicked` – fires when the upgrade CTA is tapped.
+
+## Embed & Host Enablement
+- `EMBED.md` contains the integration snippet, analytics wiring guidance, theming knobs, and rollout QA checklist.
