@@ -34,3 +34,6 @@ python3 -m http.server 8080 -d apps/creator/hooklab
 - `hooklab:savePreset` – emitted when a Pro user saves the recommended variant.
 - `hooklab:upsellViewed` – emitted when upsell surfaces show (post-plan, export, highlight preset).
 - `hooklab:upsellClicked` – emitted when the upgrade CTA is tapped.
+
+## Embed & Host Enablement
+- Review `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
