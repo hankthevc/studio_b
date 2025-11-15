@@ -19,6 +19,7 @@
 - 2025-11-14 18:25 – TripSpark Phase 2 QA checklist complete; README updated with verification notes, accessibility/responsive checks recorded.
 - 2025-11-14 18:35 – PocketPorter Phase 2 QA checklist complete; README updated with checklist, server check via port 8096.
 - 2025-11-14 18:45 – SipSync Phase 2 QA checklist complete; README updated with verification notes, server check via port 8097.
+- 2025-11-14 19:25 – Phase 3 instrumentation: TripSpark, PocketPorter, and SipSync now emit upsell/export/save events, enforce free-plan limits, and log events for host monetization flows.
 
 ### Agent Aurora Briefing
 - **Kickoff:** Confirm scaffolds exist for `pocketporter` and `sipsync`; if not, run the Option B script for each slug.

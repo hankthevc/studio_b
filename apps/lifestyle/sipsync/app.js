@@ -1,10 +1,12 @@
 import * as sharedUI from "../../../shared/ui.js";
 import { planHydration } from "./logic.js";
 
+const FREE_PLAN_LIMIT = 1;
 const state = {
   planCount: 0,
   lastPlan: null,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 export function initMiniApp(container) {
@@ -40,6 +42,10 @@ async function startPlanning(values, resultsSection, upsell) {
     state.planCount += 1;
     state.lastPlan = plan;
     renderPlan(resultsSection, plan, upsell);
+    if (state.planCount > FREE_PLAN_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("sipsync:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for smart bottle sync & streak boosts.");
+    }
   } catch (error) {
     console.error("SipSync failed to plan hydration:", error);
     showError(resultsSection, "Could not sync your sips. Try again later.");
@@ -168,11 +174,13 @@ function renderPlan(container, plan, upsell) {
         return;
       }
       startPlanning(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("sipsync:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
 
   if (state.planCount > 0) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("sipsync:upsellViewed", { detail: { surface: "postPlan" } }));
   }
 }
 
@@ -244,10 +252,26 @@ function buildShareRow(link, onRegenerate) {
     }
   });
 
+  const smartButton = createButton({
+    label: "Sync smart bottle (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  smartButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("sipsync:smartBottleSync", { detail: { plan: state.lastPlan } }));
+      showToast("Synced with your bottle!");
+    } else {
+      window.dispatchEvent(new CustomEvent("sipsync:upsellViewed", { detail: { surface: "smartBottle" } }));
+      showToast("Upgrade to sync with smart bottles.");
+    }
+  });
+
   const regenerate = createButton({ label: "Regenerate", variant: "outline", type: "button" });
   regenerate.addEventListener("click", () => onRegenerate?.());
 
-  card.append(label, linkInput, copyButton, regenerate);
+  card.append(label, linkInput, copyButton, smartButton, regenerate);
   return card;
 }
 
@@ -256,7 +280,10 @@ function buildUpsellBanner() {
   const copy = document.createElement("p");
   copy.textContent = "Upgrade for smart bottle sync, streak boosts, and travel presets.";
   const button = createButton({ label: "Upgrade to SipSync Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("sipsync:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
   card.append(copy, button);
   return card;
 }

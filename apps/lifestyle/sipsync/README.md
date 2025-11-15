@@ -26,3 +26,10 @@ python3 -m http.server 8080 -d apps/lifestyle/sipsync
 - [x] Copy/labels match `UX_NOTES.md` (CTA, highlight labels, flavor/travel copy).
 - [x] Color contrast + `prefers-reduced-motion` handled via shared tokens.
 - [x] Local QA server `python3 -m http.server 8080 -d apps/lifestyle/sipsync` (verified via curl 2025-11-14).
+
+## Monetization instrumentation
+- `sipsync:freeLimitHit` – fired after the free cadence limit is exceeded.
+- `sipsync:smartBottleSync` – fired when Pro users sync their smart bottle cadence.
+- `sipsync:upsellViewed` – fired when upsell surfaces appear (post-plan, smart bottle button).
+- `sipsync:upsellClicked` – fired when upgrade CTA is tapped.
+- `sipsync:regenerate` – fired whenever the cadence is regenerated.

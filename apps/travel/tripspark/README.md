@@ -25,6 +25,13 @@ The first itinerary is free. Upgrading (placeholder $4.99/month) unlocks unlimit
 - [x] Accessibility: shared tokens respect `prefers-reduced-motion`; color contrast >= AA.
 - [x] Local QA server: `python3 -m http.server 8080 -d apps/travel/tripspark` (2025-11-14).
 
+## Monetization instrumentation
+- `tripspark:freeLimitHit` – fired when the free itinerary limit is exceeded.
+- `tripspark:upsellViewed` – fired whenever the upsell banner or export gating is shown (surface data included).
+- `tripspark:upsellClicked` – fired when the upgrade CTA is tapped.
+- `tripspark:export` – fired after a Pro export succeeds (host should listen and start export flow).
+- `tripspark:regenerate` – fired whenever a user tweaks & regenerates a plan.
+
 ## Host Integration Notes
 - Initialize via `initMiniApp(containerElement)` once the host DOM is ready; the entry point attaches listeners and renders the hero/form/results stack.
 - Replace the toast inside `buildUpsellBanner` with the host purchase flow and emit analytics (e.g., `tripspark.upgradeTapped`, `tripspark.subscriptionStarted`) to respect the “one free itinerary” rule.

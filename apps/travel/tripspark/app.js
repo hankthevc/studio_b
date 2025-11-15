@@ -3,10 +3,12 @@ import { planItinerary, formatCurrency } from "./logic.js";
 
 const MIN_PLAN_DELAY = 420;
 
+const FREE_PLAN_LIMIT = 1;
 const state = {
   planCount: 0,
   lastItinerary: null,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 export function initMiniApp(container) {
@@ -45,6 +47,10 @@ async function startPlanning(formValues, resultsSection, upsell) {
     state.planCount += 1;
     state.lastItinerary = itinerary;
     renderItinerary(resultsSection, itinerary, upsell);
+    if (state.planCount > FREE_PLAN_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("tripspark:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for unlimited trips + exports.");
+    }
   } catch (error) {
     console.error("TripSpark failed to generate itinerary:", error);
     await loadDelay;
@@ -210,11 +216,13 @@ function renderItinerary(container, itinerary, upsell) {
         return;
       }
       startPlanning(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("tripspark:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
 
   if (state.planCount >= 1) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("tripspark:upsellViewed", { detail: { surface: "postPlan" } }));
   }
 }
 
@@ -263,10 +271,18 @@ function buildShareRow(link, onRegenerate) {
   const exportButton = createButton({
     label: "Export & share (Pro)",
     variant: "secondary",
-    type: "button"
+    type: "button",
+    disabled: !state.isSubscribed
   });
+  exportButton.dataset.analytics = "tripspark.exportTapped";
   exportButton.addEventListener("click", () => {
-    showToast("Subscribe to unlock exports.");
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("tripspark:export", { detail: { plan: state.lastItinerary } }));
+      showToast("Export ready!");
+    } else {
+      window.dispatchEvent(new CustomEvent("tripspark:upsellViewed", { detail: { surface: "exportButton" } }));
+      showToast("Subscribe to unlock exports.");
+    }
   });
 
   const shareActions = document.createElement("div");
@@ -299,7 +315,8 @@ function buildUpsellBanner() {
     type: "button"
   });
   upgradeButton.addEventListener("click", () => {
-    showToast("TODO: Connect billing flow.");
+    window.dispatchEvent(new CustomEvent("tripspark:upsellClicked"));
+    showToast("Billing flow coming soon.");
   });
 
   card.append(copy, upgradeButton);

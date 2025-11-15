@@ -1,10 +1,12 @@
 import * as sharedUI from "../../../shared/ui.js";
 import { planPackingList } from "./logic.js";
 
+const FREE_PLAN_LIMIT = 1;
 const state = {
   planCount: 0,
   lastPlan: null,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 const vibeOptions = [
@@ -46,6 +48,10 @@ async function startPacking(formValues, resultsSection, upsell) {
     state.planCount += 1;
     state.lastPlan = plan;
     renderPlan(resultsSection, plan, upsell);
+    if (state.planCount > FREE_PLAN_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("pocketporter:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade to save wardrobes & auto-sync airlines.");
+    }
   } catch (error) {
     console.error("PocketPorter failed to generate list:", error);
     showError(resultsSection, "Could not pack your bag. Try again shortly.");
@@ -165,10 +171,12 @@ function renderPlan(container, plan, upsell) {
         return;
       }
       startPacking(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("pocketporter:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
   if (state.planCount > 0) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("pocketporter:upsellViewed", { detail: { surface: "postPlan" } }));
   }
 }
 
@@ -242,10 +250,26 @@ function buildShareRow(link, onRegenerate) {
     }
   });
 
+  const saveButton = createButton({
+    label: "Save wardrobe (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  saveButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("pocketporter:saveWardrobe", { detail: { plan: state.lastPlan } }));
+      showToast("Wardrobe saved!");
+    } else {
+      window.dispatchEvent(new CustomEvent("pocketporter:upsellViewed", { detail: { surface: "saveWardrobe" } }));
+      showToast("Upgrade to save wardrobes.");
+    }
+  });
+
   const regenerate = createButton({ label: "Regenerate list", variant: "outline", type: "button" });
   regenerate.addEventListener("click", () => onRegenerate?.());
 
-  card.append(label, linkInput, copyButton, regenerate);
+  card.append(label, linkInput, copyButton, saveButton, regenerate);
   return card;
 }
 
@@ -254,7 +278,10 @@ function buildUpsellBanner() {
   const copy = document.createElement("p");
   copy.textContent = "Upgrade to PocketPorter Pro to save wardrobes and auto-sync airline rules.";
   const button = createButton({ label: "Upgrade for saved wardrobes", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("pocketporter:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
   card.append(copy, button);
   return card;
 }

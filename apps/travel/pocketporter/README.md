@@ -26,3 +26,10 @@ python3 -m http.server 8080 -d apps/travel/pocketporter
 - [x] Copy matches `UX_NOTES.md` (CTA, compliance copy, share label, upsell).
 - [x] Color contrast meets AA; animations respect `prefers-reduced-motion`.
 - [x] Local QA server `python3 -m http.server 8080 -d apps/travel/pocketporter` (verified via curl 2025-11-14).
+
+## Monetization instrumentation
+- `pocketporter:freeLimitHit` – fired once the free wardrobe limit is exceeded.
+- `pocketporter:saveWardrobe` – fired when a Pro user saves a wardrobe (host can persist).
+- `pocketporter:upsellViewed` – fired for post-plan/CTA surfaces, detail includes surface name.
+- `pocketporter:upsellClicked` – fired when upgrade button is tapped.
+- `pocketporter:regenerate` – fired whenever a user regenerates a list.
