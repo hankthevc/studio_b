@@ -30,6 +30,7 @@ All pods and agents must align to the following roadmap. Treat these phases as o
 - Bundle showcase demos (e.g., top 5 apps) with cohesive branding for partner outreach.
 - Measure readiness: manual QA matrix (devices/browsers), latency tests, share-link resilience.
 - Transition to monetized pilots: document API requirements, billing hooks, success metrics.
+- **Deliverables:** `partner-kit/` (analytics contracts, billing mock, themes, QA templates, showcase), per-app `EMBED.md`, pod status log entry.
 
 ### Operating Expectations
 - Pods own execution but must reference this roadmap before starting new work.

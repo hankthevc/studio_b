@@ -1,0 +1,25 @@
+# Partner Kit v1
+
+This directory bundles everything a host app needs to embed the first eleven mini-apps (TripSpark → LiftShift) with consistent analytics, billing stubs, theming presets, QA templates, and showcase links.
+
+## Contents
+
+| Path | Purpose |
+| --- | --- |
+| `analytics/contracts.md` | Segment-ready event contract for every app with sample payloads and KPI notes. |
+| `billing/billingMock.js` | Lightweight subscription stub (`window.requestSubscription`) so partners can simulate Pro upgrades locally. |
+| `themes/presets.css` | Three CSS preset themes (`partner-default`, `partner-dark`, `partner-warm`) overriding shared tokens. |
+| `qa/README.md` | Device/browser matrix and step-by-step host QA checklist for iOS Safari, Android Chrome, Samsung Internet, RN WebView, and desktop Chromium. |
+| `showcase/index.html` | Demo hub linking to all eleven apps plus QR codes/instructions for easy preview. |
+
+## How to Distribute
+
+1. **Build ZIP** – `zip -r partner-kit-v1.zip partner-kit/ apps/**/EMBED.md audits/tier2_tier3_polish.md`.
+2. **GitHub Release** – Tag `partner-kit-v1` and upload the ZIP so partners can download without repo access.
+3. **Notion Mirror (optional)** – Copy the README tables + analytics contract into your Partner Enablement Notion space for non-technical stakeholders.
+
+## Next Steps
+
+- As new apps reach Phase 4, update `analytics/contracts.md`, add them to `showcase/index.html`, and refresh the QA matrix.
+- Once host QA results come back, append device-specific notes in `qa/README.md` under the provided tables.
+

@@ -1,0 +1,35 @@
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.theme-partner-default {
+  --ts-primary: #0057ff;
+  --ts-secondary: #00c6ae;
+  --meal-primary: #1fb57a;
+  --focus-primary: #6c63ff;
+  --hl-primary: #ff6fb7;
+  --pc-primary: #1e2a52;
+}
+
+.theme-partner-dark {
+  --ts-primary: #8be9ff;
+  --ts-secondary: #ffb86c;
+  --meal-primary: #7af5c5;
+  --focus-primary: #c5a3ff;
+  --hl-primary: #ff99d6;
+  --pc-primary: #c1c9ff;
+  background: #0f111a;
+  color: #eef1ff;
+}
+
+.theme-partner-warm {
+  --ts-primary: #ff7a5c;
+  --ts-secondary: #ffd166;
+  --meal-primary: #f4a259;
+  --focus-primary: #e26d5c;
+  --hl-primary: #f28482;
+  --pc-primary: #6b4f4b;
+  background: #fff5ef;
+  color: #402e2a;
+}
+
