@@ -1,0 +1,308 @@
+:root {
+  color-scheme: light;
+  --hl-primary: #ff5fb7;
+  --hl-secondary: #7c5dff;
+  --hl-bg: #fff1fb;
+  --hl-border: #ffd3ef;
+  --hl-muted: #764a6a;
+}
+
+body {
+  margin: 0;
+  background: var(--hl-bg);
+}
+
+.hooklab-app {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: var(--font-sans, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  color: #2a0f25;
+}
+
+.hooklab-app .shared-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--hl-border);
+  box-shadow: 0 16px 32px rgba(42, 15, 37, 0.08);
+}
+
+.hero {
+  margin-bottom: 1.2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  color: var(--hl-muted);
+  margin: 0 0 0.35rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.tagline {
+  margin: 0.3rem 0 0;
+  color: var(--hl-muted);
+}
+
+.hook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hook-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: #3c1a34;
+}
+
+.hook-form textarea,
+.hook-form select,
+.hook-form input {
+  border-radius: 0.85rem;
+  border: 1px solid var(--hl-border);
+  padding: 0.75rem 0.95rem;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.hook-form textarea:focus,
+.hook-form select:focus,
+.hook-form input:focus {
+  outline: 2px solid rgba(255, 95, 183, 0.4);
+}
+
+.vibe-field span {
+  display: block;
+  font-size: 0.9rem;
+  color: #3c1a34;
+  margin-bottom: 0.35rem;
+}
+
+.vibe-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.vibe-tag {
+  flex: 1;
+  border-radius: 999px;
+  border: 1px dashed var(--hl-border);
+  padding: 0.4rem 0.25rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--hl-muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.vibe-tag.is-selected {
+  border-color: var(--hl-primary);
+  color: var(--hl-primary);
+  background: rgba(255, 95, 183, 0.15);
+}
+
+.form-helper {
+  margin: -0.3rem 0 0;
+  font-size: 0.85rem;
+  color: #d6456b;
+  display: none;
+}
+
+.form-helper.is-visible {
+  display: block;
+}
+
+.primary-action {
+  width: 100%;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.placeholder {
+  text-align: center;
+  color: var(--hl-muted);
+}
+
+.loading-card {
+  text-align: center;
+}
+
+.hook-loader {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+}
+
+.hook-loader span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--hl-primary);
+  animation: hookPulse 1s infinite ease-in-out;
+}
+
+.highlight-card {
+  background: linear-gradient(135deg, #360f2f, #ff5fb7);
+  color: white;
+  border: none;
+}
+
+.highlight-eyebrow {
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.variant-card .variant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.variant-copy {
+  margin: 0.4rem 0 0.3rem;
+  font-weight: 600;
+}
+
+.variant-tone {
+  margin: 0;
+  color: var(--hl-muted);
+}
+
+.thumbnail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.thumbnail-card p {
+  font-weight: 600;
+}
+
+.share-card .share-label {
+  font-size: 0.85rem;
+  color: var(--hl-muted);
+  margin-bottom: 0.4rem;
+}
+
+.share-link {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px dashed var(--hl-border);
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.upsell-card {
+  text-align: center;
+  background: #2c0c29;
+  color: white;
+}
+
+.upsell-card button {
+  width: 100%;
+}
+
+.results-error {
+  text-align: center;
+  color: #d6456b;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: rgba(214, 69, 107, 0.08);
+}
+
+.hooklab-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.hooklab-button.variant-primary {
+  background: var(--hl-primary);
+  color: white;
+  box-shadow: 0 12px 24px rgba(255, 95, 183, 0.35);
+}
+
+.hooklab-button.variant-secondary {
+  background: rgba(124, 93, 255, 0.16);
+  color: #2c0f25;
+}
+
+.hooklab-button.variant-outline {
+  background: transparent;
+  border: 1px dashed var(--hl-border);
+  color: #2c0f25;
+}
+
+.hooklab-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hooklab-button:active {
+  transform: scale(0.97);
+}
+
+.hooklab-toast {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  background: #2c0c29;
+  color: white;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(44, 12, 41, 0.3);
+  opacity: 0;
+  transition: transform 160ms ease, opacity 160ms ease;
+  z-index: 9999;
+}
+
+.hooklab-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.is-hidden {
+  display: none;
+}
+
+@keyframes hookPulse {
+  0%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 480px) {
+  .hooklab-app {
+    max-width: 480px;
+  }
+}
