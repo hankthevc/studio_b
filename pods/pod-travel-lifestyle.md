@@ -16,6 +16,7 @@
 - 2025-11-14 16:10 – Scaffolded `pocketporter` + `sipsync`; updated SPEC.md + UX_NOTES.md with approved drafts.
 - 2025-11-14 16:55 – Completed deterministic logic, full UI/UX builds, README + apple metadata updates for both apps. QA server run pending.
 - 2025-11-14 17:05 – QA: served both apps via `python3 -m http.server` (ports 8090/8091) and confirmed HTTP 200 responses.
+- 2025-11-14 18:25 – TripSpark Phase 2 QA checklist complete; README updated with verification notes, accessibility/responsive checks recorded.
 
 ### Agent Aurora Briefing
 - **Kickoff:** Confirm scaffolds exist for `pocketporter` and `sipsync`; if not, run the Option B script for each slug.
