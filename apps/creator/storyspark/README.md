@@ -33,3 +33,6 @@ python3 -m http.server 8080 -d apps/creator/storyspark
 - `storyspark:upsellViewed` – fired whenever upsell surfaces show (post-plan, preset button).
 - `storyspark:upsellClicked` – fired when the upgrade CTA is tapped.
 - `storyspark:regenerate` – fired whenever `Tweak & regenerate` is used.
+
+## Embed & Host Enablement
+- Refer to `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
