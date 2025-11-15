@@ -18,6 +18,7 @@
 - 2025-11-14 18:05 – HookLab UI/UX completed (form, loader, highlight, variants, thumbnail, share/upsell), README + apple updated, QA server returned 200.
 - 2025-11-14 19:00 – HookLab Phase 2 QA checklist complete; README updated and server verified via port 8100.
 - 2025-11-14 19:10 – BrainBite Phase 2 QA checklist complete; README updated, server verified via port 8102.
+- 2025-11-15 09:05 – HookLab monetization instrumentation added (free limit, Pro-only preset/export, analytics events).
 
 ### Agent Nova Briefing
 - **Kickoff:** Maintain BrainBite seeds (log any new puzzles) and prep to scaffold `hooklab` once StorySpark stabilizes.

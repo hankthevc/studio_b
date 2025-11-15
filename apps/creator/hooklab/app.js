@@ -1,10 +1,12 @@
 import * as sharedUI from "../../../shared/ui.js";
 import { generateHookSet } from "./logic.js";
 
+const FREE_VARIANT_LIMIT = 3;
 const state = {
   planCount: 0,
   lastPlan: null,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 const vibeOptions = [
@@ -46,6 +48,10 @@ async function runGeneration(values, container, upsell) {
     state.planCount += 1;
     state.lastPlan = plan;
     renderPlan(container, plan, upsell);
+    if (state.planCount > FREE_VARIANT_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("hooklab:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for unlimited variants & templates.");
+    }
   } catch (error) {
     console.error("HookLab failed:", error);
     showError(container, "Could not cook your hook set. Try again.");
@@ -163,9 +169,13 @@ function renderPlan(container, plan, upsell) {
         return;
       }
       runGeneration(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("hooklab:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
-  if (state.planCount > 0) upsell.classList.remove("is-hidden");
+  if (state.planCount > 0) {
+    upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("hooklab:upsellViewed", { detail: { surface: "postPlan" } }));
+  }
 }
 
 function buildHighlightCard(variant) {
@@ -175,6 +185,22 @@ function buildHighlightCard(variant) {
     <p class="highlight-copy">${variant.copy}</p>
     <p class="highlight-meta">${variant.tone} · ${variant.metric}</p>
   `;
+  const savePreset = createButton({
+    label: "Save preset (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  savePreset.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("hooklab:savePreset", { detail: { variant } }));
+      showToast("Preset saved.");
+    } else {
+      window.dispatchEvent(new CustomEvent("hooklab:upsellViewed", { detail: { surface: "highlightPreset" } }));
+      showToast("Upgrade to save presets.");
+    }
+  });
+  card.append(savePreset);
   return card;
 }
 
@@ -223,10 +249,32 @@ function buildShareRow(link, onRegenerate) {
   const copyButton = createButton({ label: "Copy link", variant: "outline", type: "button" });
   copyButton.addEventListener("click", () => copyText(link, "Link copied!"));
 
-  const regenerate = createButton({ label: "Regenerate vibe", variant: "outline", type: "button" });
-  regenerate.addEventListener("click", () => onRegenerate?.());
+  const exportButton = createButton({
+    label: "Export hooks (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  exportButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("hooklab:export", { detail: { plan: state.lastPlan } }));
+      showToast("Export ready!");
+    } else {
+      window.dispatchEvent(new CustomEvent("hooklab:upsellViewed", { detail: { surface: "exportButton" } }));
+      showToast("Upgrade to export variants.");
+    }
+  });
 
-  card.append(label, linkInput, copyButton, regenerate);
+  const regenerate = createButton({ label: "Regenerate vibe", variant: "outline", type: "button" });
+  regenerate.addEventListener("click", () => {
+    onRegenerate?.();
+  });
+
+  const actions = document.createElement("div");
+  actions.className = "share-actions";
+  actions.append(copyButton, exportButton);
+
+  card.append(label, linkInput, actions, regenerate);
   return card;
 }
 
@@ -236,7 +284,10 @@ function buildUpsellBanner() {
     <p>Upgrade to HookLab Pro for unlimited variants, saved templates, and collaboration links.</p>
   `;
   const button = createButton({ label: "Upgrade for unlimited hooks", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("hooklab:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
   card.append(button);
   return card;
 }

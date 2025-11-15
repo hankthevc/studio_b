@@ -162,6 +162,12 @@ body {
   color: white;
   border: none;
 }
+.highlight-card .hooklab-button {
+  margin-top: 0.9rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
 
 .highlight-eyebrow {
   font-size: 0.76rem;
@@ -209,6 +215,15 @@ body {
   padding: 0.6rem 0.85rem;
   margin-bottom: 0.6rem;
   font-size: 0.95rem;
+}
+.share-card .share-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.share-card .share-actions .hooklab-button {
+  flex: 1;
 }
 
 .upsell-card {
