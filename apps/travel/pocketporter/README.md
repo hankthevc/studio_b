@@ -33,3 +33,6 @@ python3 -m http.server 8080 -d apps/travel/pocketporter
 - `pocketporter:upsellViewed` – fired for post-plan/CTA surfaces, detail includes surface name.
 - `pocketporter:upsellClicked` – fired when upgrade button is tapped.
 - `pocketporter:regenerate` – fired whenever a user regenerates a list.
+
+## Embed & Host Enablement
+- See `EMBED.md` for integration snippets, custom event wiring, theming knobs, and rollout QA checklists.
