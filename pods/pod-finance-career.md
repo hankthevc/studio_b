@@ -21,6 +21,7 @@ Future tasks: monitor MoneyMicro for new requirements (log here before starting)
 - 2025-11-14 19:05 – MoneyMicro Phase 2 QA checklist complete; README updated, server verified via port 8101.
 - 2025-11-14 19:45 – PrepCoach monetization instrumentation added (free limit, export gating, analytics events).
 - 2025-11-15 09:25 – MoneyMicro monetization instrumentation added (free limit, Pro export gating, analytics events).
+- 2025-11-15 11:50 – PrepCoach Phase 4 embed kit created (`EMBED.md`) and README linked for host rollout.
 
 ### Agent Ledger Briefing
 - **Kickoff:** Scaffold `prepcoach`, replace SPEC/UX files, and confirm Monetization copy matches `ideas.yaml`.

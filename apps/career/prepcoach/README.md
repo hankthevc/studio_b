@@ -33,3 +33,6 @@ python3 -m http.server 8080 -d apps/career/prepcoach
 - `prepcoach:export` – fires when a Pro user exports answers (host should listen to trigger export flow).
 - `prepcoach:upsellViewed` – fires when upsell surfaces appear (post-round, export button).
 - `prepcoach:upsellClicked` – fires when the upgrade CTA is tapped.
+
+## Embed & Host Enablement
+- See `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
