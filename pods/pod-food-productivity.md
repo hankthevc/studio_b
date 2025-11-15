@@ -18,6 +18,7 @@
 - 2025-11-14 17:10 – StorySpark UI/UX built (form, loader, highlight/hook/caption/hashtag cards, share/upsell) + README/apple metadata updated; QA server returned 200.
 - 2025-11-14 18:50 – StorySpark Phase 2 QA checklist complete; README updated, QA server verified (port 8098).
 - 2025-11-14 19:15 – FocusTiles Phase 2 QA checklist complete; README updated, QA server verified via port 8103.
+- 2025-11-14 19:35 – StorySpark monetization instrumentation added (free limit events, preset save gating, upsell analytics).
 
 ### Agent Bento Briefing
 - **Kickoff:** Scaffold `storyspark` if it doesn’t exist yet, then drop in the approved SPEC/UX docs.

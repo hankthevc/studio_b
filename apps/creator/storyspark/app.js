@@ -1,10 +1,12 @@
 import * as sharedUI from "../../../shared/ui.js";
 import { generateStorySpark } from "./logic.js";
 
+const FREE_SPARK_LIMIT = 3;
 const state = {
   lastPlan: null,
   planCount: 0,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 const toneOptions = [
@@ -46,6 +48,10 @@ async function startGenerating(values, resultsSection, upsell) {
     state.planCount += 1;
     state.lastPlan = plan;
     renderPlan(resultsSection, plan, upsell);
+    if (state.planCount > FREE_SPARK_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("storyspark:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for unlimited sparks & presets.");
+    }
   } catch (error) {
     console.error("StorySpark failed:", error);
     showError(resultsSection, "Could not spark your hooks. Try again.");
@@ -161,9 +167,13 @@ function renderPlan(container, plan, upsell) {
         return;
       }
       startGenerating(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("storyspark:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
-  if (state.planCount > 0) upsell.classList.remove("is-hidden");
+  if (state.planCount > 0) {
+    upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("storyspark:upsellViewed", { detail: { surface: "postPlan" } }));
+  }
 }
 
 function buildHighlightCard(hook, platform) {
@@ -185,7 +195,7 @@ function buildHookList(hooks) {
     row.className = "hook-row";
     row.innerHTML = `<p>${hook}</p>`;
     const copyBtn = createButton({ label: "Copy", variant: "outline", type: "button" });
-    copyBtn.addEventListener("click", () => copyText(hook));
+    copyBtn.addEventListener("click", () => copyText(hook, "Hook copied!"));
     row.append(copyBtn);
     list.append(row);
   });
@@ -196,7 +206,7 @@ function buildHookList(hooks) {
 function buildCaptionCard(caption) {
   const card = createCard("caption-card");
   const copyBtn = createButton({ label: "Copy caption", variant: "secondary", type: "button" });
-  copyBtn.addEventListener("click", () => copyText(caption));
+  copyBtn.addEventListener("click", () => copyText(caption, "Caption copied!"));
   card.innerHTML = `<h3>Caption</h3><p>${caption}</p>`;
   card.append(copyBtn);
   return card;
@@ -228,12 +238,28 @@ function buildShareRow(link, onRegenerate) {
   linkInput.className = "share-link";
 
   const copyButton = createButton({ label: "Copy link", variant: "outline", type: "button" });
-  copyButton.addEventListener("click", () => copyText(link));
+  copyButton.addEventListener("click", () => copyText(link, "Link copied!"));
+
+  const saveButton = createButton({
+    label: "Save as preset (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
+  saveButton.addEventListener("click", () => {
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("storyspark:savePreset", { detail: { plan: state.lastPlan } }));
+      showToast("Preset saved!");
+    } else {
+      window.dispatchEvent(new CustomEvent("storyspark:upsellViewed", { detail: { surface: "savePreset" } }));
+      showToast("Upgrade to save presets.");
+    }
+  });
 
   const regenerate = createButton({ label: "Tweak & regenerate", variant: "outline", type: "button" });
   regenerate.addEventListener("click", () => onRegenerate?.());
 
-  card.append(label, linkInput, copyButton, regenerate);
+  card.append(label, linkInput, copyButton, saveButton, regenerate);
   return card;
 }
 
@@ -242,15 +268,18 @@ function buildUpsellBanner() {
   const copy = document.createElement("p");
   copy.textContent = "Upgrade to StorySpark Pro to unlock unlimited sparks, saved presets, and team sharing.";
   const button = createButton({ label: "Upgrade for unlimited sparks", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("storyspark:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
   card.append(copy, button);
   return card;
 }
 
-function copyText(text) {
+function copyText(text, message = "Hook copied!") {
   if (!text) return;
   navigator.clipboard?.writeText(text).then(
-    () => showToast("Hook copied!"),
+    () => showToast(message),
     () => {
       const temp = document.createElement("textarea");
       temp.value = text;
@@ -258,7 +287,7 @@ function copyText(text) {
       temp.select();
       document.execCommand("copy");
       temp.remove();
-      showToast("Hook copied!");
+      showToast(message);
     }
   );
 }

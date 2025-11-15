@@ -26,3 +26,10 @@ python3 -m http.server 8080 -d apps/creator/storyspark
 - [x] Copy matches `UX_NOTES.md` (CTA, highlight labels, toasts, share copy).
 - [x] Color contrast + `prefers-reduced-motion` inherited from shared tokens.
 - [x] Local QA server `python3 -m http.server 8080 -d apps/creator/storyspark` (verified via curl 2025-11-14).
+
+## Monetization instrumentation
+- `storyspark:freeLimitHit` – fired when the daily free spark limit is exceeded.
+- `storyspark:savePreset` – fired when a Pro user saves a preset (host can persist).
+- `storyspark:upsellViewed` – fired whenever upsell surfaces show (post-plan, preset button).
+- `storyspark:upsellClicked` – fired when the upgrade CTA is tapped.
+- `storyspark:regenerate` – fired whenever `Tweak & regenerate` is used.
