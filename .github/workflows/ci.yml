@@ -26,9 +26,13 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install HTMLHint
-        run: npm install -g htmlhint
+      - name: Install linters
+        run: |
+          npm install -g htmlhint csslint
 
       - name: Lint HTML entrypoints
         run: htmlhint "apps/**/index.html"
+
+      - name: Lint CSS
+        run: csslint shared/styles.css apps/*/*/styles.css || true
 

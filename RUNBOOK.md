@@ -16,7 +16,8 @@ All pods and agents must align to the following roadmap. Treat these phases as o
 - Layer usability polish: accessibility audit, responsive tweaks, copy QA, consistent animations.
 - Add per-app README sections (What it does / Flow / Free vs Pro) plus screenshots or Loom links.
 - Establish integration checklist for host apps (embed instructions, theming knobs).
-- Build smoke-test CI to run lint + HTML validation on PRs.
+- Build smoke-test CI to run lint + HTML validation on PRs (see `.github/workflows/ci.yml` for current coverage).
+- Use `QA_CHECKLIST.md` before closing Phase 2 tasks.
 
 ### Phase 3 — Monetization Readiness
 - Harden upsell flows: consistent CTA surfaces, gating logic, instrumentation hooks.

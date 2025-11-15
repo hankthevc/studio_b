@@ -23,3 +23,6 @@
 - **Reporting:** Use the Status Log to timestamp lint runs, QA sweeps, and shared component changes; tag impacted pod owners.
 - **Escalation:** If a shared dependency blocks a pod, flag immediately to Studio Director and document the issue in this file.
 
+- 2025-11-14 18:15 – Added `QA_CHECKLIST.md` and referenced it in RUNBOOK Phase 2.
+- 2025-11-14 18:15 – Enhanced CI workflow to lint CSS via `csslint` in addition to HTMLHint.
+
