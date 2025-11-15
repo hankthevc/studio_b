@@ -2,12 +2,14 @@ import * as sharedUI from "../../../shared/ui.js";
 import { planProgram, formatMinutes } from "./logic.js";
 
 const MIN_PLAN_DELAY = 420;
+const FREE_PLAN_LIMIT = 1;
 const equipmentOptions = ["bodyweight", "dumbbells", "barbell", "kettlebells", "cables", "bands"];
 
 const state = {
   planCount: 0,
   lastPlan: null,
-  lastFormValues: null
+  lastFormValues: null,
+  isSubscribed: false
 };
 
 export function initMiniApp(container) {
@@ -46,6 +48,10 @@ async function startPlanning(formValues, resultsSection, upsell) {
     state.planCount += 1;
     state.lastPlan = program;
     renderProgram(resultsSection, program, upsell);
+    if (state.planCount > FREE_PLAN_LIMIT && !state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("liftshift:freeLimitHit", { detail: { planCount: state.planCount } }));
+      showToast("Upgrade for full cycles & exports.");
+    }
   } catch (error) {
     console.error("LiftShift failed to build program:", error);
     await loadDelay;
@@ -232,11 +238,13 @@ function renderProgram(container, program, upsell) {
         return;
       }
       startPlanning(state.lastFormValues, container, upsell);
+      window.dispatchEvent(new CustomEvent("liftshift:regenerate", { detail: { planCount: state.planCount } }));
     })
   );
 
   if (state.planCount >= 1) {
     upsell.classList.remove("is-hidden");
+    window.dispatchEvent(new CustomEvent("liftshift:upsellViewed", { detail: { surface: "postPlan" } }));
   }
 }
 
@@ -278,9 +286,20 @@ function buildShareRow(link, onRegenerate) {
     }
   });
 
-  const exportButton = createButton({ label: "Export & track (Pro)", variant: "secondary", type: "button" });
+  const exportButton = createButton({
+    label: "Export & track (Pro)",
+    variant: "secondary",
+    type: "button",
+    disabled: !state.isSubscribed
+  });
   exportButton.addEventListener("click", () => {
-    showToast("Upgrade to export and track.");
+    if (state.isSubscribed) {
+      window.dispatchEvent(new CustomEvent("liftshift:export", { detail: { plan: state.lastPlan } }));
+      showToast("Export ready!");
+    } else {
+      window.dispatchEvent(new CustomEvent("liftshift:upsellViewed", { detail: { surface: "exportButton" } }));
+      showToast("Upgrade to export and track.");
+    }
   });
 
   const shareActions = document.createElement("div");
@@ -304,7 +323,10 @@ function buildUpsellBanner() {
   copy.innerHTML = "Upgrade for 8-week cycles, progression tracking, and exports.";
 
   const button = createButton({ label: "Upgrade to LiftShift Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => showToast("Billing flow coming soon."));
+  button.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("liftshift:upsellClicked"));
+    showToast("Billing flow coming soon.");
+  });
 
   card.append(copy, button);
   return card;

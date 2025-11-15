@@ -18,3 +18,21 @@ Free preview block; LiftShift Pro unlocks 8-week cycles, saved progressions, and
 python3 -m http.server 8080 -d apps/fitness/liftshift
 # Visit http://localhost:8080
 ```
+
+## QA checklist (Phase 2)
+- [x] Focus selection required; helper/focus verified when empty.
+- [x] Keyboard navigation covers selects, equipment tags, sliders, CTA, share/export buttons.
+- [x] Responsive at 375px; day cards and recovery list stack vertically without overflow.
+- [x] Copy matches `UX_NOTES.md` across CTA, highlight, share row, upsell copy.
+- [x] Color contrast + `prefers-reduced-motion` handled via shared tokens.
+- [x] Local QA server `python3 -m http.server 8080 -d apps/fitness/liftshift` (curl port 8104 on 2025-11-15).
+
+## Monetization instrumentation
+- `liftshift:freeLimitHit` – fires when the free block limit is exceeded.
+- `liftshift:regenerate` – fires when the user regenerates a block.
+- `liftshift:export` – fires when a Pro user exports/ tracks a block.
+- `liftshift:upsellViewed` – fires whenever upsell surfaces show (post-plan, export button).
+- `liftshift:upsellClicked` – fires when the upgrade CTA is tapped.
+
+## Embed & Host Enablement
+- See `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
