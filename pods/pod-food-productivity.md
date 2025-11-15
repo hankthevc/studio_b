@@ -22,6 +22,7 @@
 - 2025-11-15 09:55 – FocusTiles monetization instrumentation added (free limit gating, log/save pro events, analytics hooks).
 - 2025-11-15 11:20 – FocusTiles Phase 4 embed kit created (`EMBED.md`) and README linked for host rollout.
 - 2025-11-15 11:35 – StorySpark Phase 4 embed kit created (`EMBED.md`) with clipboard + preset wiring guidance.
+- 2025-11-15 12:45 – MealMind Phase 4 embed kit created (`EMBED.md`) plus README link for host rollout.
 - 2025-11-15 10:15 – MealMind monetization instrumentation added (free limit, preset/export gating, analytics events).
 
 ### Agent Bento Briefing

@@ -34,3 +34,6 @@ python3 -m http.server 8080 -d apps/lifestyle/mealmind
 - `mealmind:savePreset` – fires when a Pro user saves the household preset.
 - `mealmind:upsellViewed` – fires when upsell surfaces show (post-plan, preset button, export button).
 - `mealmind:upsellClicked` – fires when the upgrade CTA is tapped.
+
+## Embed & Host Enablement
+- See `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
