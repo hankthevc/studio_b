@@ -1,0 +1,319 @@
+:root {
+  color-scheme: light;
+  --sspark-primary: #a855f7;
+  --sspark-accent: #ff8ac9;
+  --sspark-bg: #f7f2ff;
+  --sspark-border: #eadcff;
+  --sspark-muted: #5f4c75;
+}
+
+body {
+  margin: 0;
+  background: var(--sspark-bg);
+}
+
+.storyspark-app {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: var(--font-sans, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  color: #1f1230;
+}
+
+.storyspark-app .shared-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--sspark-border);
+  box-shadow: 0 16px 32px rgba(31, 18, 48, 0.08);
+}
+
+.hero {
+  margin-bottom: 1.2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  color: var(--sspark-muted);
+  margin: 0 0 0.35rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.tagline {
+  margin: 0.3rem 0 0;
+  color: var(--sspark-muted);
+}
+
+.spark-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spark-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: #2d1744;
+}
+
+.spark-form textarea,
+.spark-form select,
+.spark-form input {
+  border-radius: 0.85rem;
+  border: 1px solid var(--sspark-border);
+  padding: 0.75rem 0.95rem;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.spark-form textarea:focus,
+.spark-form select:focus,
+.spark-form input:focus {
+  outline: 2px solid rgba(168, 85, 247, 0.35);
+}
+
+.tone-field span {
+  display: block;
+  font-size: 0.9rem;
+  color: #2d1744;
+  margin-bottom: 0.35rem;
+}
+
+.tone-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tone-tag {
+  flex: 1;
+  border-radius: 999px;
+  border: 1px dashed var(--sspark-border);
+  padding: 0.4rem 0.25rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--sspark-muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.tone-tag.is-selected {
+  border-color: var(--sspark-primary);
+  color: var(--sspark-primary);
+  background: rgba(168, 85, 247, 0.12);
+}
+
+.form-helper {
+  margin: -0.3rem 0 0;
+  font-size: 0.85rem;
+  color: #d6456b;
+  display: none;
+}
+
+.form-helper.is-visible {
+  display: block;
+}
+
+.primary-action {
+  width: 100%;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.placeholder {
+  text-align: center;
+  color: var(--sspark-muted);
+}
+
+.loading-card {
+  text-align: center;
+}
+
+.spark-loader {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+}
+
+.spark-loader span {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--sspark-primary);
+  animation: sparkle 1s infinite ease-in-out;
+}
+
+.highlight-card {
+  background: linear-gradient(135deg, #2c0f4a, #a855f7);
+  color: white;
+  border: none;
+}
+
+.highlight-eyebrow {
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.hook-card h3,
+.caption-card h3,
+.hashtag-card h3 {
+  margin-top: 0;
+}
+
+.hook-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.hook-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.hook-row p {
+  margin: 0;
+  flex: 1;
+}
+
+.hashtag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.hashtag-chips span {
+  border-radius: 999px;
+  border: 1px dashed var(--sspark-border);
+  padding: 0.3rem 0.6rem;
+  color: #2d1744;
+}
+
+.share-card .share-label {
+  font-size: 0.85rem;
+  color: var(--sspark-muted);
+  margin-bottom: 0.4rem;
+}
+
+.share-link {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px dashed var(--sspark-border);
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.upsell-card {
+  text-align: center;
+  background: #2d0d3d;
+  color: white;
+}
+
+.upsell-card button {
+  width: 100%;
+}
+
+.results-error {
+  text-align: center;
+  color: #d6456b;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: rgba(214, 69, 107, 0.08);
+}
+
+.storyspark-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.storyspark-button.variant-primary {
+  background: var(--sspark-primary);
+  color: white;
+  box-shadow: 0 12px 22px rgba(168, 85, 247, 0.35);
+}
+
+.storyspark-button.variant-secondary {
+  background: rgba(168, 85, 247, 0.16);
+  color: #2c0f4a;
+}
+
+.storyspark-button.variant-outline {
+  background: transparent;
+  border: 1px dashed var(--sspark-border);
+  color: #2c0f4a;
+}
+
+.storyspark-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.storyspark-button:active {
+  transform: scale(0.97);
+}
+
+.storyspark-toast {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  background: #2d0d3d;
+  color: white;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(45, 13, 61, 0.3);
+  opacity: 0;
+  transition: transform 160ms ease, opacity 160ms ease;
+  z-index: 9999;
+}
+
+.storyspark-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.is-hidden {
+  display: none;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 480px) {
+  .storyspark-app {
+    max-width: 480px;
+  }
+}

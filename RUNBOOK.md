@@ -1,3 +1,43 @@
+## Operating Directive & Roadmap
+
+All pods and agents must align to the following roadmap. Treat these phases as our source of truth for prioritization, definition of done, and hand-offs.
+
+### Phase 0 — Foundation (Complete)
+- Establish TripSpark quality bar (hero/form → loader → stacked cards → share/upsell).
+- Stand up shared primitives (`shared/`), Option B scaffolder, SPEC/UX templates, RUNBOOK, and pod structure.
+
+### Phase 1 — Portfolio Production (In Flight)
+- Deliver 30 deterministic mini-apps (TripSpark + 29).
+- Sequencing: Tier 1 pods first (Travel/Lifestyle, Food/Productivity/Creator, Finance/Career, Games/Creator), then Tier 2/3.
+- Definition of done per app: SPEC/UX finalized, deterministic `logic.js`, TripSpark-level UI/UX, updated README + `apple.json`, lint clean, QA server run, entry logged in pod Status Log.
+- GitHub: push major milestones to `main` after QA; keep repo up to date for cross-pod visibility.
+
+### Phase 2 — Consumer Readiness
+- Layer usability polish: accessibility audit, responsive tweaks, copy QA, consistent animations.
+- Add per-app README sections (What it does / Flow / Free vs Pro) plus screenshots or Loom links.
+- Establish integration checklist for host apps (embed instructions, theming knobs).
+- Build smoke-test CI to run lint + HTML validation on PRs.
+
+### Phase 3 — Monetization Readiness
+- Harden upsell flows: consistent CTA surfaces, gating logic, instrumentation hooks.
+- Define pricing tiers per app (driven by `ideas.yaml`), ensure copy matches across SPEC → UI → README.
+- Prepare mock billing events / analytics stubs for eventual API wiring.
+- Produce “Monetization Playbook” doc summarizing patterns host apps can reuse.
+
+### Phase 4 — Distribution & Host Enablement
+- Create embed kits: lightweight integration snippets, white-label instructions, host app QA checklist.
+- Bundle showcase demos (e.g., top 5 apps) with cohesive branding for partner outreach.
+- Measure readiness: manual QA matrix (devices/browsers), latency tests, share-link resilience.
+- Transition to monetized pilots: document API requirements, billing hooks, success metrics.
+
+### Operating Expectations
+- Pods own execution but must reference this roadmap before starting new work.
+- Status logs should reference phase + milestone (e.g., “P1-App Build complete”, “P2-Polish: copy QA done”).
+- Shared Infra pod ensures CI/README updates and captures learnings back into this directive.
+- No app moves to Monetization (Phase 3) until Phase 2 checklist is complete and logged.
+
+---
+
 ## Miniapps Studio Runbook
 
 ### 1. Scaffold a New Mini-App (Option B workflow)

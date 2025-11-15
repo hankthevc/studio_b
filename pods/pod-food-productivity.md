@@ -14,7 +14,8 @@
 7. **QA:** Local server smoke test, copy buttons, share/regenerate, upsell gating.
 
 ## Status Log
-- _Add timestamped updates (e.g., “SPEC updated, awaiting review”)._
+- 2025-11-14 17:00 – StorySpark scaffolded; SPEC.md + UX_NOTES.md replaced with approved drafts and deterministic logic implemented.
+- 2025-11-14 17:10 – StorySpark UI/UX built (form, loader, highlight/hook/caption/hashtag cards, share/upsell) + README/apple metadata updated; QA server returned 200.
 
 ### Agent Bento Briefing
 - **Kickoff:** Scaffold `storyspark` if it doesn’t exist yet, then drop in the approved SPEC/UX docs.
