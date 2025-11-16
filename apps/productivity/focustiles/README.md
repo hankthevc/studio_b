@@ -37,3 +37,19 @@ python3 -m http.server 8080 -d apps/productivity/focustiles
 
 ## Embed & Host Enablement
 - See `EMBED.md` for integration snippets, event wiring, theming controls, and rollout QA steps.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- single workspace
+
+**Pro**
+- adds analytics, custom rhythms, and calendar sync.
+
+## Screenshot or Loom
+![FocusTiles screenshot](../../docs/screenshots/focustiles.svg)
+

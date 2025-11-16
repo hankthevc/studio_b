@@ -36,3 +36,19 @@ python3 -m http.server 8080 -d apps/travel/pocketporter
 
 ## Embed & Host Enablement
 - See `EMBED.md` for integration snippets, custom event wiring, theming knobs, and rollout QA checklists.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- baseline list
+
+**Pro**
+- saves outfits, auto packs repeat routes, and adds bag allowance alerts.
+
+## Screenshot or Loom
+![PocketPorter screenshot](../../docs/screenshots/pocketporter.svg)
+

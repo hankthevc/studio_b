@@ -36,3 +36,19 @@ python3 -m http.server 8080 -d apps/creator/storyspark
 
 ## Embed & Host Enablement
 - Refer to `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- limited uses per day
+
+**Pro**
+- unlocks unlimited runs, preset banks, and tone tweaking.
+
+## Screenshot or Loom
+![StorySpark screenshot](../../docs/screenshots/storyspark.svg)
+

@@ -2,6 +2,7 @@
   --font-sans: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color-scheme: light dark;
   --surface: #ffffff;
+  --surface-card: #ffffff;
   --surface-muted: #f5f6f8;
   --text: #0f172a;
   --text-muted: #475569;
@@ -49,7 +50,7 @@ small {
 }
 
 .shared-card {
-  background: var(--surface);
+  background: var(--surface-card);
   border-radius: var(--radius-card);
   padding: 18px;
   box-shadow: var(--shadow);
@@ -151,6 +152,18 @@ small {
   transform: translate(-50%, 0);
   opacity: 1;
   pointer-events: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

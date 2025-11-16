@@ -31,5 +31,12 @@ Use this checklist before logging an app as Phase 1 complete or moving into cons
 - [ ] Pod Status Log entry records scaffold/spec, build completion, QA server timestamp.
 - [ ] Push to GitHub once QA is complete (keep main in sync).
 
+## 6. Phase 2 polish
+- [ ] `node scripts/phase2_refresh_readmes.mjs` run locally (CI `--check` passes).
+- [ ] Screenshot placeholder exists in `docs/screenshots/<slug>.svg` until real capture replaces it.
+- [ ] `EMBED.md` documents snippet, theming knobs, analytics events, QA checklist.
+- [ ] `docs/qa/<slug>/report.md` contains latest device/browser pass or TODO.
+- [ ] Partner kit references updated when analytics/billing scopes change.
+
 Shared Infra (Agent Atlas) runs periodic sweeps using this checklist and records results in `pods/pod-shared-infra.md`.
 

@@ -37,3 +37,19 @@ python3 -m http.server 8080 -d apps/games/brainbite
 
 ## Embed & Host Enablement
 - `EMBED.md` contains the integration snippet, analytics wiring guidance, theming knobs, and rollout QA checklist.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- daily puzzle
+
+**Pro**
+- grants archive access, streak shields, and category filters.
+
+## Screenshot or Loom
+![BrainBite screenshot](../../docs/screenshots/brainbite.svg)
+

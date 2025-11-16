@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="400" viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-habitgrid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="hsl(222, 75%, 80%)" />
+      <stop offset="100%" stop-color="hsl(262, 70%, 70%)" />
+    </linearGradient>
+  </defs>
+  <rect width="720" height="400" rx="28" fill="url(#grad-habitgrid)" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'SF Pro Display', 'Inter', sans-serif" font-size="48" fill="#0f172a" opacity="0.85">HabitGrid</text>
+</svg>

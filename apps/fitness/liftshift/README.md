@@ -36,3 +36,19 @@ python3 -m http.server 8080 -d apps/fitness/liftshift
 
 ## Embed & Host Enablement
 - See `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- sample week
+
+**Pro**
+- subscription unlocks full cycles, progression tracking, and exportable logs.
+
+## Screenshot or Loom
+![LiftShift screenshot](../../docs/screenshots/liftshift.svg)
+

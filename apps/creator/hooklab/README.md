@@ -37,3 +37,19 @@ python3 -m http.server 8080 -d apps/creator/hooklab
 
 ## Embed & Host Enablement
 - Review `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- three hooks/day
+
+**Pro**
+- offers deeper variants, saved templates, and collaboration links.
+
+## Screenshot or Loom
+![HookLab screenshot](../../docs/screenshots/hooklab.svg)
+

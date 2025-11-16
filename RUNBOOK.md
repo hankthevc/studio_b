@@ -14,10 +14,12 @@ All pods and agents must align to the following roadmap. Treat these phases as o
 
 ### Phase 2 — Consumer Readiness
 - Layer usability polish: accessibility audit, responsive tweaks, copy QA, consistent animations.
-- Add per-app README sections (What it does / Flow / Free vs Pro) plus screenshots or Loom links.
-- Establish integration checklist for host apps (embed instructions, theming knobs).
-- Build smoke-test CI to run lint + HTML validation on PRs (see `.github/workflows/ci.yml` for current coverage).
-- Use `QA_CHECKLIST.md` before closing Phase 2 tasks.
+- Standardize documentation:
+  - Run `node scripts/phase2_refresh_readmes.mjs` locally; CI enforces `--check`.
+  - Ensure every README covers What it does / Flow / Free vs Pro / Screenshot + links to `EMBED.md`.
+  - Keep deterministic SVG placeholders inside `docs/screenshots/` until real captures arrive.
+- Establish integration checklist for host apps (per-app `EMBED.md`, theming knobs, analytics events mirrored in `partner-kit/analytics/contracts.md`).
+- Use `QA_CHECKLIST.md` plus `docs/qa/<slug>/report.md` before closing Phase 2 tasks.
 
 ### Phase 3 — Monetization Readiness
 - Harden upsell flows: consistent CTA surfaces, gating logic, instrumentation hooks.
@@ -30,13 +32,13 @@ All pods and agents must align to the following roadmap. Treat these phases as o
 - Bundle showcase demos (e.g., top 5 apps) with cohesive branding for partner outreach.
 - Measure readiness: manual QA matrix (devices/browsers), latency tests, share-link resilience.
 - Transition to monetized pilots: document API requirements, billing hooks, success metrics.
-- **Deliverables:** `partner-kit/` (analytics contracts, billing mock, themes, QA templates, showcase), per-app `EMBED.md`, pod status log entry.
+- **Deliverables:** refreshed `partner-kit/` (analytics contracts, billing mock, QA guide, themes, showcase), per-app `EMBED.md`, docs/qa evidence, pod log entry.
 
 ### Operating Expectations
 - Pods own execution but must reference this roadmap before starting new work.
-- Status logs should reference phase + milestone (e.g., “P1-App Build complete”, “P2-Polish: copy QA done”).
-- Shared Infra pod ensures CI/README updates and captures learnings back into this directive.
-- No app moves to Monetization (Phase 3) until Phase 2 checklist is complete and logged.
+- Status logs should reference phase + milestone (e.g., “P2-Polish: README refreshed”, “P3-Monetization: analytics wired”).
+- Shared Infra pod keeps `scripts/generate_new_apps.py`, `scripts/phase2_refresh_readmes.mjs`, and CI in sync with platform expectations.
+- No app moves to Monetization (Phase 3) until Phase 2 checklist + README checker pass and evidence is logged.
 
 ---
 

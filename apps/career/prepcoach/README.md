@@ -36,3 +36,19 @@ python3 -m http.server 8080 -d apps/career/prepcoach
 
 ## Embed & Host Enablement
 - See `EMBED.md` for integration snippet, analytics wiring, theming knobs, and rollout QA checklist.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- small question set
+
+**Pro**
+- unlocks full banks, saved answers, and recruiter export.
+
+## Screenshot or Loom
+![PrepCoach screenshot](../../docs/screenshots/prepcoach.svg)
+

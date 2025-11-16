@@ -1,0 +1,2732 @@
+  - slug: layoverloop
+    name: LayoverLoop
+    category: travel
+    tagline: "2–4 hour layover playbooks with lounge picks, micro detours, and buffer math."
+    hero:
+      eyebrow: "Layover playbooks"
+      title: "LayoverLoop"
+      tagline: "Turn downtime into a micro adventure you can actually fit in."
+    placeholder: "Drop a city and vibe to see how to spend the spare hours."
+    freePlanLimit: 1
+    form:
+      helper: "Need at least a city and layover length. Tweak vibes as needed."
+      ctaLabel: "Plan my layover"
+      fields:
+        - type: text
+          name: city
+          label: "Layover city"
+          placeholder: "e.g., Lisbon"
+          required: true
+        - type: select
+          name: duration
+          label: "Buffer length"
+          options:
+            - label: "2 hours"
+              value: "2-hour"
+            - label: "3 hours"
+              value: "3-hour"
+              default: true
+            - label: "4 hours"
+              value: "4-hour"
+        - type: chips
+          name: vibe
+          label: "Layover vibe"
+          options:
+            - label: "Recharge"
+              value: "recharge"
+            - label: "Quick explore"
+              value: "explore"
+              default: true
+            - label: "Food run"
+              value: "foodie"
+        - type: select
+          name: transit
+          label: "Transit plan"
+          options:
+            - label: "Walkable loop"
+              value: "walkable"
+            - label: "Metro hop"
+              value: "metro"
+              default: true
+            - label: "Ride share"
+              value: "rideshare"
+        - type: select
+          name: budget
+          label: "Spend level"
+          options:
+            - label: "$ keep it light"
+              value: "frugal"
+            - label: "$$ balanced"
+              value: "balanced"
+              default: true
+            - label: "$$$ treat yourself"
+              value: "treat"
+    share:
+      label: "Shareable layover"
+      cta: "Copy link"
+    upsell:
+      title: "Unlock LayoverLoop Pro"
+      copy: "Offline cards, lounge reminders, and saved airport kits for every hub you pass through."
+      bullets:
+        - Offline PDF with transit timers.
+        - Lounge perk nudges + SMS buffer alerts.
+        - Save layover presets per airport.
+      ctaLabel: "Upgrade for offline cards"
+    plan:
+      summary:
+        title: "{{labels.duration}} loop in {{labels.city}}"
+        subtitle: "Built for a {{labels.vibe}} vibe with {{labels.transit}} transfers."
+        metrics:
+          - label: "Stops"
+            value: "3 curated pauses"
+          - label: "Return buffer"
+            value: "{{labels.transit}} buffer locked"
+          - label: "Spend"
+            value: "{{labels.budget}} pace"
+      sections:
+        - title: "Arrival reset"
+          description: "Shake off the previous flight and ground yourself near the terminal."
+          items:
+            - "Breeze through security and stash bags at the short-term locker."
+            - "Walk to a {{labels.vibe}} friendly lounge or cafe for a 20-min recharge."
+            - "Set an alarm for boarding minus 45 minutes so you never sprint."
+        - title: "City micro loop"
+          description: "Dip into the local pulse without watching the clock every five minutes."
+          items:
+            - "Hop into a {{labels.transit}} ride toward a distinct neighborhood."
+            - "Follow a three-stop path: landmark, quick bite, souvenir snap."
+            - "Capture a photo proof and share the short link with travel buddies."
+        - title: "Return glide path"
+          description: "Reenter airport mode cool, hydrated, and aligned with boarding."
+          items:
+            - "Order a ride/walk back with 70 minutes to spare."
+            - "Grab a stretch + water refill before final security scan."
+            - "Queue the next layover idea so future you spends zero minutes planning."
+      tips:
+        - "Set dual alarms: one for head-back, one for boarding minus 20."
+        - "Screenshot the share link for offline access when Wi-Fi flakes."
+        - "Swap lounges if upgrades trigger—Pro remembers your perks."
+      highlight:
+        eyebrow: "Micro-adventure locked"
+        copy: "Keep your passport + boarding pass in the first pouch and enjoy the loop."
+    readme:
+      what: "LayoverLoop stitches together 2–4 hour airport gaps into intentional micro adventures with buffer math, lounge cues, and deterministic share links."
+      flow:
+        - "Pick a layover city, length, vibe, and transit comfort."
+        - "LayoverLoop sketches arrival reset, city loop, and return glide cards."
+        - "Copy/share the plan or regenerate until the vibe hits."
+      free:
+        - "One fresh layover loop per day."
+        - "Transit timers and buffer reminders baked in."
+      pro:
+        - "Offline PDF cards + SMS buffer alerts."
+        - "Saved airport presets + lounge perk reminders."
+        - "Unlimited regenerations."
+      target: "Travel/loyalty apps that need a turnkey layover concierge."
+      monetization: "Free plan covers one loop per day; Pro unlocks offline cards, saved presets, and lounge perk nudges."
+      qa:
+        - "Verify share link copy works inside host WebView clipboard bridges."
+        - "Simulate `state.isSubscribed` toggles to ensure upsell banner gating."
+        - "Check layout at 360–420px widths (cards should stack cleanly)."
+      events:
+        - name: "layoverloop:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "User regenerates more than one loop."
+        - name: "layoverloop:regenerate"
+          detail: "{ planCount }"
+          trigger: "Tap Regenerate in share row."
+        - name: "layoverloop:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell banner enters view."
+        - name: "layoverloop:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA tapped."
+    apple:
+      subtitle: "Micro itineraries between flights."
+      description: "Build deterministic layover playbooks with lounge stops, food runs, and buffer math so airport downtime feels intentional."
+      keywords: ["layover", "travel", "airport", "plan"]
+      primaryCategory: "travel"
+    theme:
+      heroGradient: "linear-gradient(135deg, #e0f8ff, #f7ecff)"
+      primary: "#0f8ce3"
+      primaryInk: "#ffffff"
+      surface: "#f8fbff"
+  - slug: flexdesk
+    name: FlexDesk
+    category: fitness
+    tagline: "Desk-friendly stretch stacks that unlock posture and circulation between meetings."
+    hero:
+      eyebrow: "Desk mobility coach"
+      title: "FlexDesk"
+      tagline: "Stack 3-minute releases that match your schedule and tension level."
+    placeholder: "Describe your day and tension so FlexDesk can slot the right motions."
+    freePlanLimit: 2
+    form:
+      helper: "Need schedule + tension to personalize the break."
+      ctaLabel: "Build stretch break"
+      fields:
+        - type: text
+          name: schedule
+          label: "Schedule anchor"
+          placeholder: "e.g., 9-6 with a noon slump"
+          required: true
+        - type: select
+          name: tension
+          label: "Tension hot spot"
+          options:
+            - label: "Neck & shoulders"
+              value: "neck"
+              default: true
+            - label: "Lower back"
+              value: "back"
+            - label: "Hips + glutes"
+              value: "hips"
+        - type: chips
+          name: energy
+          label: "Energy check"
+          options:
+            - label: "Sleepy"
+              value: "sleepy"
+            - label: "Stiff"
+              value: "stiff"
+              default: true
+            - label: "Ready to move"
+              value: "energized"
+        - type: select
+          name: duration
+          label: "Break length"
+          options:
+            - label: "3 minutes"
+              value: "3-min"
+              default: true
+            - label: "5 minutes"
+              value: "5-min"
+            - label: "8 minutes"
+              value: "8-min"
+    share:
+      label: "Send stretch sequence"
+      cta: "Copy plan"
+    upsell:
+      title: "Upgrade to FlexDesk Pro"
+      copy: "Unlock scheduled reminders, synced calendars, and exported stretch cards."
+      bullets:
+        - Auto-schedule micro breaks around meetings.
+        - Save favorite stacks per tension profile.
+        - Export PDF cards for office posters.
+      ctaLabel: "Unlock reminders"
+    plan:
+      summary:
+        title: "{{labels.duration}} reset for {{labels.schedule}}"
+        subtitle: "Focus on easing {{labels.tension}} while matching your {{labels.energy}} energy."
+        metrics:
+          - label: "Segment count"
+            value: "3 mobility tiles"
+          - label: "Equipment"
+            value: "Chair + desk edge"
+          - label: "Reminder"
+            value: "Timer at {{labels.schedule}}"
+      sections:
+        - title: "Prime posture"
+          description: "Quick breath + awareness cues so your nervous system actually notices the reset."
+          items:
+            - "Box breathing for 30 seconds while rolling shoulders."
+            - "Neck cars focusing on {{labels.tension}} release."
+            - "Desk-edge chest opener for 20 seconds."
+        - title: "Core reset"
+          description: "Bodyweight moves that counter the desk slump."
+          items:
+            - "Seated cat/cow with slow inhales."
+            - "{{labels.tension}}-focused stretch (hold 20s x 2)."
+            - "Standing hip hinge pulses to fire glutes."
+        - title: "Re-entry cues"
+          description: "Light activation so you return to the meeting focused."
+          items:
+            - "Shake out wrists and ankles."
+            - "Chair squats ×6 or desk pushups if energy = energized."
+            - "Re-center eyes 20ft away before looking at screen."
+      tips:
+        - "Pair each flow with water to stack hydration."
+        - "Bookmark the share link for coworker nudges."
+        - "Upgrade to schedule different flows morning/afternoon."
+      highlight:
+        eyebrow: "Break scheduled"
+        copy: "FlexDesk will remind you when it is time to move."
+    readme:
+      what: "FlexDesk keeps remote teams limber with deterministic stretch stacks tuned to schedule, tension, and energy."
+      flow:
+        - "Enter schedule anchor + tension area."
+        - "Pick energy + duration to see a three-card sequence."
+        - "Copy/share or regenerate with a new vibe."
+      free:
+        - "Two flows per day."
+        - "Manual reminders only."
+      pro:
+        - "Calendar sync for auto-inserted breaks."
+        - "Unlimited flows and saved stacks."
+        - "PDF exports for wellness perks."
+      target: "Employee experience teams embedding mobility nudges into their apps."
+      monetization: "Free tier covers two flows/day; Pro adds reminders, saved stacks, and exports."
+      qa:
+        - "Confirm input focus/validation when schedule is empty."
+        - "Verify chips are keyboard selectable."
+        - "Check upsell banner toggles after second generation."
+      events:
+        - name: "flexdesk:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "User requests more than two flows."
+        - name: "flexdesk:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate tapped."
+        - name: "flexdesk:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell revealed."
+        - name: "flexdesk:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA tapped."
+    apple:
+      subtitle: "Micro stretch flows for desk life."
+      description: "Answer a few prompts and get a three-card mobility stack you can run between meetings, complete with reminders and share links."
+      keywords: ["stretch", "desk", "mobility", "wellness"]
+      primaryCategory: "health-fitness"
+    theme:
+      heroGradient: "linear-gradient(135deg, #e9f6ff, #f2f1ff)"
+      primary: "#2a7cf7"
+      primaryInk: "#ffffff"
+      surface: "#f6f8ff"
+  - slug: pulsepath
+    name: PulsePath
+    category: fitness
+    tagline: "Adaptive HIIT builder that adjusts pacing to energy, gear, and burn goals."
+    hero:
+      eyebrow: "Interval architect"
+      title: "PulsePath"
+      tagline: "Auto-build HIIT/interval stacks that flex to today’s energy."
+    placeholder: "Share your goal, gear, and time to get a guided circuit."
+    freePlanLimit: 1
+    form:
+      helper: "Goal + time block required. Gear optional."
+      ctaLabel: "Build my intervals"
+      fields:
+        - type: select
+          name: goal
+          label: "Session goal"
+          options:
+            - label: "Fat burn"
+              value: "burn"
+            - label: "Power"
+              value: "power"
+            - label: "Endurance"
+              value: "endurance"
+              default: true
+        - type: select
+          name: gear
+          label: "Available gear"
+          options:
+            - label: "Bodyweight only"
+              value: "bodyweight"
+              default: true
+            - label: "Dumbbells"
+              value: "dumbbells"
+            - label: "Bike / rower"
+              value: "erg"
+        - type: select
+          name: duration
+          label: "Time block"
+          options:
+            - label: "15 min"
+              value: "15"
+            - label: "20 min"
+              value: "20"
+              default: true
+            - label: "30 min"
+              value: "30"
+        - type: chips
+          name: intensity
+          label: "How do you feel?"
+          options:
+            - label: "Need a ramp"
+              value: "ramp"
+            - label: "Ready"
+              value: "ready"
+              default: true
+            - label: "Go hard"
+              value: "hard"
+    share:
+      label: "Shareable circuit"
+      cta: "Copy plan"
+    upsell:
+      title: "PulsePath Pro"
+      copy: "Unlock adaptive progressions, saved circuits, and health-app exports."
+      bullets:
+        - Adaptive difficulty based on recent sessions.
+        - Export to Health / Strava placeholders.
+        - Unlimited saved playlists.
+      ctaLabel: "Upgrade for adaptive mode"
+    plan:
+      summary:
+        title: "{{labels.duration}} PulsePath for {{labels.goal}}"
+        subtitle: "Built around {{labels.gear}} gear and a {{labels.intensity}} energy start."
+        metrics:
+          - label: "Blocks"
+            value: "3"
+          - label: "Work:Rest"
+            value: "40:20" 
+          - label: "Finisher"
+            value: "{{labels.goal}} focus"
+      sections:
+        - title: "Prime & load"
+          description: "Spike heart rate gradually while prepping joints."
+          items:
+            - "Dynamic warmup (high knees, inchworms, arm circles)."
+            - "Neuromuscular primer targeted at {{labels.goal}}."
+            - "Breathing cue to lock cadence before work sets."
+        - title: "Interval stack"
+          description: "Three rotating sets mixing strength + cardio."
+          items:
+            - "Set A: power moves using {{labels.gear}}."
+            - "Set B: cardio burst (mountain climbers, sprints, bike sprint)."
+            - "Set C: stability or tempo hold to lower HR slightly."
+        - title: "Finisher & cooldown"
+          description: "Empty the tank safely then return to baseline."
+          items:
+            - "EMOM finisher tuned to {{labels.goal}}."
+            - "Cooldown sequence + mobility focus."
+            - "Log how it felt to tune next session."
+      tips:
+        - "Tap Regenerate if today’s energy shifts mid-day."
+        - "Upgrade to unlock Health exports + adaptive loads."
+        - "Pair with TempoBuddy for music cues."
+      highlight:
+        eyebrow: "HIIT ready"
+        copy: "Keep water + towel nearby and honor the recoveries."
+    readme:
+      what: "PulsePath assembles deterministic HIIT plans keyed to gear, goals, and current energy."
+      flow:
+        - "Select session goal, gear, and time block."
+        - "Get a three-block plan with work/rest cues."
+        - "Copy/share or regenerate with new intensity."
+      free:
+        - "One interval plan daily."
+        - "Manual tweaks only."
+      pro:
+        - "Adaptive difficulty + saved sessions."
+        - "Health app export stubs."
+        - "Unlimited daily plans."
+      target: "Fitness/connected equipment apps embedding quick HIIT brains."
+      monetization: "Free plan offers one deterministic stack; Pro unlocks adaptive progressions, exports, and saves."
+      qa:
+        - "Slider/select validation for each field."
+        - "Ensure share row copy works on mobile Safari."
+        - "Confirm upsell gating after first plan."
+      events:
+        - name: "pulsepath:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "User tries second plan."
+        - name: "pulsepath:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate tapped."
+        - name: "pulsepath:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown post-plan."
+        - name: "pulsepath:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA clicked."
+    apple:
+      subtitle: "HIIT stacks tuned to your energy."
+      description: "Tell PulsePath how you feel, what gear you have, and how much time is left — it builds a deterministic HIIT circuit with finishers and cooldown."
+      keywords: ["hiit", "fitness", "interval"]
+      primaryCategory: "health-fitness"
+    theme:
+      heroGradient: "linear-gradient(135deg, #ffeaea, #fff4d4)"
+      primary: "#ff7a18"
+      primaryInk: "#0f172a"
+      surface: "#fff9f2"
+  - slug: tempobuddy
+    name: TempoBuddy
+    category: fitness
+    tagline: "Micro pacer that builds tempo cues, playlist BPM, and recap notes."
+    hero:
+      eyebrow: "Run/ride pacer"
+      title: "TempoBuddy"
+      tagline: "Design interval cues + playlist tempos in under a minute."
+    placeholder: "Share your route + vibe to get tempo cues."
+    freePlanLimit: 1
+    form:
+      helper: "Need a route/distance to pace. Playlist/BPM optional."
+      ctaLabel: "Build pacer"
+      fields:
+        - type: text
+          name: route
+          label: "Route or terrain"
+          placeholder: "e.g., park loop with hill"
+          required: true
+        - type: select
+          name: distance
+          label: "Distance / time"
+          options:
+            - label: "3 mi / 5 km"
+              value: "5k"
+            - label: "5 mi / 8 km"
+              value: "8k"
+              default: true
+            - label: "Long run 10+ km"
+              value: "long"
+        - type: chips
+          name: goal
+          label: "Goal vibe"
+          options:
+            - label: "Easy build"
+              value: "easy"
+            - label: "Tempo"
+              value: "tempo"
+              default: true
+            - label: "Speed play"
+              value: "speed"
+        - type: select
+          name: playlist
+          label: "Playlist BPM"
+          options:
+            - label: "Chill 140 BPM"
+              value: "140"
+            - label: "Upbeat 160 BPM"
+              value: "160"
+              default: true
+            - label: "Hype 175 BPM"
+              value: "175"
+    share:
+      label: "Share pacer link"
+      cta: "Copy link"
+    upsell:
+      title: "TempoBuddy Pro"
+      copy: "Adaptive pacing, watch pairing placeholders, and long-run blocks."
+      bullets:
+        - Adaptive cues based on prior recaps.
+        - Audio export + watch pairing stub.
+        - Unlimited tempo plans per day.
+      ctaLabel: "Unlock adaptive pacing"
+    plan:
+      summary:
+        title: "{{labels.distance}} tempo on {{labels.route}}"
+        subtitle: "Goal: {{labels.goal}} with BPM {{labels.playlist}}."
+        metrics:
+          - label: "Intervals"
+            value: "4 blocks"
+          - label: "Pace swing"
+            value: "±10 sec"
+          - label: "Playlist"
+            value: "{{labels.playlist}} BPM"
+      sections:
+        - title: "Warm & prime"
+          description: "Ease into cadence and prep hills."
+          items:
+            - "1 km conversational pace."
+            - "Drills: skips, butt kicks, quick strides."
+            - "Lock playlist volume + safety checks."
+        - title: "Tempo wave"
+          description: "Alternating blocks tuned to {{labels.goal}}."
+          items:
+            - "Block 1: 6 min tempo, 2 min float."
+            - "Block 2: hills or surges referencing {{labels.route}}."
+            - "Block 3: negative split push."
+        - title: "Send-off + recap"
+          description: "Cool down and capture insights."
+          items:
+            - "1 km easy jog/walk cooldown."
+            - "Breathing reset + hydration cue."
+            - "Dictate quick recap for future adaptive tuning."
+      tips:
+        - "Match strides to playlist BPM for steadier pacing."
+        - "Use share row to text pacer to accountability buddy."
+        - "Upgrade for watch cues + adaptive tempo surfaces."
+      highlight:
+        eyebrow: "Tempo locked"
+        copy: "Hit start and let the cues guide the session."
+    readme:
+      what: "TempoBuddy programs micro pacers with BPM, interval cues, and recap prompts."
+      flow:
+        - "Enter terrain, distance, goal vibe, and playlist BPM."
+        - "TempoBuddy outputs warmup, tempo wave, and cooldown cards."
+        - "Share link with training partners or regenerate."
+      free:
+        - "One pacer per day."
+        - "Manual editing only."
+      pro:
+        - "Adaptive pacing + saved pacers."
+        - "Watch pairing stub + audio cues."
+        - "Long-run block suggestions."
+      target: "Running/fitness platforms needing a quick pacing assistant."
+      monetization: "Free pacer daily; Pro unlocks adaptive pacing, watch pairing, and unlimited runs."
+      qa:
+        - "Validate text input required state."
+        - "Ensure share CTA works inside host app."
+        - "Check layout for longer copy strings."
+      events:
+        - name: "tempobuddy:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Second plan attempt."
+        - name: "tempobuddy:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate button."
+        - name: "tempobuddy:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "tempobuddy:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade pressed."
+    apple:
+      subtitle: "Tempo cues in your pocket."
+      description: "Design run or ride pacers with interval cues, BPM guidance, and shareable recaps in seconds."
+      keywords: ["running", "pacer", "tempo"]
+      primaryCategory: "health-fitness"
+    theme:
+      heroGradient: "linear-gradient(135deg, #fef3ff, #e1f5ff)"
+      primary: "#c033ff"
+      primaryInk: "#ffffff"
+      surface: "#fdf7ff"
+  - slug: habitgrid
+    name: HabitGrid
+    category: lifestyle
+    tagline: "3–5 habit tracker with heatmap grid and friendly streak nudges."
+    hero:
+      eyebrow: "Consistency coach"
+      title: "HabitGrid"
+      tagline: "Paint your streak grid with 3 micro habits at a time."
+    placeholder: "List a few habits to map your next streak."
+    freePlanLimit: 1
+    form:
+      helper: "Add at least one habit line. Emoji welcome."
+      ctaLabel: "Plot my grid"
+      fields:
+        - type: textarea
+          name: habits
+          label: "Habits (one per line)"
+          placeholder: "e.g., 10 pushups\n15 min read\nWater refill"
+          required: true
+        - type: select
+          name: streakGoal
+          label: "Streak goal"
+          options:
+            - label: "7 days"
+              value: "7"
+              default: true
+            - label: "14 days"
+              value: "14"
+            - label: "21 days"
+              value: "21"
+        - type: chips
+          name: tone
+          label: "Coaching tone"
+          options:
+            - label: "Soft"
+              value: "soft"
+            - label: "Cheer squad"
+              value: "cheer"
+              default: true
+            - label: "Accountability buddy"
+              value: "accountable"
+        - type: select
+          name: reminder
+          label: "Reminder moment"
+          options:
+            - label: "Morning"
+              value: "morning"
+              default: true
+            - label: "Lunch"
+              value: "lunch"
+            - label: "Evening"
+              value: "evening"
+    share:
+      label: "Share grid link"
+      cta: "Copy grid"
+    upsell:
+      title: "HabitGrid Pro"
+      copy: "Run multiple boards, export history, and invite accountability partners."
+      bullets:
+        - Unlimited grids + themes.
+        - CSV/PDF export of streaks.
+        - Partner mode with shared check-ins.
+      ctaLabel: "Upgrade for partner mode"
+    plan:
+      summary:
+        title: "{{labels.streakGoal}}-day grid ready"
+        subtitle: "Tone: {{labels.tone}} with reminders at {{labels.reminder}}."
+        metrics:
+          - label: "Habits tracked"
+            value: "Up to 5"
+          - label: "Reminder"
+            value: "{{labels.reminder}}"
+          - label: "Heatmap palette"
+            value: "Sunrise"
+      sections:
+        - title: "Grid setup"
+          description: "Anchor your why and prep the squares."
+          items:
+            - "Name the streak + affirmation."
+            - "Assign colors for low/medium/high completeness."
+            - "Pin quick-note area for reflections."
+        - title: "Daily cadence"
+          description: "Micro instructions for each habit line."
+          items:
+            - "Morning reminder at {{labels.reminder}} includes habit summary."
+            - "Tap square to mark Partial/Full per line."
+            - "Log a 1-sentence recap nightly."
+        - title: "Celebrate & iterate"
+          description: "Plan celebratory beats to keep motivation high."
+          items:
+            - "At day 7, drop a cheer message."
+            - "Missed day? HabitGrid suggests a soft reset."
+            - "End-of-streak review with highlight and next target."
+      tips:
+        - "Keep habits drawable in <10 minutes to avoid burnout."
+        - "Use share link to DM accountability partners."
+        - "Upgrade for multiple grids + partner mode."
+      highlight:
+        eyebrow: "Streak is primed"
+        copy: "Tape the grid to your monitor or fridge for analog reinforcement."
+    readme:
+      what: "HabitGrid paints a three-habit heatmap with deterministic coaching copy."
+      flow:
+        - "List habits and choose streak length."
+        - "Pick tone + reminder to generate the grid plan."
+        - "Copy link or regenerate for another tone."
+      free:
+        - "Single grid."
+        - "Basic reminder copy."
+      pro:
+        - "Multi-grid & partner mode."
+        - "Exports + themes."
+        - "Unlimited regenerations."
+      target: "Wellness/lifestyle apps embedding streak trackers."
+      monetization: "Free supports one grid; Pro unlocks unlimited boards, exports, and accountability invites."
+      qa:
+        - "Ensure textarea validation messaging."
+        - "Check share row copy on mobile."
+        - "Verify upsell toggles after plan."
+      events:
+        - name: "habitgrid:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple plan attempts."
+        - name: "habitgrid:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate tapped."
+        - name: "habitgrid:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "habitgrid:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Heatmap habit tracker."
+      description: "Map up to five micro-habits, color the streak grid, and receive friendly reminders plus accountability cues."
+      keywords: ["habit", "tracker", "streak"]
+      primaryCategory: "lifestyle"
+    theme:
+      heroGradient: "linear-gradient(135deg, #fff3e0, #ffe4f3)"
+      primary: "#ff6f61"
+      primaryInk: "#ffffff"
+      surface: "#fffaf5"
+  - slug: restnest
+    name: RestNest
+    category: lifestyle
+    tagline: "Ten-minute wind-down routines blending breath, journaling, and ambient cues."
+    hero:
+      eyebrow: "Wind-down guide"
+      title: "RestNest"
+      tagline: "End the day with a structured, cozy routine."
+    placeholder: "Tell RestNest how tonight feels."
+    freePlanLimit: 1
+    form:
+      helper: "Need vibe + time block to craft the flow."
+      ctaLabel: "Craft wind-down"
+      fields:
+        - type: chips
+          name: eveningFeel
+          label: "Tonight feels"
+          options:
+            - label: "Wired"
+              value: "wired"
+            - label: "Meh"
+              value: "meh"
+              default: true
+            - label: "Calm"
+              value: "calm"
+        - type: select
+          name: room
+          label: "Where are you winding down?"
+          options:
+            - label: "Bedroom"
+              value: "bedroom"
+              default: true
+            - label: "Living room"
+              value: "living"
+            - label: "Hotel / travel"
+              value: "travel"
+        - type: select
+          name: duration
+          label: "Time available"
+          options:
+            - label: "8 minutes"
+              value: "8"
+            - label: "10 minutes"
+              value: "10"
+              default: true
+            - label: "15 minutes"
+              value: "15"
+        - type: select
+          name: partner
+          label: "Solo or partner?"
+          options:
+            - label: "Solo"
+              value: "solo"
+              default: true
+            - label: "Partner"
+              value: "partner"
+    share:
+      label: "Share wind-down"
+      cta: "Copy link"
+    upsell:
+      title: "RestNest Pro"
+      copy: "Unlock multi-night stacks, soundscapes, and partner sharing."
+      bullets:
+        - Save favorite routines + audio cues.
+        - Multi-night playlist builder.
+        - Partner sync invites.
+      ctaLabel: "Upgrade for multi-night"
+    plan:
+      summary:
+        title: "{{labels.duration}} RestNest"
+        subtitle: "Mood {{labels.eveningFeel}} · Room {{labels.room}}."
+        metrics:
+          - label: "Breath cycles"
+            value: "4"
+          - label: "Prompts"
+            value: "3 short cues"
+          - label: "Soundscape"
+            value: "Soft rain"
+      sections:
+        - title: "Arrival"
+          description: "Signal to your body that night mode is here."
+          items:
+            - "Dim lights + start ambient noise."
+            - "3-minute breath ladder (4-7-8)."
+            - "Stretch or child’s pose if tension remains."
+        - title: "Journaling + release"
+          description: "Download the day to clear mind loops."
+          items:
+            - "Two-sentence gratitude prompt."
+            - "Parking lot note for tomorrow’s brain."
+            - "If {{labels.partner}} mode, share one highlight each."
+        - title: "Drift cues"
+          description: "Close with sensory signal."
+          items:
+            - "Apply calming scent or lotion."
+            - "Play playlist tuned to {{labels.eveningFeel}}."
+            - "Set wake-up intention."
+      tips:
+        - "Wired nights benefit from longer breath sections."
+        - "Screenshot routine to keep near bedside."
+        - "Upgrade for multi-night stacks + partner sync."
+      highlight:
+        eyebrow: "Nest ready"
+        copy: "Phone goes on Do Not Disturb from here."
+    readme:
+      what: "RestNest guides a 10-minute wind-down ritual combining breath, journaling, and sensory cues."
+      flow:
+        - "Choose tonight’s vibe, room, and time."
+        - "Review arrival, journaling, and drift cards."
+        - "Share with partners or regenerate."
+      free:
+        - "One nightly routine."
+        - "Basic ambient suggestion."
+      pro:
+        - "Multi-night playlists."
+        - "Partner sharing."
+        - "Soundscape downloads."
+      target: "Sleep/wellness apps embedding nightly routines."
+      monetization: "Free nightly routine; Pro unlocks stacks, audio, and partner sync."
+      qa:
+        - "Verify chips accessible."
+        - "Check share link default text."
+        - "Ensure upsell toggles after render."
+      events:
+        - name: "restnest:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple routines per night."
+        - name: "restnest:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate pressed."
+        - name: "restnest:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell in view."
+        - name: "restnest:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Nightly wind-down ritual."
+      description: "Deterministic ten-minute routines blending breathwork, journaling, and ambient cues tailored to tonight’s mood."
+      keywords: ["sleep", "routine", "wellness"]
+      primaryCategory: "lifestyle"
+    theme:
+      heroGradient: "linear-gradient(135deg, #d8e9ff, #f5ecff)"
+      primary: "#5f6bff"
+      primaryInk: "#ffffff"
+      surface: "#f6f4ff"
+  - slug: slicesaver
+    name: SliceSaver
+    category: finance
+    tagline: "Bill-splitting optimizer with fairness insights and reminder scripts."
+    hero:
+      eyebrow: "Group finance buddy"
+      title: "SliceSaver"
+      tagline: "Split group costs with friendly scripts + fairness suggestions."
+    placeholder: "Enter crew details to draft the split."
+    freePlanLimit: 1
+    form:
+      helper: "Need at least crew size + total spend."
+      ctaLabel: "Draft the split"
+      fields:
+        - type: select
+          name: crewSize
+          label: "Crew size"
+          options:
+            - label: "2"
+              value: "2"
+            - label: "3"
+              value: "3"
+            - label: "4"
+              value: "4"
+              default: true
+            - label: "5+"
+              value: "5+"
+        - type: text
+          name: total
+          label: "Total amount"
+          placeholder: "e.g., $186 dinner"
+          required: true
+        - type: select
+          name: tone
+          label: "Reminder tone"
+          options:
+            - label: "Chill"
+              value: "chill"
+            - label: "Direct"
+              value: "direct"
+            - label: "Playful"
+              value: "playful"
+              default: true
+        - type: select
+          name: due
+          label: "Due date"
+          options:
+            - label: "ASAP"
+              value: "asap"
+              default: true
+            - label: "Next week"
+              value: "next-week"
+            - label: "End of month"
+              value: "eom"
+    share:
+      label: "Share split"
+      cta: "Copy note"
+    upsell:
+      title: "SliceSaver Pro"
+      copy: "Save households, track balances, and auto-send nudges."
+      bullets:
+        - Household library with recurring splits.
+        - Balance tracking + ledger export.
+        - Automated reminder scripts + escalation.
+      ctaLabel: "Upgrade for household mode"
+    plan:
+      summary:
+        title: "{{labels.crewSize}}-way split"
+        subtitle: "Tone {{labels.tone}} · Due {{labels.due}}."
+        metrics:
+          - label: "Average due"
+            value: "{{values.total}} ÷ {{labels.crewSize}}"
+          - label: "Fairness tip"
+            value: "Round to friendly number"
+          - label: "Reminder"
+            value: "{{labels.due}}"
+      sections:
+        - title: "Suggested amounts"
+          description: "Deterministic math with fairness tweaks."
+          items:
+            - "Base: {{values.total}} split evenly."
+            - "Add note about extras (wine, tip) if host covered more."
+            - "Offer round-up suggestion to nearest $5."
+        - title: "Reminder script"
+          description: "Tone-matched message to drop in chat."
+          items:
+            - "\"Hey team, dinner came to {{values.total}} so it’s {{values.total}}/{{labels.crewSize}} each ({{labels.tone}} tone).\""
+            - "Add payment links + due date."
+            - "Include thank-you or joke depending on tone."
+        - title: "Follow-up plan"
+          description: "Steps if not everyone pays on time."
+          items:
+            - "Send soft nudge after 48h."
+            - "Use accountability reminder referencing shared goal."
+            - "Log who’s paid in SliceSaver if Pro."
+      tips:
+        - "Re-run with 5+ if extra people join."
+        - "Use share link to drop entire plan into group chat."
+        - "Upgrade to track open balances."
+      highlight:
+        eyebrow: "Split ready"
+        copy: "Copy the note and let friends Venmo the slice."
+    readme:
+      what: "SliceSaver calculates group splits with fairness context and reminder scripts."
+      flow:
+        - "Select crew size and total."
+        - "Choose tone + due to generate plan."
+        - "Copy share note or regenerate."
+      free:
+        - "Single active split."
+        - "Manual tracking."
+      pro:
+        - "Household library."
+        - "Balance tracker + exports."
+        - "Automated nudges."
+      target: "Finance/banking apps embedding smart split flows."
+      monetization: "Free handles one split; Pro stores households, tracks balances, and automates reminders."
+      qa:
+        - "Test text input validation."
+        - "Verify share row messaging."
+        - "Check analytics events fire."
+      events:
+        - name: "slicesaver:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple splits."
+        - name: "slicesaver:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate pressed."
+        - name: "slicesaver:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell displayed."
+        - name: "slicesaver:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Split group costs with scripts."
+      description: "SliceSaver drafts fairness-aware splits plus reminder scripts so crews keep vibes high while settling up."
+      keywords: ["split", "finance", "bills"]
+      primaryCategory: "finance"
+    theme:
+      heroGradient: "linear-gradient(135deg, #e0fff4, #f2f9ff)"
+      primary: "#00b894"
+      primaryInk: "#ffffff"
+      surface: "#f4fffb"
+  - slug: tiptally
+    name: TipTally
+    category: finance
+    tagline: "Tip + split calculator with local norms and round-up nudges."
+    hero:
+      eyebrow: "Tip coach"
+      title: "TipTally"
+      tagline: "Calculate tip, split, and payment script instantly."
+    placeholder: "Add bill + vibe to tally the tip."
+    freePlanLimit: 2
+    form:
+      helper: "Need bill amount + service vibe."
+      ctaLabel: "Calculate tip"
+      fields:
+        - type: text
+          name: bill
+          label: "Bill amount"
+          placeholder: "$84.50"
+          required: true
+        - type: select
+          name: service
+          label: "Service vibe"
+          options:
+            - label: "Standard"
+              value: "standard"
+              default: true
+            - label: "Great"
+              value: "great"
+            - label: "Needs love"
+              value: "meh"
+        - type: select
+          name: split
+          label: "Split count"
+          options:
+            - label: "1"
+              value: "1"
+            - label: "2"
+              value: "2"
+            - label: "3"
+              value: "3"
+              default: true
+            - label: "4+"
+              value: "4+"
+        - type: select
+          name: roundUp
+          label: "Round-up preference"
+          options:
+            - label: "Exact"
+              value: "exact"
+            - label: "Nearest dollar"
+              value: "nearest"
+              default: true
+            - label: "Generous"
+              value: "generous"
+    share:
+      label: "Share payment note"
+      cta: "Copy note"
+    upsell:
+      title: "TipTally Pro"
+      copy: "Save venue presets, favorite splits, and export expenses."
+      bullets:
+        - Venue memory with local norms.
+        - Preferred splits per friend group.
+        - Expense CSV export.
+      ctaLabel: "Upgrade for venue presets"
+    plan:
+      summary:
+        title: "Tip + split ready"
+        subtitle: "Service {{labels.service}} · Round {{labels.roundUp}}."
+        metrics:
+          - label: "Tip suggestion"
+            value: "{{labels.service}} %"
+          - label: "Per person"
+            value: "{{values.bill}} / {{labels.split}}"
+          - label: "Round up"
+            value: "{{labels.roundUp}}"
+      sections:
+        - title: "Tip math"
+          description: "Use local norms plus vibe override."
+          items:
+            - "Base tip from service slider."
+            - "Apply round-up preference."
+            - "Show local cultural note."
+        - title: "Split breakdown"
+          description: "Per-person guidance."
+          items:
+            - "Even divide + optional host credit."
+            - "List cash + QR payment options."
+            - "Add fairness note for shared extras."
+        - title: "Payment script"
+          description: "Copy-ready note."
+          items:
+            - "\"Bill was {{values.bill}}, tip = X, so send $Y.\""
+            - "Include `Tap to pay` or QR mention."
+            - "Add thank-you or gentle nudge text."
+      tips:
+        - "Set default service vibe inside host app."
+        - "Upgrade to save venues with auto norms."
+        - "Use share row for group texts."
+      highlight:
+        eyebrow: "Ready to pay"
+        copy: "Tap copy, drop in the group chat, done."
+    readme:
+      what: "TipTally removes friction from tipping + splitting with deterministic math and friendly scripts."
+      flow:
+        - "Enter bill, service vibe, split count, and round-up preference."
+        - "Review tip math, split breakdown, and script cards."
+        - "Copy the share note or regenerate."
+      free:
+        - "Two calculations per day."
+        - "Manual venue entry."
+      pro:
+        - "Venue presets."
+        - "Preferred splits."
+        - "Expense export."
+      target: "Finance/payment apps embedding tip calculators."
+      monetization: "Free tier covers two runs/day; Pro unlocks presets, exports, and unlimited runs."
+      qa:
+        - "Validate bill input formatting."
+        - "Ensure analytics fire."
+        - "Clipboard copy across Safari/Chrome."
+      events:
+        - name: "tiptally:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "More than two calculations."
+        - name: "tiptally:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate clicked."
+        - name: "tiptally:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "tiptally:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade pressed."
+    apple:
+      subtitle: "Instant tip + split notes."
+      description: "TipTally crunches bill, vibe, and round-up preferences, then drafts a copy-ready message for friends."
+      keywords: ["tip", "split", "calculator"]
+      primaryCategory: "finance"
+    theme:
+      heroGradient: "linear-gradient(135deg, #fff5e6, #e8fffb)"
+      primary: "#ff9f1c"
+      primaryInk: "#0f172a"
+      surface: "#fffaf3"
+  - slug: billbreeze
+    name: BillBreeze
+    category: finance
+    tagline: "Turns recurring bills into a cash-flow lane with alerts and 'safe to spend' coaching."
+    hero:
+      eyebrow: "Cash-flow lane"
+      title: "BillBreeze"
+      tagline: "Visualize upcoming bills and safe-to-spend guidance."
+    placeholder: "Enter a couple bills to sketch the lane."
+    freePlanLimit: 1
+    form:
+      helper: "Need pay cycle + at least one bill."
+      ctaLabel: "Plot my bills"
+      fields:
+        - type: select
+          name: income
+          label: "Income cycle"
+          options:
+            - label: "Biweekly"
+              value: "biweekly"
+              default: true
+            - label: "Monthly"
+              value: "monthly"
+            - label: "Irregular"
+              value: "irregular"
+        - type: textarea
+          name: bills
+          label: "Bills (one per line amount + name)"
+          placeholder: "$120 internet\n$220 car"
+          required: true
+        - type: select
+          name: stress
+          label: "Stress level"
+          options:
+            - label: "Chill"
+              value: "chill"
+            - label: "Kinda stressed"
+              value: "medium"
+              default: true
+            - label: "High alert"
+              value: "high"
+        - type: select
+          name: goal
+          label: "Primary goal"
+          options:
+            - label: "Avoid overdraft"
+              value: "overdraft"
+              default: true
+            - label: "Save more"
+              value: "save"
+            - label: "Pay debt faster"
+              value: "debt"
+    share:
+      label: "Share cash-flow lane"
+      cta: "Copy lane"
+    upsell:
+      title: "BillBreeze Pro"
+      copy: "Unlimited bills, projected balances, and PDF export."
+      bullets:
+        - Unlimited bill lanes per account.
+        - Safe-to-spend push alerts.
+        - PDF export for advisor convos.
+      ctaLabel: "Upgrade for projections"
+    plan:
+      summary:
+        title: "{{labels.income}} lane"
+        subtitle: "Stress {{labels.stress}} · Goal {{labels.goal}}."
+        metrics:
+          - label: "Bills mapped"
+            value: "Up to 6"
+          - label: "Safe spend"
+            value: "Auto-estimated"
+          - label: "Alerts"
+            value: "2 upcoming"
+      sections:
+        - title: "Lane overview"
+          description: "High-level view of upcoming cash."
+          items:
+            - "Income drop + starting balance stub."
+            - "Bill timeline with due-date ordering."
+            - "Safe-to-spend band after each bill."
+        - title: "Focus bills"
+          description: "Callouts for upcoming charges."
+          items:
+            - "Highlight highest amount + autopay note."
+            - "List actionable steps (renegotiate, pay early)."
+            - "Add nudge for emergency buffer."
+        - title: "Next best actions"
+          description: "Keep stress manageable."
+          items:
+            - "Set alert 3 days prior to each bill."
+            - "Transfer $25 to buffer if safe."
+            - "If stress high, ping coach/expert."
+      tips:
+        - "Paste lane screenshot into budgeting doc."
+        - "Use share link for partners or advisors."
+        - "Upgrade for PDF exports + unlimited bills."
+      highlight:
+        eyebrow: "Lane smoothed"
+        copy: "You have visibility for the next cycle."
+    readme:
+      what: "BillBreeze visualizes recurring bills as a cash-flow lane with tips and safe-spend guidance."
+      flow:
+        - "Select income cadence and list bills."
+        - "Review lane overview, focus bills, and next actions."
+        - "Share link or regenerate when bills change."
+      free:
+        - "Track up to 6 bills."
+        - "Manual updates."
+      pro:
+        - "Unlimited bills."
+        - "Projected balances + exports."
+        - "Push alerts."
+      target: "Neobank/budgeting apps embedding cash-flow clarity."
+      monetization: "Free lane covers basic bills; Pro unlocks unlimited entries, alerts, and exports."
+      qa:
+        - "Textarea validation + helper copy."
+        - "Long strings wrap in cards."
+        - "Events fire via share/regenerate."
+      events:
+        - name: "billbreeze:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "More than one lane."
+        - name: "billbreeze:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate."
+        - name: "billbreeze:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "billbreeze:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Cash-flow clarity in minutes."
+      description: "Plot recurring bills, view safe-to-spend guidance, and queue next best actions with deterministic copy."
+      keywords: ["budget", "cashflow", "bills"]
+      primaryCategory: "finance"
+    theme:
+      heroGradient: "linear-gradient(135deg, #e5f5ff, #effcf4)"
+      primary: "#3081f1"
+      primaryInk: "#ffffff"
+      surface: "#f2f7ff"
+  - slug: flowstreak
+    name: FlowStreak
+    category: productivity
+    tagline: "Daily three-wins board that celebrates streak momentum."
+    hero:
+      eyebrow: "Momentum board"
+      title: "FlowStreak"
+      tagline: "Log three wins, get next micro goals."
+    placeholder: "List today’s wins to paint the board."
+    freePlanLimit: 1
+    form:
+      helper: "Give FlowStreak a few wins or planned focus."
+      ctaLabel: "Build my board"
+      fields:
+        - type: textarea
+          name: wins
+          label: "Wins or focus areas"
+          placeholder: "Ship homepage copy\nInbox zero\nWalk outside"
+          required: true
+        - type: select
+          name: energy
+          label: "Energy meter"
+          options:
+            - label: "Coasting"
+              value: "coasting"
+            - label: "Steady"
+              value: "steady"
+              default: true
+            - label: "On fire"
+              value: "fire"
+        - type: chips
+          name: focus
+          label: "Tomorrow focus"
+          options:
+            - label: "Deep work"
+              value: "deep"
+            - label: "Collab"
+              value: "collab"
+            - label: "Admin"
+              value: "admin"
+              default: true
+    share:
+      label: "Share streak"
+      cta: "Copy board"
+    upsell:
+      title: "FlowStreak Pro"
+      copy: "Sync calendar tasks, add widgets, and unlock team sharing."
+      bullets:
+        - Calendar + task sync.
+        - Homescreen widgets.
+        - Team leaderboard.
+      ctaLabel: "Upgrade for sync"
+    plan:
+      summary:
+        title: "Wins locked"
+        subtitle: "Energy {{labels.energy}} · Next focus {{labels.focus}}."
+        metrics:
+          - label: "Win streak"
+            value: "3-day default"
+          - label: "Mood"
+            value: "{{labels.energy}}"
+          - label: "Cue"
+            value: "Keep grid green"
+      sections:
+        - title: "Celebrated wins"
+          description: "Mirror back the entries with friendly copy."
+          items:
+            - "Win #1 shoutout."
+            - "Win #2 highlight."
+            - "Win #3 celebration."
+        - title: "Momentum bar"
+          description: "Encourage tomorrow’s focus."
+          items:
+            - "Focus suggestion referencing {{labels.focus}}."
+            - "Micro goal tied to next steps."
+            - "Accountability tip."
+        - title: "Share & remind"
+          description: "Keep the streak alive."
+          items:
+            - "Share link to buddy."
+            - "Schedule reminder at 8pm."
+            - "Upgrade to sync calendar tasks."
+      tips:
+        - "Keep wins specific and measurable."
+        - "Use share row for Slack/Teams check-ins."
+        - "Upgrade for widgets + team view."
+      highlight:
+        eyebrow: "Streak alive"
+        copy: "Tomorrow’s board awaits."
+    readme:
+      what: "FlowStreak recaps daily wins and nudges the next focus using deterministic copy."
+      flow:
+        - "List wins + pick energy/focus."
+        - "FlowStreak renders celebration + next focus cards."
+        - "Copy/share or regenerate."
+      free:
+        - "Single user board."
+        - "Manual logging."
+      pro:
+        - "Calendar/task sync."
+        - "Widgets + team share."
+        - "Unlimited boards."
+      target: "Productivity/inbox apps embedding daily recap surfaces."
+      monetization: "Free board per day; Pro unlocks sync, widgets, and sharing."
+      qa:
+        - "Textarea validation."
+        - "Share row on Safari."
+        - "Upsell gating after first run."
+      events:
+        - name: "flowstreak:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Second board same day."
+        - name: "flowstreak:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate."
+        - name: "flowstreak:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "flowstreak:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Celebrate wins, plan tomorrow."
+      description: "Capture three wins, get deterministic encouragement plus the next micro focus."
+      keywords: ["productivity", "wins", "journal"]
+      primaryCategory: "productivity"
+    theme:
+      heroGradient: "linear-gradient(135deg, #e8fdf5, #f7fbff)"
+      primary: "#27ae60"
+      primaryInk: "#ffffff"
+      surface: "#f4fff8"
+  - slug: inboxzen
+    name: InboxZen
+    category: productivity
+    tagline: "Inbox triage coach summarizing top emails and drafting reply prompts."
+    hero:
+      eyebrow: "Inbox coach"
+      title: "InboxZen"
+      tagline: "Summarize, triage, and respond to priority mail fast."
+    placeholder: "Paste a few email subjects to triage."
+    freePlanLimit: 1
+    form:
+      helper: "Add at least two subject lines."
+      ctaLabel: "Coach my inbox"
+      fields:
+        - type: textarea
+          name: emails
+          label: "Top emails (one per line)"
+          placeholder: "Investor update follow-up\nOps fire drill"
+          required: true
+        - type: select
+          name: tone
+          label: "Reply tone"
+          options:
+            - label: "Friendly"
+              value: "friendly"
+            - label: "Direct"
+              value: "direct"
+              default: true
+            - label: "Formal"
+              value: "formal"
+        - type: select
+          name: goal
+          label: "Goal"
+          options:
+            - label: "Clear backlog"
+              value: "clear"
+              default: true
+            - label: "Prioritize"
+              value: "prioritize"
+            - label: "Delegate"
+              value: "delegate"
+        - type: select
+          name: time
+          label: "Available time"
+          options:
+            - label: "15 min"
+              value: "15"
+            - label: "30 min"
+              value: "30"
+              default: true
+            - label: "45+ min"
+              value: "45"
+    share:
+      label: "Share triage summary"
+      cta: "Copy recap"
+    upsell:
+      title: "InboxZen Pro"
+      copy: "Unlimited summaries, reusable reply presets, and CRM export."
+      bullets:
+        - Save reply templates by tone.
+        - Push actions to CRM/Todo API.
+        - Unlimited daily triage.
+      ctaLabel: "Upgrade for presets"
+    plan:
+      summary:
+        title: "Inbox triage ready"
+        subtitle: "Goal {{labels.goal}} · Tone {{labels.tone}}."
+        metrics:
+          - label: "Emails parsed"
+            value: "3"
+          - label: "Delegations"
+            value: "1 suggestion"
+          - label: "Focus block"
+            value: "{{labels.time}} min"
+      sections:
+        - title: "Triage list"
+          description: "Order of attack with quick reason."
+          items:
+            - "Email #1 summary + action."
+            - "Email #2 summary + action."
+            - "Email #3 summary + action."
+        - title: "Reply prompts"
+          description: "Tone-matched prompts to copy."
+          items:
+            - "Prompt for top priority."
+            - "Prompt for follow-up/delay."
+            - "Prompt for delegate/loop-in."
+        - title: "Focus timer"
+          description: "Guide to clear backlog fast."
+          items:
+            - "Block calendar for {{labels.time}} minutes."
+            - "Silence notifications."
+            - "Reward (tea/stretch) after inbox hits target."
+      tips:
+        - "Upgrade to save prompts per sender."
+        - "Use share link for chief of staff handoffs."
+        - "Regenerate when tone needs shift."
+      highlight:
+        eyebrow: "Inbox calm"
+        copy: "Close mail after the sprint—don’t re-open until next block."
+    readme:
+      what: "InboxZen turns a few subject lines into sorted priorities plus reply prompts."
+      flow:
+        - "Paste subjects, pick tone/goal/time."
+        - "Review triage list + prompts."
+        - "Copy recap or regenerate."
+      free:
+        - "One triage/day."
+      pro:
+        - "Unlimited triage."
+        - "Reply preset library."
+        - "CRM export stub."
+      target: "Email/CRM platforms embedding smart triage."
+      monetization: "Free run daily; Pro gives unlimited runs, reply presets, and exports."
+      qa:
+        - "Textarea validation + helper text."
+        - "Clipboard copy check."
+        - "Analytics events triggered."
+      events:
+        - name: "inboxzen:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Second triage attempt."
+        - name: "inboxzen:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate pressed."
+        - name: "inboxzen:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "inboxzen:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Triage email in seconds."
+      description: "Get deterministic summaries, ordered priorities, and reply prompts for the inbox backlog."
+      keywords: ["email", "productivity", "triage"]
+      primaryCategory: "productivity"
+    theme:
+      heroGradient: "linear-gradient(135deg, #eefbff, #f7efff)"
+      primary: "#007aff"
+      primaryInk: "#ffffff"
+      surface: "#f5f9ff"
+  - slug: meetingminder
+    name: MeetingMinder
+    category: productivity
+    tagline: "Auto-build prep checklists and follow-ups from calendar context."
+    hero:
+      eyebrow: "Meeting companion"
+      title: "MeetingMinder"
+      tagline: "Prep smarter, leave with tidy follow-ups."
+    placeholder: "Tell MeetingMinder about the meeting."
+    freePlanLimit: 1
+    form:
+      helper: "Meeting type + attendees required."
+      ctaLabel: "Draft prep kit"
+      fields:
+        - type: select
+          name: meetingType
+          label: "Meeting type"
+          options:
+            - label: "1:1"
+              value: "1-1"
+            - label: "Team sync"
+              value: "team"
+              default: true
+            - label: "Client"
+              value: "client"
+        - type: text
+          name: attendees
+          label: "Key attendees"
+          placeholder: "e.g., Alex (PM), Priya (Design)"
+          required: true
+        - type: select
+          name: goal
+          label: "Goal"
+          options:
+            - label: "Decide"
+              value: "decide"
+              default: true
+            - label: "Align"
+              value: "align"
+            - label: "Status"
+              value: "status"
+        - type: select
+          name: duration
+          label: "Duration"
+          options:
+            - label: "15 min"
+              value: "15"
+            - label: "30 min"
+              value: "30"
+              default: true
+            - label: "60 min"
+              value: "60"
+    share:
+      label: "Share prep kit"
+      cta: "Copy plan"
+    upsell:
+      title: "MeetingMinder Pro"
+      copy: "Sync across calendars, shared notes, and action exports."
+      bullets:
+        - Calendar auto-ingest.
+        - Shared notes & templates.
+        - Action-item export.
+      ctaLabel: "Upgrade for sync"
+    plan:
+      summary:
+        title: "{{labels.meetingType}} prep"
+        subtitle: "Goal {{labels.goal}} · Duration {{labels.duration}} min."
+        metrics:
+          - label: "Prep items"
+            value: "3"
+          - label: "Follow-ups"
+            value: "3"
+          - label: "Share"
+            value: "1 link"
+      sections:
+        - title: "Pre-meeting checklist"
+          description: "What to prep before joining."
+          items:
+            - "Scan last notes + highlight blockers."
+            - "Collect metrics or artifacts tied to {{labels.goal}}."
+            - "Draft opener tailored to {{labels.attendees}}."
+        - title: "Live agenda beats"
+          description: "Structure the conversation."
+          items:
+            - "Warm take + expectations."
+            - "Decision or alignment block."
+            - "Time-check reminder at halfway."
+        - title: "Follow-up script"
+          description: "Capture next steps."
+          items:
+            - "Summarize outcomes + owners."
+            - "Send doc/recording link."
+            - "Schedule next touchpoint if needed."
+      tips:
+        - "Drop share link into meeting invite."
+        - "Upgrade to auto-import attendees/goals."
+        - "Regenerate when agenda pivots."
+      highlight:
+        eyebrow: "Ready to run"
+        copy: "Arrive five minutes early to skim this prep kit."
+    readme:
+      what: "MeetingMinder outputs prep, agenda, and follow-up cards based on meeting context."
+      flow:
+        - "Pick meeting type/goal/duration and list attendees."
+        - "Review three cards: prep, agenda, follow-up."
+        - "Copy plan for the invite or regenerate."
+      free:
+        - "Manual entry."
+        - "One kit per meeting."
+      pro:
+        - "Calendar sync."
+        - "Shared notes + exports."
+        - "Unlimited kits."
+      target: "Calendar/project tools embedding meeting companions."
+      monetization: "Free manual kits; Pro syncs calendar data, adds exports, and unlimited saves."
+      qa:
+        - "Text input validation."
+        - "Share row copy."
+        - "Upsell gating."
+      events:
+        - name: "meetingminder:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple kits same day."
+        - name: "meetingminder:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate."
+        - name: "meetingminder:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell revealed."
+        - name: "meetingminder:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Prep + follow-up in one swipe."
+      description: "Feed MeetingMinder the meeting context and get a deterministic prep kit with agenda + follow-ups."
+      keywords: ["meeting", "agenda", "productivity"]
+      primaryCategory: "productivity"
+    theme:
+      heroGradient: "linear-gradient(135deg, #f1f7ff, #fef6ff)"
+      primary: "#6d5dfc"
+      primaryInk: "#ffffff"
+      surface: "#f6f4ff"
+  - slug: skillsnack
+    name: SkillSnack
+    category: education
+    tagline: "Five-minute micro-lessons for practical skills."
+    hero:
+      eyebrow: "Daily snack"
+      title: "SkillSnack"
+      tagline: "Get a swipeable micro-lesson in under five minutes."
+    placeholder: "Pick skill + mood to serve today’s snack."
+    freePlanLimit: 1
+    form:
+      helper: "Skill + time required."
+      ctaLabel: "Serve snack"
+      fields:
+        - type: select
+          name: skill
+          label: "Skill track"
+          options:
+            - label: "Excel shortcuts"
+              value: "excel"
+            - label: "Negotiation prompts"
+              value: "negotiation"
+              default: true
+            - label: "Design critique"
+              value: "design"
+        - type: select
+          name: time
+          label: "Time available"
+          options:
+            - label: "3 min"
+              value: "3"
+            - label: "5 min"
+              value: "5"
+              default: true
+            - label: "8 min"
+              value: "8"
+        - type: select
+          name: format
+          label: "Preferred format"
+          options:
+            - label: "Swipe cards"
+              value: "cards"
+              default: true
+            - label: "Audio snippet"
+              value: "audio"
+            - label: "Mini quiz"
+              value: "quiz"
+        - type: chips
+          name: confidence
+          label: "Confidence level"
+          options:
+            - label: "Just starting"
+              value: "new"
+            - label: "Getting there"
+              value: "mid"
+              default: true
+            - label: "Proving it"
+              value: "pro"
+    share:
+      label: "Share snack"
+      cta: "Copy link"
+    upsell:
+      title: "SkillSnack Pro"
+      copy: "Unlock learning tracks, spaced review, and certification prep."
+      bullets:
+        - Track-based progression.
+        - Spaced repetition reminders.
+        - Quiz export + certification tips.
+      ctaLabel: "Upgrade for tracks"
+    plan:
+      summary:
+        title: "{{labels.skill}} snack"
+        subtitle: "Format {{labels.format}} · Confidence {{labels.confidence}}."
+        metrics:
+          - label: "Total time"
+            value: "{{labels.time}} min"
+          - label: "Cards"
+            value: "3 steps"
+          - label: "Challenge"
+            value: "1 action"
+      sections:
+        - title: "Primer"
+          description: "Give context quickly."
+          items:
+            - "One-liner definition."
+            - "Why it matters this week."
+            - "Confidence-specific encouragement."
+        - title: "Snack steps"
+          description: "Three actionable beats."
+          items:
+            - "Step 1 tied to {{labels.skill}}."
+            - "Step 2 with tip/trick."
+            - "Step 3 with mini challenge."
+        - title: "Apply + share"
+          description: "Prompt to use knowledge."
+          items:
+            - "Real-world micro assignment."
+            - "Reflection question."
+            - "Share link to accountability friend."
+      tips:
+        - "Upgrade for track progress + history."
+        - "Use share link to embed inside LMS."
+        - "Regenerate for different format/mood."
+      highlight:
+        eyebrow: "Snack delivered"
+        copy: "Complete within {{labels.time}} minutes for best results."
+    readme:
+      what: "SkillSnack sends practical micro-lessons aligned to skill, time, and confidence."
+      flow:
+        - "Choose skill/time/format/confidence."
+        - "Review primer, steps, and apply cards."
+        - "Copy/share or regenerate."
+      free:
+        - "One snack per day."
+      pro:
+        - "Tracks + spaced review."
+        - "Certification tips."
+        - "Unlimited snacks."
+      target: "Learning platforms or communities needing micro-content."
+      monetization: "Free snack daily; Pro unlocks tracks, spaced review, and certifications."
+      qa:
+        - "Select field defaults."
+        - "Share row functionality."
+        - "Upsell gating."
+      events:
+        - name: "skillsnack:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple snacks."
+        - name: "skillsnack:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate."
+        - name: "skillsnack:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell display."
+        - name: "skillsnack:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "5-minute skill boosts."
+      description: "SkillSnack generates swipeable micro-lessons based on skill, time, and confidence."
+      keywords: ["learning", "micro", "education"]
+      primaryCategory: "education"
+    theme:
+      heroGradient: "linear-gradient(135deg, #fff7e1, #e7f2ff)"
+      primary: "#ffb400"
+      primaryInk: "#0f172a"
+      surface: "#fffdf4"
+  - slug: languageloop
+    name: LanguageLoop
+    category: education
+    tagline: "Phrase-practice loops with roleplay prompts and pronunciation tips."
+    hero:
+      eyebrow: "Phrase coach"
+      title: "LanguageLoop"
+      tagline: "Loop through quick roleplays tailored to context."
+    placeholder: "Pick a language + scenario to loop."
+    freePlanLimit: 1
+    form:
+      helper: "Language + scenario required."
+      ctaLabel: "Start loop"
+      fields:
+        - type: select
+          name: language
+          label: "Language"
+          options:
+            - label: "Spanish"
+              value: "spanish"
+              default: true
+            - label: "French"
+              value: "french"
+            - label: "Japanese"
+              value: "japanese"
+        - type: select
+          name: scenario
+          label: "Scenario"
+          options:
+            - label: "Coffee shop"
+              value: "coffee"
+              default: true
+            - label: "Taxi"
+              value: "taxi"
+            - label: "Networking"
+              value: "networking"
+        - type: chips
+          name: confidence
+          label: "Confidence level"
+          options:
+            - label: "New"
+              value: "new"
+            - label: "Getting comfy"
+              value: "mid"
+              default: true
+            - label: "Ready to flex"
+              value: "pro"
+        - type: select
+          name: accent
+          label: "Accent focus"
+          options:
+            - label: "Neutral"
+              value: "neutral"
+              default: true
+            - label: "Local flair"
+              value: "local"
+    share:
+      label: "Share loop"
+      cta: "Copy loop"
+    upsell:
+      title: "LanguageLoop Pro"
+      copy: "Unlimited loops, accent notes, and offline packs."
+      bullets:
+        - Save favorite loops.
+        - Accent + cultural notes.
+        - Offline packs for travel.
+      ctaLabel: "Upgrade for packs"
+    plan:
+      summary:
+        title: "{{labels.language}} loop"
+        subtitle: "Scenario {{labels.scenario}} · Confidence {{labels.confidence}}."
+        metrics:
+          - label: "Turns"
+            value: "3 exchanges"
+          - label: "Accent focus"
+            value: "{{labels.accent}}"
+          - label: "Vocab"
+            value: "4 keywords"
+      sections:
+        - title: "Warm-up phrases"
+          description: "Ease in before roleplay."
+          items:
+            - "Greeting line with transliteration."
+            - "Polite filler or cultural note."
+            - "Confidence-specific encouragement."
+        - title: "Roleplay loop"
+          description: "Three call-and-response prompts."
+          items:
+            - "Prompt 1: order/ask."
+            - "Prompt 2: clarification."
+            - "Prompt 3: closing."
+        - title: "Accent + culture"
+          description: "How to sound natural."
+          items:
+            - "Accent cue for {{labels.accent}} focus."
+            - "Cultural reminder for scenario."
+            - "Optional follow-up question."
+      tips:
+        - "Repeat loop twice for retention."
+        - "Upgrade for offline pack before traveling."
+        - "Share link with study buddy."
+      highlight:
+        eyebrow: "Loop ready"
+        copy: "Practice aloud; set a timer for 5 minutes."
+    readme:
+      what: "LanguageLoop builds short roleplays anchored to context, confidence, and accent goals."
+      flow:
+        - "Pick language + scenario + confidence."
+        - "Read warm-up, roleplay, and accent cards."
+        - "Copy or regenerate for another scenario."
+      free:
+        - "One loop/day."
+      pro:
+        - "Unlimited loops."
+        - "Accent/culture notes."
+        - "Offline packs."
+      target: "Language-learning apps needing quick practice modules."
+      monetization: "Free loop daily; Pro adds unlimited loops, accent packs, and offline storage."
+      qa:
+        - "Select defaults."
+        - "Share row functioning."
+        - "Upsell gating."
+      events:
+        - name: "languageloop:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Second loop."
+        - name: "languageloop:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate button."
+        - name: "languageloop:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell view."
+        - name: "languageloop:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Roleplay loops on demand."
+      description: "LanguageLoop designs quick phrase loops with accent and cultural cues."
+      keywords: ["language", "practice", "phrases"]
+      primaryCategory: "education"
+    theme:
+      heroGradient: "linear-gradient(135deg, #e8f0ff, #fff0f0)"
+      primary: "#4c6ef5"
+      primaryInk: "#ffffff"
+      surface: "#f5f7ff"
+  - slug: studysprint
+    name: StudySprint
+    category: education
+    tagline: "Turns study topics into 25-minute sprints with recall prompts."
+    hero:
+      eyebrow: "Sprint planner"
+      title: "StudySprint"
+      tagline: "Break a topic into a 25-minute focused block."
+    placeholder: "Share a topic + deadline."
+    freePlanLimit: 1
+    form:
+      helper: "Topic and deadline required."
+      ctaLabel: "Plan sprint"
+      fields:
+        - type: text
+          name: topic
+          label: "Topic"
+          placeholder: "e.g., Photosynthesis chapter 3"
+          required: true
+        - type: select
+          name: deadline
+          label: "Deadline"
+          options:
+            - label: "Tomorrow"
+              value: "tomorrow"
+              default: true
+            - label: "This week"
+              value: "week"
+            - label: "Later"
+              value: "later"
+        - type: chips
+          name: confidence
+          label: "Confidence"
+          options:
+            - label: "Lost"
+              value: "low"
+            - label: "Okay"
+              value: "ok"
+              default: true
+            - label: "Solid"
+              value: "solid"
+        - type: select
+          name: format
+          label: "Format"
+          options:
+            - label: "Handwritten notes"
+              value: "notes"
+            - label: "Flash cards"
+              value: "cards"
+              default: true
+            - label: "Mind map"
+              value: "map"
+    share:
+      label: "Share sprint"
+      cta: "Copy sprint"
+    upsell:
+      title: "StudySprint Pro"
+      copy: "Save syllabi, push reminders, and export study logs."
+      bullets:
+        - Syllabus library.
+        - Push reminder integration.
+        - CSV/PDF study logs.
+      ctaLabel: "Upgrade for reminders"
+    plan:
+      summary:
+        title: "{{labels.topic}} sprint"
+        subtitle: "Deadline {{labels.deadline}} · Confidence {{labels.confidence}}."
+        metrics:
+          - label: "Sprint length"
+            value: "25 min"
+          - label: "Break"
+            value: "5 min"
+          - label: "Format"
+            value: "{{labels.format}}"
+      sections:
+        - title: "Focus plan"
+          description: "Structure the 25 min."
+          items:
+            - "5 min skim + highlight unknowns."
+            - "12 min deep dive with {{labels.format}} output."
+            - "8 min recall practice."
+        - title: "Recall prompts"
+          description: "Questions to self-test."
+          items:
+            - "Prompt 1 referencing topic."
+            - "Prompt 2 bridging concept."
+            - "Prompt 3 stretching to application."
+        - title: "Break + next step"
+          description: "Close the loop."
+          items:
+            - "5 min break instructions."
+            - "Log retention feel."
+            - "Set next sprint if needed."
+      tips:
+        - "Use share link for accountability group."
+        - "Upgrade for reminder scheduling."
+        - "Regenerate to tweak prompts."
+      highlight:
+        eyebrow: "Sprint queued"
+        copy: "Silence notifications and start the timer."
+    readme:
+      what: "StudySprint creates 25-minute learning blocks with recall prompts and shareable summaries."
+      flow:
+        - "Enter topic, deadline, confidence, and preferred format."
+        - "Review focus plan, recall prompts, and break card."
+        - "Copy/share or regenerate for another topic."
+      free:
+        - "Manual sprint builder."
+      pro:
+        - "Syllabus library + reminders."
+        - "Log export."
+        - "Unlimited sprints."
+      target: "Study/productivity apps embedding pomodoro-style helpers."
+      monetization: "Free sprint daily; Pro adds reminders, saved syllabi, and exports."
+      qa:
+        - "Text input validation."
+        - "Share link across browsers."
+        - "Upsell gating."
+      events:
+        - name: "studysprint:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple sprints."
+        - name: "studysprint:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate button."
+        - name: "studysprint:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell displayed."
+        - name: "studysprint:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Pomodoro-style study plans."
+      description: "StudySprint shapes 25-minute focus sessions with recall prompts and shareable notes."
+      keywords: ["study", "pomodoro", "education"]
+      primaryCategory: "education"
+    theme:
+      heroGradient: "linear-gradient(135deg, #f5f0ff, #f0fff8)"
+      primary: "#9b5de5"
+      primaryInk: "#ffffff"
+      surface: "#faf7ff"
+  - slug: clipchoreo
+    name: ClipChoreo
+    category: creator
+    tagline: "Transforms an idea into a three-shot storyboard with on-screen text guidance."
+    hero:
+      eyebrow: "Storyboard brain"
+      title: "ClipChoreo"
+      tagline: "Turn ideas into beat-perfect shot lists."
+    placeholder: "Drop a concept to storyboard."
+    freePlanLimit: 1
+    form:
+      helper: "Concept + platform required."
+      ctaLabel: "Storyboard it"
+      fields:
+        - type: text
+          name: concept
+          label: "Concept"
+          placeholder: "e.g., productivity hack reel"
+          required: true
+        - type: select
+          name: platform
+          label: "Platform"
+          options:
+            - label: "Reels"
+              value: "reels"
+              default: true
+            - label: "TikTok"
+              value: "tiktok"
+            - label: "Shorts"
+              value: "shorts"
+        - type: select
+          name: pace
+          label: "Pace"
+          options:
+            - label: "Chill"
+              value: "chill"
+            - label: "Snappy"
+              value: "snappy"
+              default: true
+            - label: "Hyper"
+              value: "hyper"
+        - type: select
+          name: tone
+          label: "Tone"
+          options:
+            - label: "Friendly"
+              value: "friendly"
+              default: true
+            - label: "Bold"
+              value: "bold"
+            - label: "Minimal"
+              value: "minimal"
+    share:
+      label: "Share storyboard"
+      cta: "Copy deck"
+    upsell:
+      title: "ClipChoreo Pro"
+      copy: "Unlimited boards, brand kits, and asset export."
+      bullets:
+        - Brand kit overlays.
+        - CSV shot export.
+        - Unlimited boards/day.
+      ctaLabel: "Upgrade for kits"
+    plan:
+      summary:
+        title: "{{labels.platform}} storyboard"
+        subtitle: "Concept {{labels.concept}} · Pace {{labels.pace}}."
+        metrics:
+          - label: "Shots"
+            value: "3"
+          - label: "Text beats"
+            value: "2 overlays"
+          - label: "CTA"
+            value: "Deterministic"
+      sections:
+        - title: "Shot 1"
+          description: "Hook + context."
+          items:
+            - "Visual treatment referencing {{labels.tone}} tone."
+            - "On-screen text suggestion."
+            - "Beat length tied to {{labels.pace}}."
+        - title: "Shot 2"
+          description: "Core content."
+          items:
+            - "List key action/camera move."
+            - "B-roll or overlay suggestion."
+            - "Transition tip."
+        - title: "Shot 3"
+          description: "Payoff + CTA."
+          items:
+            - "Tie back to concept + CTA copy."
+            - "Motion or sound cue."
+            - "Optional Easter egg."
+      tips:
+        - "Save share link for editors."
+        - "Upgrade for brand-safe export."
+        - "Regenerate for alternative tone."
+      highlight:
+        eyebrow: "Storyboard locked"
+        copy: "Prep props + audio before filming."
+    readme:
+      what: "ClipChoreo converts prompts into deterministic three-shot storyboards with text overlays."
+      flow:
+        - "Enter concept/platform/pace/tone."
+        - "Review shot cards and tips."
+        - "Copy share link."
+      free:
+        - "One board/day."
+      pro:
+        - "Unlimited boards."
+        - "Brand kits + exports."
+        - "Asset download stubs."
+      target: "Creator tools needing polished storyboard scaffolds."
+      monetization: "Free board per day; Pro adds brand kits, exports, unlimited regen."
+      qa:
+        - "Text input validation."
+        - "Ensure share row uses clipboard fallback."
+        - "Upsell gating."
+      events:
+        - name: "clipchoreo:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Second board."
+        - name: "clipchoreo:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate."
+        - name: "clipchoreo:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell reveal."
+        - name: "clipchoreo:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Video storyboard generator."
+      description: "ClipChoreo drafts three-shot storyboards with text overlays customized to platform, pace, and tone."
+      keywords: ["storyboard", "video", "creator"]
+      primaryCategory: "photo-video"
+    theme:
+      heroGradient: "linear-gradient(135deg, #fff1f5, #ecf2ff)"
+      primary: "#ff2d55"
+      primaryInk: "#ffffff"
+      surface: "#fff5f8"
+  - slug: beatboard
+    name: BeatBoard
+    category: creator
+    tagline: "Produces short audio hooks tuned to vibe sliders for reels or pods."
+    hero:
+      eyebrow: "Hook generator"
+      title: "BeatBoard"
+      tagline: "Dial in vibe and get a loop-ready hook."
+    placeholder: "Pick vibe + use case."
+    freePlanLimit: 3
+    form:
+      helper: "Need vibe, use case, and tempo."
+      ctaLabel: "Generate hook"
+      fields:
+        - type: select
+          name: vibe
+          label: "Vibe"
+          options:
+            - label: "Dreamy"
+              value: "dreamy"
+            - label: "Upbeat"
+              value: "upbeat"
+              default: true
+            - label: "Gritty"
+              value: "gritty"
+        - type: select
+          name: length
+          label: "Length"
+          options:
+            - label: "5 sec"
+              value: "5"
+            - label: "10 sec"
+              value: "10"
+              default: true
+            - label: "15 sec"
+              value: "15"
+        - type: select
+          name: useCase
+          label: "Use case"
+          options:
+            - label: "Reel intro"
+              value: "reel"
+              default: true
+            - label: "Podcast bumper"
+              value: "pod"
+            - label: "Ad sting"
+              value: "ad"
+        - type: select
+          name: energy
+          label: "Energy"
+          options:
+            - label: "Low key"
+              value: "low"
+            - label: "Medium"
+              value: "medium"
+              default: true
+            - label: "Hype"
+              value: "high"
+    share:
+      label: "Share hook"
+      cta: "Copy link"
+    upsell:
+      title: "BeatBoard Pro"
+      copy: "Unlimited stems, favorite banks, and licensing notes."
+      bullets:
+        - Stem download placeholder.
+        - Favorite bank library.
+        - Licensing reminders.
+      ctaLabel: "Upgrade for stems"
+    plan:
+      summary:
+        title: "{{labels.useCase}} hook"
+        subtitle: "Vibe {{labels.vibe}} · Energy {{labels.energy}}."
+        metrics:
+          - label: "Length"
+            value: "{{labels.length}} sec"
+          - label: "Tempo"
+            value: "92–120 BPM"
+          - label: "Loop ready"
+            value: "Yes"
+      sections:
+        - title: "Sonic palette"
+          description: "Baseline instrumentation suggestions."
+          items:
+            - "Lead instrument referencing {{labels.vibe}}."
+            - "Bass / rhythm cues."
+            - "FX or ear candy idea."
+        - title: "Hook structure"
+          description: "Timeline for the {{labels.length}} sec sting."
+          items:
+            - "Beat 1: intro swell."
+            - "Beat 2-3: motif enters."
+            - "Beat 4+: stutter/loop instructions."
+        - title: "Usage tips"
+          description: "How to drop it in content."
+          items:
+            - "CTA overlay suggestion."
+            - "Volume ducking tip."
+            - "Loop instructions."
+      tips:
+        - "Upgrade for stem download + licensing guidelines."
+        - "Share link with editor or collaborator."
+        - "Regenerate for different vibe."
+      highlight:
+        eyebrow: "Hook framed"
+        copy: "Lock tempo before final mix."
+    readme:
+      what: "BeatBoard outputs descriptive hook briefs for short-form content."
+      flow:
+        - "Pick vibe/length/use case/energy."
+        - "Review sonic palette, hook structure, and tips."
+        - "Share or regenerate."
+      free:
+        - "Three hooks/day."
+      pro:
+        - "Unlimited hooks."
+        - "Stems & favorites."
+        - "Licensing notes."
+      target: "Creator/music tools needing deterministic prompts."
+      monetization: "Free includes three hooks; Pro unlocks stems, favorites, unlimited runs."
+      qa:
+        - "Dropdown defaults."
+        - "Clipboard share."
+        - "Upsell gating."
+      events:
+        - name: "beatboard:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "More than three hooks."
+        - name: "beatboard:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate button."
+        - name: "beatboard:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "beatboard:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Vibe-ready audio hooks."
+      description: "BeatBoard suggests instrumentation and structure for short hooks tailored to vibe sliders."
+      keywords: ["audio", "creator", "loop"]
+      primaryCategory: "music"
+    theme:
+      heroGradient: "linear-gradient(135deg, #f0f0ff, #fdf2ff)"
+      primary: "#8b5cf6"
+      primaryInk: "#ffffff"
+      surface: "#f7f2ff"
+  - slug: questdash
+    name: QuestDash
+    category: games
+    tagline: "Generates micro adventure challenges with photo-proof prompts."
+    hero:
+      eyebrow: "Adventure prompts"
+      title: "QuestDash"
+      tagline: "Challenge friends with deterministic quests."
+    placeholder: "Tell QuestDash about the crew."
+    freePlanLimit: 1
+    form:
+      helper: "Need crew vibe & setting."
+      ctaLabel: "Roll a quest"
+      fields:
+        - type: select
+          name: crew
+          label: "Crew type"
+          options:
+            - label: "Friends"
+              value: "friends"
+              default: true
+            - label: "Couple"
+              value: "couple"
+            - label: "Family"
+              value: "family"
+        - type: chips
+          name: energy
+          label: "Energy"
+          options:
+            - label: "Chill"
+              value: "chill"
+            - label: "Curious"
+              value: "curious"
+              default: true
+            - label: "Competitive"
+              value: "competitive"
+        - type: select
+          name: setting
+          label: "Setting"
+          options:
+            - label: "City"
+              value: "city"
+              default: true
+            - label: "Outdoors"
+              value: "outdoors"
+            - label: "Home"
+              value: "home"
+        - type: select
+          name: proof
+          label: "Proof type"
+          options:
+            - label: "Photo"
+              value: "photo"
+              default: true
+            - label: "Video"
+              value: "video"
+            - label: "Note"
+              value: "note"
+    share:
+      label: "Share quest"
+      cta: "Copy quest"
+    upsell:
+      title: "QuestDash Pro"
+      copy: "Unlock themed challenge packs, group history, and leaderboards."
+      bullets:
+        - Theme packs (foodie, retro, travel).
+        - Group leaderboard stub.
+        - History log.
+      ctaLabel: "Upgrade for packs"
+    plan:
+      summary:
+        title: "{{labels.setting}} quest"
+        subtitle: "Crew {{labels.crew}} · Energy {{labels.energy}}."
+        metrics:
+          - label: "Challenges"
+            value: "3"
+          - label: "Proof"
+            value: "{{labels.proof}}"
+          - label: "Bonus"
+            value: "+1 wildcard"
+      sections:
+        - title: "Kickoff"
+          description: "Prime the crew."
+          items:
+            - "Set timer + choose playlist."
+            - "Read rules out loud."
+            - "Assign scorekeeper."
+        - title: "Challenges"
+          description: "Three deterministic prompts."
+          items:
+            - "Challenge A referencing {{labels.setting}}."
+            - "Challenge B referencing {{labels.energy}}."
+            - "Challenge C referencing {{labels.proof}}."
+        - title: "Wildcard"
+          description: "Final surprise move."
+          items:
+            - "Wildcard twist (loser buys treat)."
+            - "Share photo proof in group chat."
+            - "Regenerate if crew wants rematch."
+      tips:
+        - "Upgrade for theme packs."
+        - "Share link to scoreboard doc."
+        - "Mix proof types for variety."
+      highlight:
+        eyebrow: "Quest accepted"
+        copy: "Remember: pics or it didn’t happen."
+    readme:
+      what: "QuestDash creates micro adventure quests with shareable prompts."
+      flow:
+        - "Choose crew, energy, setting, and proof."
+        - "QuestDash outputs kickoff, challenges, and wildcard cards."
+        - "Copy/share or regenerate for another round."
+      free:
+        - "One quest/day."
+      pro:
+        - "Theme packs."
+        - "Leaderboard/history."
+        - "Unlimited quests."
+      target: "Social/party apps embedding mini challenges."
+      monetization: "Free daily quest; Pro unlocks themes, history, and leaderboards."
+      qa:
+        - "Chip accessibility."
+        - "Share row functionality."
+        - "Upsell gating."
+      events:
+        - name: "questdash:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple quests."
+        - name: "questdash:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate pressed."
+        - name: "questdash:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "questdash:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Photo-proof challenges."
+      description: "QuestDash dishes quick challenges for friends or couples with shareable prompts."
+      keywords: ["challenge", "game", "social"]
+      primaryCategory: "games"
+    theme:
+      heroGradient: "linear-gradient(135deg, #fef3ff, #e3f9ff)"
+      primary: "#ff6ad5"
+      primaryInk: "#ffffff"
+      surface: "#fff6fb"
+  - slug: pitchpulse
+    name: PitchPulse
+    category: career
+    tagline: "Elevator-pitch builder scoring clarity and trimming tips."
+    hero:
+      eyebrow: "Pitch coach"
+      title: "PitchPulse"
+      tagline: "Draft a lightning intro with clarity cues."
+    placeholder: "Tell PitchPulse about the audience and vibe."
+    freePlanLimit: 1
+    form:
+      helper: "Audience + tone required."
+      ctaLabel: "Draft pitch"
+      fields:
+        - type: select
+          name: audience
+          label: "Audience"
+          options:
+            - label: "Investor"
+              value: "investor"
+            - label: "Hiring manager"
+              value: "hiring"
+              default: true
+            - label: "Peer networking"
+              value: "peer"
+        - type: select
+          name: tone
+          label: "Tone"
+          options:
+            - label: "Confident"
+              value: "confident"
+              default: true
+            - label: "Warm"
+              value: "warm"
+            - label: "High-energy"
+              value: "high"
+        - type: select
+          name: time
+          label: "Time window"
+          options:
+            - label: "20 sec"
+              value: "20"
+            - label: "30 sec"
+              value: "30"
+              default: true
+            - label: "45 sec"
+              value: "45"
+        - type: select
+          name: focus
+          label: "Focus"
+          options:
+            - label: "Product"
+              value: "product"
+            - label: "Team"
+              value: "team"
+            - label: "Traction"
+              value: "traction"
+              default: true
+    share:
+      label: "Share pitch"
+      cta: "Copy pitch"
+    upsell:
+      title: "PitchPulse Pro"
+      copy: "Store role profiles, rehearsal mode, and share links."
+      bullets:
+        - Save unlimited role profiles.
+        - Rehearsal timer + filler alert.
+        - Shareable pitch links.
+      ctaLabel: "Upgrade for rehearsal"
+    plan:
+      summary:
+        title: "{{labels.audience}} pitch"
+        subtitle: "Tone {{labels.tone}} · {{labels.time}} sec · Focus {{labels.focus}}."
+        metrics:
+          - label: "Hook"
+            value: "3 beats"
+          - label: "Score"
+            value: "8.7 clarity"
+          - label: "CTA"
+            value: "Deterministic"
+      sections:
+        - title: "Pitch draft"
+          description: "Paragraph ready to rehearse."
+          items:
+            - "Opening hook referencing {{labels.audience}} pain."
+            - "Proof point tied to {{labels.focus}}."
+            - "Call-to-action tailored to time."
+        - title: "Trim + polish"
+          description: "Suggestions to tighten."
+          items:
+            - "Remove filler words (list)."
+            - "Highlight phrase to emphasize."
+            - "Breath/pauses cues."
+        - title: "Follow-up"
+          description: "How to continue convo."
+          items:
+            - "What to ask the listener."
+            - "Asset to offer (deck, demo)."
+            - "Reminder to log takeaways."
+      tips:
+        - "Upgrade for rehearsal timers + saved pitches."
+        - "Record yourself and compare to clarity cues."
+        - "Share link with mentor for feedback."
+      highlight:
+        eyebrow: "Pitch pulsing"
+        copy: "Practice twice before next conversation."
+    readme:
+      what: "PitchPulse builds elevator pitches with clarity scoring and trim tips."
+      flow:
+        - "Select audience/tone/time/focus."
+        - "Review draft, trim tips, and follow-up card."
+        - "Copy or regenerate."
+      free:
+        - "One pitch saved."
+      pro:
+        - "Role profile library."
+        - "Rehearsal timers + share links."
+        - "Unlimited regenerations."
+      target: "Career/networking products embedding pitch prep."
+      monetization: "Free draft; Pro unlocks saved profiles, rehearsal, and sharing."
+      qa:
+        - "Select defaults."
+        - "Share row copy."
+        - "Upsell gating."
+      events:
+        - name: "pitchpulse:freeLimitHit"
+          detail: "{ planCount }"
+          trigger: "Multiple drafts."
+        - name: "pitchpulse:regenerate"
+          detail: "{ planCount }"
+          trigger: "Regenerate pressed."
+        - name: "pitchpulse:upsellViewed"
+          detail: "{ surface }"
+          trigger: "Upsell shown."
+        - name: "pitchpulse:upsellClicked"
+          detail: "{}"
+          trigger: "Upgrade CTA."
+    apple:
+      subtitle: "Lightning pitch coach."
+      description: "PitchPulse assembles elevator pitches with clarity scoring, trim tips, and follow-up suggestions."
+      keywords: ["pitch", "career", "networking"]
+      primaryCategory: "business"
+    theme:
+      heroGradient: "linear-gradient(135deg, #f2f8ff, #fff0f5)"
+      primary: "#2563eb"
+      primaryInk: "#ffffff"
+      surface: "#f4f8ff"

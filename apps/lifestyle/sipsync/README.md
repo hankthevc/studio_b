@@ -36,3 +36,19 @@ python3 -m http.server 8080 -d apps/lifestyle/sipsync
 
 ## Embed & Host Enablement
 - Review `EMBED.md` for integration snippets, event wiring guidance, theming knobs, and rollout QA steps.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- baseline reminders
+
+**Pro**
+- syncs smart bottles, tracks streak perks, and unlocks travel modes.
+
+## Screenshot or Loom
+![SipSync screenshot](../../docs/screenshots/sipsync.svg)
+

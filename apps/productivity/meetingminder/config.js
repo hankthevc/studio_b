@@ -1,0 +1,226 @@
+const appConfig = {
+  slug: "meetingminder",
+  hero: {
+    eyebrow: "Meeting companion",
+    title: "MeetingMinder",
+    tagline: "Prep smarter, leave with tidy follow-ups."
+  },
+  form: {
+    helper: "Meeting type + attendees required.",
+    ctaLabel: "Draft prep kit",
+    fields: [
+      {
+        type: "select",
+        name: "meetingType",
+        label: "Meeting type",
+        options: [
+          {
+            label: "1:1",
+            value: "1-1"
+          },
+          {
+            label: "Team sync",
+            value: "team",
+            default: true
+          },
+          {
+            label: "Client",
+            value: "client"
+          }
+        ]
+      },
+      {
+        type: "text",
+        name: "attendees",
+        label: "Key attendees",
+        placeholder: "e.g., Alex (PM), Priya (Design)",
+        required: true
+      },
+      {
+        type: "select",
+        name: "goal",
+        label: "Goal",
+        options: [
+          {
+            label: "Decide",
+            value: "decide",
+            default: true
+          },
+          {
+            label: "Align",
+            value: "align"
+          },
+          {
+            label: "Status",
+            value: "status"
+          }
+        ]
+      },
+      {
+        type: "select",
+        name: "duration",
+        label: "Duration",
+        options: [
+          {
+            label: "15 min",
+            value: "15"
+          },
+          {
+            label: "30 min",
+            value: "30",
+            default: true
+          },
+          {
+            label: "60 min",
+            value: "60"
+          }
+        ]
+      }
+    ]
+  },
+  placeholder: "Tell MeetingMinder about the meeting.",
+  freePlanLimit: 1,
+  share: {
+    label: "Share prep kit",
+    cta: "Copy plan"
+  },
+  upsell: {
+    title: "MeetingMinder Pro",
+    copy: "Sync across calendars, shared notes, and action exports.",
+    bullets: [
+      "Calendar auto-ingest.",
+      "Shared notes & templates.",
+      "Action-item export."
+    ],
+    ctaLabel: "Upgrade for sync"
+  },
+  plan: {
+    summary: {
+      title: "{{labels.meetingType}} prep",
+      subtitle: "Goal {{labels.goal}} \u00b7 Duration {{labels.duration}} min.",
+      metrics: [
+        {
+          label: "Prep items",
+          value: "3"
+        },
+        {
+          label: "Follow-ups",
+          value: "3"
+        },
+        {
+          label: "Share",
+          value: "1 link"
+        }
+      ]
+    },
+    sections: [
+      {
+        title: "Pre-meeting checklist",
+        description: "What to prep before joining.",
+        items: [
+          "Scan last notes + highlight blockers.",
+          "Collect metrics or artifacts tied to {{labels.goal}}.",
+          "Draft opener tailored to {{labels.attendees}}."
+        ]
+      },
+      {
+        title: "Live agenda beats",
+        description: "Structure the conversation.",
+        items: [
+          "Warm take + expectations.",
+          "Decision or alignment block.",
+          "Time-check reminder at halfway."
+        ]
+      },
+      {
+        title: "Follow-up script",
+        description: "Capture next steps.",
+        items: [
+          "Summarize outcomes + owners.",
+          "Send doc/recording link.",
+          "Schedule next touchpoint if needed."
+        ]
+      }
+    ],
+    tips: [
+      "Drop share link into meeting invite.",
+      "Upgrade to auto-import attendees/goals.",
+      "Regenerate when agenda pivots."
+    ],
+    highlight: {
+      eyebrow: "Ready to run",
+      copy: "Arrive five minutes early to skim this prep kit."
+    },
+    fields: [
+      {
+        type: "select",
+        name: "meetingType",
+        label: "Meeting type",
+        options: [
+          {
+            label: "1:1",
+            value: "1-1"
+          },
+          {
+            label: "Team sync",
+            value: "team",
+            default: true
+          },
+          {
+            label: "Client",
+            value: "client"
+          }
+        ]
+      },
+      {
+        type: "text",
+        name: "attendees",
+        label: "Key attendees",
+        placeholder: "e.g., Alex (PM), Priya (Design)",
+        required: true
+      },
+      {
+        type: "select",
+        name: "goal",
+        label: "Goal",
+        options: [
+          {
+            label: "Decide",
+            value: "decide",
+            default: true
+          },
+          {
+            label: "Align",
+            value: "align"
+          },
+          {
+            label: "Status",
+            value: "status"
+          }
+        ]
+      },
+      {
+        type: "select",
+        name: "duration",
+        label: "Duration",
+        options: [
+          {
+            label: "15 min",
+            value: "15"
+          },
+          {
+            label: "30 min",
+            value: "30",
+            default: true
+          },
+          {
+            label: "60 min",
+            value: "60"
+          }
+        ]
+      }
+    ]
+  }
+};
+
+export { appConfig };

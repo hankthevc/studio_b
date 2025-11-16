@@ -36,3 +36,19 @@ python3 -m http.server 8080 -d apps/finance/moneymicro
 
 ## Embed & Host Enablement
 - Review `EMBED.md` for drop-in snippet, analytics wiring guidance, theming knobs, and rollout QA checklist.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- basic calc
+
+**Pro**
+- enables saved scenarios, advisor-style recommendations, and timeline exports.
+
+## Screenshot or Loom
+![MoneyMicro screenshot](../../docs/screenshots/moneymicro.svg)
+

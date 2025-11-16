@@ -40,3 +40,19 @@ The first itinerary is free. Upgrading (placeholder $4.99/month) unlocks unlimit
 - Replace the toast inside `buildUpsellBanner` with the host purchase flow and emit analytics (e.g., `tripspark.upgradeTapped`, `tripspark.subscriptionStarted`) to respect the “one free itinerary” rule.
 - Swap the mock generator by wiring `shared/llmClient.callTripSparkLLM` to a real backend endpoint; keep the payload shape `{ destination, vibe, pace, budgetLevel, stayLength }` for compatibility.
 - Provide clipboard and export bridges if the host needs additional permissions; both actions are centralized in `buildShareRow` for easy interception.
+
+## Flow
+- Set context with the mini-app form.
+- Review the deterministic plan/cards it generates.
+- Share, embed, or regenerate as needed.
+
+## Free vs Pro
+**Free**
+- first itinerary
+
+**Pro**
+- subscription unlocks unlimited exports, saved trips, and calendar sync.
+
+## Screenshot or Loom
+![TripSpark screenshot](../../docs/screenshots/tripspark.svg)
+

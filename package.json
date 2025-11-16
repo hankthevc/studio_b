@@ -1,0 +1,19 @@
+{
+  "name": "miniapps-studio-b",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:js": "eslint shared apps --ext .js",
+    "readme:refresh": "node scripts/phase2_refresh_readmes.mjs",
+    "readme:check": "node scripts/phase2_refresh_readmes.mjs --check",
+    "ci": "npm run lint:js && npm run readme:check"
+  },
+  "devDependencies": {
+    "eslint": "^9.11.0",
+    "glob": "^11.0.0",
+    "htmlhint": "^1.1.4",
+    "csslint": "^1.0.5",
+    "yaml": "^2.5.0"
+  }
+}

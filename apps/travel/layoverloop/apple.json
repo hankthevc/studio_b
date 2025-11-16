@@ -1,0 +1,12 @@
+{
+  "title": "LayoverLoop",
+  "subtitle": "Micro itineraries between flights.",
+  "description": "Build deterministic layover playbooks with lounge stops, food runs, and buffer math so airport downtime feels intentional.",
+  "keywords": [
+    "layover",
+    "travel",
+    "airport",
+    "plan"
+  ],
+  "primaryCategory": "travel"
+}
