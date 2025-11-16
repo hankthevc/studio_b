@@ -36,7 +36,7 @@ export function initAppShell(root, config, generatePlan) {
   results.className = "results card";
   results.append(buildPlaceholder(mergedConfig.placeholder));
 
-  const upsell = buildUpsell(mergedConfig.upsell);
+  const upsell = buildUpsell(mergedConfig.slug, mergedConfig.upsell);
   if (upsell) {
     upsell.classList.add("is-hidden");
   }
@@ -426,7 +426,7 @@ function buildShareRow(share = {}, callbacks = {}) {
   return card;
 }
 
-function buildUpsell(upsell = {}) {
+function buildUpsell(slug, upsell = {}) {
   if (!upsell || (!upsell.title && !upsell.copy)) {
     return null;
   }
@@ -455,6 +455,9 @@ function buildUpsell(upsell = {}) {
   cta.textContent = upsell.ctaLabel || "Upgrade";
   cta.addEventListener("click", () => {
     renderToast("Billing flow coming soon.");
+    if (slug) {
+      dispatchAnalytics(`${slug}:upsellClicked`);
+    }
   });
   card.append(cta);
   return card;

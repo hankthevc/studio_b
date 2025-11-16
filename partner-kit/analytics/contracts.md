@@ -8,21 +8,36 @@ Send all events through **Segment `track`** calls using the namespaces below. Ea
 - `properties.surface` – when applicable, string describing the UI surface that triggered the event.
 - `properties.planCount`, `properties.puzzleCount`, etc. – integers representing cumulative usage during the session.
 
-## Event Matrix
+## Core Event Contract (All Apps)
+Every mini-app mounted through `shared/appShell.js` emits the following events automatically:
 
-| App | Events & Sample Payload |
+| Event | Payload | Description |
+| --- | --- | --- |
+| `slug:shareCopied` | `{}` | Fired when a user copies the share link from the results row. |
+| `slug:regenerate` | `{}` | Triggered when the user taps **Regenerate** (share row) to request another deterministic plan. |
+| `slug:freeLimitHit` | `{ count }` | Emitted when the session exceeds `freePlanLimit`. Use `properties.count` to understand how many generations occurred. |
+| `slug:upsellViewed` | `{ surface }` | Dispatches when the upsell banner becomes visible. `surface` indicates where (`results`, `postPlan`, etc.). |
+| `slug:upsellClicked` | `{}` | Fires when the user taps the upsell CTA (host should launch billing modal and flip subscription state). |
+
+These five events exist for **all 30 apps** (TripSpark through PitchPulse) and should be wired into Segment before pilots begin.
+
+## App-Specific Extensions
+Some apps expose additional actions beyond the shared contract. Instrument those events to capture deeper intent:
+
+| App | Additional Events |
 | --- | --- |
-| TripSpark | `tripspark:freeLimitHit { planCount }`, `tripspark:regenerate { planCount }`, `tripspark:export { plan }`, `tripspark:upsellViewed { surface }`, `tripspark:upsellClicked {}` |
-| PocketPorter | `pocketporter:freeLimitHit { planCount }`, `pocketporter:regenerate { planCount }`, `pocketporter:saveWardrobe { plan }`, `pocketporter:upsellViewed { surface }`, `pocketporter:upsellClicked {}` |
-| SipSync | `sipsync:freeLimitHit { planCount }`, `sipsync:regenerate { planCount }`, `sipsync:smartBottleSync { plan }`, `sipsync:upsellViewed { surface }`, `sipsync:upsellClicked {}` |
-| MealMind | `mealmind:freeLimitHit { planCount }`, `mealmind:regenerate { planCount }`, `mealmind:export { plan }`, `mealmind:savePreset { plan }`, `mealmind:upsellViewed { surface }`, `mealmind:upsellClicked {}` |
-| StorySpark | `storyspark:freeLimitHit { planCount }`, `storyspark:regenerate { planCount }`, `storyspark:savePreset { plan }`, `storyspark:upsellViewed { surface }`, `storyspark:upsellClicked {}` |
-| HookLab | `hooklab:freeLimitHit { planCount }`, `hooklab:regenerate { planCount }`, `hooklab:export { plan }`, `hooklab:savePreset { variant }`, `hooklab:upsellViewed { surface }`, `hooklab:upsellClicked {}` |
-| FocusTiles | `focustiles:freeLimitHit { planCount }`, `focustiles:regenerate { planCount }`, `focustiles:saveRhythm { plan }`, `focustiles:logSession { tile }`, `focustiles:upsellViewed { surface }`, `focustiles:upsellClicked {}` |
-| PrepCoach | `prepcoach:freeLimitHit { planCount }`, `prepcoach:regenerate { planCount }`, `prepcoach:export { plan }`, `prepcoach:upsellViewed { surface }`, `prepcoach:upsellClicked {}` |
-| MoneyMicro | `moneymicro:freeLimitHit { calcCount }`, `moneymicro:regenerate { calcCount }`, `moneymicro:export { scenario }`, `moneymicro:upsellViewed { surface }`, `moneymicro:upsellClicked {}` |
-| BrainBite | `brainbite:freeLimitHit { puzzleCount }`, `brainbite:regenerate { puzzleCount }`, `brainbite:archiveExport { puzzle }`, `brainbite:shieldApplied { streak }`, `brainbite:upsellViewed { surface }`, `brainbite:upsellClicked {}` |
-| LiftShift | `liftshift:freeLimitHit { planCount }`, `liftshift:regenerate { planCount }`, `liftshift:export { plan }`, `liftshift:upsellViewed { surface }`, `liftshift:upsellClicked {}` |
+| TripSpark | `tripspark:export { plan }` |
+| PocketPorter | `pocketporter:saveWardrobe { plan }` |
+| SipSync | `sipsync:smartBottleSync { plan }` |
+| MealMind | `mealmind:export { plan }`, `mealmind:savePreset { plan }` |
+| StorySpark | `storyspark:savePreset { plan }` |
+| HookLab | `hooklab:export { plan }`, `hooklab:savePreset { variant }` |
+| FocusTiles | `focustiles:saveRhythm { plan }`, `focustiles:logSession { tile }` |
+| PrepCoach | `prepcoach:export { plan }` |
+| MoneyMicro | `moneymicro:export { scenario }` |
+| BrainBite | `brainbite:archiveExport { puzzle }`, `brainbite:shieldApplied { streak }` |
+
+Future custom events (e.g., `slicesaver:reminderQueued`, `flowstreak:winLogged`) should use the same `slug:eventName` naming scheme and be added to this table once implemented.
 
 ## KPI Suggestions
 
