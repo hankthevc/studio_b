@@ -1,14 +1,25 @@
 {
-  "displayName": "HookLab",
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "hooklab",
+  "title": "HookLab",
   "subtitle": "AI hook A/B studio",
-  "category": "creator",
-  "ageRating": "4+",
-  "iapModel": "free",
-  "priceTier": "0",
+  "category": "Creator",
   "keywords": [
     "hooks",
     "thumbnail",
     "creator",
     "video"
-  ]
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/hooklab",
+  "asset": {
+    "bundleSubdirectory": "apps/creator/hooklab",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

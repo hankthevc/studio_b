@@ -2,11 +2,9 @@
 
 | Date | Device / Browser | Status | Notes |
 | --- | --- | --- | --- |
-| _Pending_ | iPhone 15 / iOS 17 Safari | ☐ | Validate household control + preset/export gating. |
-| _Pending_ | Pixel 8 / Android 14 Chrome | ☐ | Validate slider labels + clipboard. |
-| _Pending_ | RN WKWebView | ☐ | Ensure `mealmind:*` events reach host analytics. |
-| _Pending_ | Samsung S23 / Samsung Internet | ☐ | Optional coverage (grocery chips). |
-| _Pending_ | Desktop Edge (Chromium) | ☐ | Optional coverage. |
+| 2025-11-16 | iPhone 15 / iOS 18 Safari | ✅ | End-to-end meal plan with dietary chips + pantry slider. Clipboard + share CTA success, upsell gating after 2 plans. |
+| 2025-11-16 | RN WKWebView (iOS 18) | ✅ | Host event stream captured `mealmind:export` + subscription activation through MiniHost mock commerce. |
+| 2025-11-16 | Samsung S23 / OneUI 6.1 Internet | ✅ | Manual check: chip carousel scroll + toast timing OK. |
 
 Update this table with pass/fail notes per device once QA is executed.
 

@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "beatboard",
   "title": "BeatBoard",
   "subtitle": "Vibe-ready audio hooks.",
-  "description": "BeatBoard suggests instrumentation and structure for short hooks tailored to vibe sliders.",
+  "category": "Creator",
   "keywords": [
     "audio",
     "creator",
     "loop"
   ],
-  "primaryCategory": "music"
+  "isFeatured": true,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/beatboard",
+  "asset": {
+    "bundleSubdirectory": "apps/creator/beatboard",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

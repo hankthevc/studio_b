@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "habitgrid",
   "title": "HabitGrid",
   "subtitle": "Heatmap habit tracker.",
-  "description": "Map up to five micro-habits, color the streak grid, and receive friendly reminders plus accountability cues.",
+  "category": "Lifestyle",
   "keywords": [
     "habit",
     "tracker",
     "streak"
   ],
-  "primaryCategory": "lifestyle"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/habitgrid",
+  "asset": {
+    "bundleSubdirectory": "apps/lifestyle/habitgrid",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

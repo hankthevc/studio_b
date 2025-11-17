@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "slicesaver",
   "title": "SliceSaver",
   "subtitle": "Split group costs with scripts.",
-  "description": "SliceSaver drafts fairness-aware splits plus reminder scripts so crews keep vibes high while settling up.",
+  "category": "Finance",
   "keywords": [
     "split",
     "finance",
     "bills"
   ],
-  "primaryCategory": "finance"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/slicesaver",
+  "asset": {
+    "bundleSubdirectory": "apps/finance/slicesaver",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

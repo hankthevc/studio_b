@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "meetingminder",
   "title": "MeetingMinder",
   "subtitle": "Prep + follow-up in one swipe.",
-  "description": "Feed MeetingMinder the meeting context and get a deterministic prep kit with agenda + follow-ups.",
+  "category": "Productivity",
   "keywords": [
     "meeting",
     "agenda",
     "productivity"
   ],
-  "primaryCategory": "productivity"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/meetingminder",
+  "asset": {
+    "bundleSubdirectory": "apps/productivity/meetingminder",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

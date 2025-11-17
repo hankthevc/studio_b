@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "slug": "tripspark",
+      "productId": "com.studiob.tripspark.pro",
+      "displayName": "TripSpark Pro",
+      "family": "travel"
+    },
+    {
+      "slug": "billbreeze",
+      "productId": "com.studiob.billbreeze.plus",
+      "displayName": "BillBreeze Plus",
+      "family": "finance"
+    },
+    {
+      "slug": "mealmind",
+      "productId": "com.studiob.mealmind.unlimited",
+      "displayName": "MealMind Unlimited",
+      "family": "lifestyle"
+    },
+    {
+      "slug": "liftshift",
+      "productId": "com.studiob.liftshift.pro",
+      "displayName": "LiftShift Pro",
+      "family": "fitness"
+    },
+    {
+      "slug": "flowstreak",
+      "productId": "com.studiob.flowstreak.teams",
+      "displayName": "FlowStreak Teams",
+      "family": "productivity"
+    }
+  ]
+}
+

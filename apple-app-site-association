@@ -1,0 +1,42 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "ABCDE12345.com.studiob.host",
+        "paths": [
+          "/beatboard",
+          "/billbreeze",
+          "/brainbite",
+          "/clipchoreo",
+          "/flexdesk",
+          "/flowstreak",
+          "/focustiles",
+          "/habitgrid",
+          "/hooklab",
+          "/inboxzen",
+          "/languageloop",
+          "/layoverloop",
+          "/liftshift",
+          "/mealmind",
+          "/meetingminder",
+          "/moneymicro",
+          "/pitchpulse",
+          "/pocketporter",
+          "/prepcoach",
+          "/pulsepath",
+          "/questdash",
+          "/restnest",
+          "/sipsync",
+          "/skillsnack",
+          "/slicesaver",
+          "/storyspark",
+          "/studysprint",
+          "/tempobuddy",
+          "/tiptally",
+          "/tripspark"
+        ]
+      }
+    ]
+  }
+}

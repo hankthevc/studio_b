@@ -3,3 +3,7 @@ __pycache__
 .DS_Store
 node_modules
 
+# Local artifact bundles
+*.zip
+server/.env
+

@@ -1,14 +1,25 @@
 {
-  "displayName": "PocketPorter",
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "pocketporter",
+  "title": "PocketPorter",
   "subtitle": "AI packing buddy",
-  "category": "travel",
-  "ageRating": "4+",
-  "iapModel": "free",
-  "priceTier": "0",
+  "category": "Travel",
   "keywords": [
     "packing",
     "travel",
     "carry-on",
     "checklist"
-  ]
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/pocketporter",
+  "asset": {
+    "bundleSubdirectory": "apps/travel/pocketporter",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "pitchpulse",
   "title": "PitchPulse",
   "subtitle": "Lightning pitch coach.",
-  "description": "PitchPulse assembles elevator pitches with clarity scoring, trim tips, and follow-up suggestions.",
+  "category": "Career",
   "keywords": [
     "pitch",
     "career",
     "networking"
   ],
-  "primaryCategory": "business"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/pitchpulse",
+  "asset": {
+    "bundleSubdirectory": "apps/career/pitchpulse",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

@@ -1,6 +1,7 @@
 import { renderToast } from "./ui.js";
 
 const MIN_PLAN_DELAY = 420;
+const HOST_SUBSCRIPTION_EVENT = "MiniHostBridge:subscriptionUpdate";
 
 export function initAppShell(root, config, generatePlan) {
   if (!root) return;
@@ -21,6 +22,8 @@ export function initAppShell(root, config, generatePlan) {
     lastPlan: null,
     isSubscribed: false
   };
+  const hostAdapter = createMiniHostAdapter(mergedConfig.slug);
+  let awaitingHostConfirmation = false;
 
   const shell = document.createElement("div");
   shell.className = "app-shell";
@@ -36,10 +39,11 @@ export function initAppShell(root, config, generatePlan) {
   results.className = "results card";
   results.append(buildPlaceholder(mergedConfig.placeholder));
 
-  const upsell = buildUpsell(mergedConfig.slug, mergedConfig.upsell);
+  const upsell = buildUpsell(mergedConfig.slug, mergedConfig.upsell, () => handleUpgradeClick("upsell"));
   if (upsell) {
     upsell.classList.add("is-hidden");
   }
+  bootstrapHostSubscriptionState();
 
   inner.append(hero, form.element, results);
   if (upsell) {
@@ -80,6 +84,71 @@ export function initAppShell(root, config, generatePlan) {
       await pending;
       showError(results, mergedConfig.errors?.generate || "We hit a snag. Try again.");
       renderToast("Plan failed. Try again.");
+    }
+  }
+
+  async function handleUpgradeClick(surface = "upsell") {
+    dispatchAnalytics(`${mergedConfig.slug}:upsellClicked`, { surface });
+    if (!hostAdapter) {
+      renderToast("Connect to a MiniHost-enabled container to upgrade.");
+      return;
+    }
+    awaitingHostConfirmation = true;
+    renderToast("Connecting to host checkout…");
+    try {
+      const active = await hostAdapter.requestSubscription({
+        planCount: state.planCount,
+        freePlanLimit: mergedConfig.freePlanLimit
+      });
+      if (active) {
+        markSubscribed();
+        renderToast("Subscription active. Enjoy unlimited plans.");
+      } else {
+        renderToast("Subscription pending confirmation.");
+      }
+    } catch (error) {
+      console.error("MiniHost subscription failed", error);
+      renderToast("Upgrade failed. Try again.");
+    } finally {
+      awaitingHostConfirmation = false;
+    }
+  }
+
+  function markSubscribed() {
+    state.isSubscribed = true;
+    if (upsell) {
+      upsell.classList.add("is-hidden");
+    }
+  }
+
+  function bootstrapHostSubscriptionState() {
+    if (!hostAdapter || typeof window === "undefined") {
+      return;
+    }
+    hostAdapter.isSubscribed().then((active) => {
+      if (active) {
+        markSubscribed();
+      }
+    });
+    window.addEventListener(HOST_SUBSCRIPTION_EVENT, handleHostSubscriptionEvent);
+  }
+
+  function handleHostSubscriptionEvent(event) {
+    const detail = event?.detail || {};
+    if (detail.slug && detail.slug !== mergedConfig.slug) {
+      return;
+    }
+    if (typeof detail.isSubscribed === "boolean") {
+      const wasSubscribed = state.isSubscribed;
+      state.isSubscribed = detail.isSubscribed;
+      if (state.isSubscribed) {
+        if (upsell) {
+          upsell.classList.add("is-hidden");
+        }
+        if (!wasSubscribed && !awaitingHostConfirmation) {
+          renderToast("Subscription active. Enjoy unlimited plans.");
+        }
+      }
     }
   }
 }
@@ -426,7 +495,7 @@ function buildShareRow(share = {}, callbacks = {}) {
   return card;
 }
 
-function buildUpsell(slug, upsell = {}) {
+function buildUpsell(slug, upsell = {}, onUpgrade) {
   if (!upsell || (!upsell.title && !upsell.copy)) {
     return null;
   }
@@ -454,6 +523,10 @@ function buildUpsell(slug, upsell = {}) {
   cta.className = "btn-primary";
   cta.textContent = upsell.ctaLabel || "Upgrade";
   cta.addEventListener("click", () => {
+    if (typeof onUpgrade === "function") {
+      onUpgrade();
+      return;
+    }
     renderToast("Billing flow coming soon.");
     if (slug) {
       dispatchAnalytics(`${slug}:upsellClicked`);
@@ -470,4 +543,101 @@ function delay(ms) {
 function dispatchAnalytics(eventName, detail = {}) {
   if (!eventName) return;
   window.dispatchEvent(new CustomEvent(eventName, { detail }));
+  if (window.MiniHost && typeof window.MiniHost.track === "function") {
+    try {
+      window.MiniHost.track(eventName, detail);
+    } catch (error) {
+      console.warn("MiniHost track failed", error);
+    }
+  }
+}
+
+function createMiniHostAdapter(slug) {
+  if (typeof window === "undefined" || !window.MiniHost) {
+    return null;
+  }
+  return {
+    async requestSubscription(metadata = {}) {
+      if (typeof window.MiniHost.requestSubscription !== "function") {
+        return false;
+      }
+      const result = await window.MiniHost.requestSubscription(slug, metadata);
+      return interpretSubscriptionResult(result);
+    },
+    async isSubscribed() {
+      if (typeof window.MiniHost.isSubscribed !== "function") {
+        return false;
+      }
+      try {
+        const response = await window.MiniHost.isSubscribed(slug);
+        return interpretSubscriptionResult(response);
+      } catch (error) {
+        console.warn("MiniHost isSubscribed failed", error);
+        return false;
+      }
+    },
+    async getAgeRange() {
+      if (typeof window.MiniHost.getAgeRange === "function") {
+        try {
+          const response = await window.MiniHost.getAgeRange(slug);
+          return normalizeAgeRange(response);
+        } catch (error) {
+          console.warn("MiniHost getAgeRange failed", error);
+          return null;
+        }
+      }
+      if (typeof window.MiniHost.getAgeCategory === "function") {
+        try {
+          const response = await window.MiniHost.getAgeCategory(slug);
+          return legacyCategoryToRange(response?.category);
+        } catch (error) {
+          console.warn("MiniHost getAgeCategory failed", error);
+          return null;
+        }
+      }
+      return null;
+    }
+  };
+}
+
+function interpretSubscriptionResult(result) {
+  if (typeof result === "boolean") {
+    return result;
+  }
+  if (result && typeof result === "object") {
+    if (typeof result.isSubscribed === "boolean") {
+      return result.isSubscribed;
+    }
+    if (typeof result.status === "string") {
+      return ["active", "subscribed", "purchased"].includes(result.status);
+    }
+  }
+  return false;
+}
+
+function normalizeAgeRange(value) {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+  const min = typeof value.min === "number" ? value.min : null;
+  const max = typeof value.max === "number" ? value.max : null;
+  if (min === null) {
+    return null;
+  }
+  return { min, max };
+}
+
+function legacyCategoryToRange(category) {
+  switch (category) {
+    case "kids":
+      return { min: 4, max: 12 };
+    case "teen":
+      return { min: 13, max: 17 };
+    case "general":
+      return { min: 18, max: 20 };
+    case "mature":
+      return { min: 21, max: null };
+    default:
+      return null;
+  }
 }

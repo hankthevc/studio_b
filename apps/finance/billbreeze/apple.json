@@ -1,11 +1,26 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "billbreeze",
   "title": "BillBreeze",
   "subtitle": "Cash-flow clarity in minutes.",
-  "description": "Plot recurring bills, view safe-to-spend guidance, and queue next best actions with deterministic copy.",
+  "category": "Finance",
   "keywords": [
     "budget",
     "cashflow",
     "bills"
   ],
-  "primaryCategory": "finance"
+  "isFeatured": true,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/billbreeze",
+  "asset": {
+    "bundleSubdirectory": "apps/finance/billbreeze",
+    "entrypoint": "index"
+  },
+  "skuIds": [
+    "com.studiob.billbreeze.plus"
+  ],
+  "previewImageName": null
 }

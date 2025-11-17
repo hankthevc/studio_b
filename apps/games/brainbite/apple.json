@@ -1,14 +1,25 @@
 {
-  "displayName": "BrainBite",
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "brainbite",
+  "title": "BrainBite",
   "subtitle": "Daily micro-puzzle",
-  "category": "games",
-  "ageRating": "4+",
-  "iapModel": "free",
-  "priceTier": "0",
+  "category": "Games",
   "keywords": [
     "puzzle",
     "trivia",
     "logic",
     "daily"
-  ]
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/brainbite",
+  "asset": {
+    "bundleSubdirectory": "apps/games/brainbite",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

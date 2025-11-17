@@ -1,14 +1,25 @@
 {
-  "displayName": "SipSync",
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "sipsync",
+  "title": "SipSync",
   "subtitle": "AI hydration coach",
-  "category": "lifestyle",
-  "ageRating": "4+",
-  "iapModel": "free",
-  "priceTier": "0",
+  "category": "Lifestyle",
   "keywords": [
     "hydration",
     "wellness",
     "reminder",
     "water"
-  ]
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/sipsync",
+  "asset": {
+    "bundleSubdirectory": "apps/lifestyle/sipsync",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

@@ -32,7 +32,7 @@ All pods and agents must align to the following roadmap. Treat these phases as o
 - Bundle showcase demos (e.g., top 5 apps) with cohesive branding for partner outreach.
 - Measure readiness: manual QA matrix (devices/browsers), latency tests, share-link resilience.
 - Transition to monetized pilots: document API requirements, billing hooks, success metrics.
-- **Deliverables:** refreshed `partner-kit/` (analytics contracts, billing mock, QA guide, themes, showcase), per-app `EMBED.md`, docs/qa evidence, pod log entry.
+- **Deliverables:** refreshed `partner-kit/` (analytics contracts, billing mock, QA guide, themes, showcase), per-app `EMBED.md`, docs/qa evidence, pod log entry, generated `miniapps-manifest.json` + `miniapps-index.html` + `apple-app-site-association`, Advanced Commerce backend endpoints, and an updated SwiftUI host shell passing App Review guideline 4.7.
 
 ### Operating Expectations
 - Pods own execution but must reference this roadmap before starting new work.
@@ -71,4 +71,11 @@ All pods and agents must align to the following roadmap. Treat these phases as o
 - Keep animations subtle and performant (CSS transitions only; avoid heavy JS timers).
 - All monetization messaging must mirror what’s in `ideas.yaml` and SPEC.
 - Before finalizing an app, compare against TripSpark to ensure polish parity: mobile-first layout, clear flow, deterministic mocks, upsell moment, and share/tweak actions where relevant.
+
+### 5. Mini-Apps Manifest & Host Shell
+- `apple.json` is the single source of truth for catalog metadata; run `npm run manifest:generate` after any edit to keep `miniapps-manifest.json` + `miniapps-index.html` current and synced into `ios/StudioBHost/Resources/`.
+- The SwiftUI host expects every app to expose the shared shell (`shared/appShell.js`) so `window.MiniHost.requestSubscription`, `.isSubscribed`, `.getAgeCategory`, and `.track` flow through the WKWebView bridge.
+- Declare your test environment before running the host: set `MINIAPP_DEV_ROOT` (absolute repo path) for Simulator file-system loading, and use `STUDIOB_COMMERCE_MODE=storekit` plus the App Store Server API env vars when validating StoreKit 2 + Advanced Commerce.
+- Age gating is enforced host-side through `AgeCategoryProvider`; never collect birthday/age in-app—rely on `MiniHost.getAgeCategory()` to tailor copy or hide surfaces when needed.
+- Universal links/Associated Domains must be regenerated each time the manifest changes: run `npm run manifest:generate` followed by `node scripts/generate_aasa.mjs`, then redeploy the AASA file to `https://miniapps.studio/.well-known/`.
 

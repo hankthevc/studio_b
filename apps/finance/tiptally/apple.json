@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "tiptally",
   "title": "TipTally",
   "subtitle": "Instant tip + split notes.",
-  "description": "TipTally crunches bill, vibe, and round-up preferences, then drafts a copy-ready message for friends.",
+  "category": "Finance",
   "keywords": [
     "tip",
     "split",
     "calculator"
   ],
-  "primaryCategory": "finance"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/tiptally",
+  "asset": {
+    "bundleSubdirectory": "apps/finance/tiptally",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

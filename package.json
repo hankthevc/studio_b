@@ -7,9 +7,14 @@
     "lint:js": "eslint shared apps --ext .js",
     "readme:refresh": "node scripts/phase2_refresh_readmes.mjs",
     "readme:check": "node scripts/phase2_refresh_readmes.mjs --check",
+    "manifest:generate": "node scripts/generate_manifest.mjs",
+    "manifest:sync-ios": "node scripts/sync_ios_manifest.mjs",
+    "aasa:generate": "node scripts/generate_aasa.mjs",
     "ci": "npm run lint:js && npm run readme:check"
   },
   "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
     "eslint": "^9.11.0",
     "glob": "^11.0.0",
     "htmlhint": "^1.1.4",

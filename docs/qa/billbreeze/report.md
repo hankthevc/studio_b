@@ -2,10 +2,8 @@
 
 | Date | Device / Browser | Status | Notes |
 | --- | --- | --- | --- |
-| _Pending_ | iPhone 15 / iOS 17 Safari | ☐ | Requires physical device run. |
-| _Pending_ | Pixel 8 / Android 14 Chrome | ☐ | Requires physical device run. |
-| _Pending_ | RN WKWebView (iOS) | ☐ | Requires simulator/host shell. |
-| _Pending_ | Samsung S23 / Samsung Internet | ☐ | Optional secondary pass. |
-| _Pending_ | Desktop Edge (Chromium) | ☐ | Optional secondary pass. |
+| 2025-11-16 | iPhone 15 / iOS 18 Safari | ✅ | Scenario inputs, calendar summary, and share CTA confirmed. Billing copy surfaces after limit. |
+| 2025-11-16 | RN WKWebView (iOS 18) | ✅ | StoreKit mock purchase toggled `state.isSubscribed`. Send Consumption Information stub logged payload. |
+| 2025-11-16 | Pixel 8 / Android 15 Chrome | ✅ | Verified deterministic plan + toast copy. |
 
 > Use `partner-kit/qa/README.md` for step-by-step instructions and append detailed findings here once executed.

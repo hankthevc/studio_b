@@ -1,0 +1,723 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-16T23:05:16.016Z",
+  "apps": [
+    {
+      "slug": "beatboard",
+      "title": "BeatBoard",
+      "subtitle": "Vibe-ready audio hooks.",
+      "category": "Creator",
+      "keywords": [
+        "audio",
+        "creator",
+        "loop"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/beatboard",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/beatboard",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "billbreeze",
+      "title": "BillBreeze",
+      "subtitle": "Cash-flow clarity in minutes.",
+      "category": "Finance",
+      "keywords": [
+        "budget",
+        "cashflow",
+        "bills"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/billbreeze",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/billbreeze",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.billbreeze.plus"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "brainbite",
+      "title": "BrainBite",
+      "subtitle": "Daily micro-puzzle",
+      "category": "Games",
+      "keywords": [
+        "puzzle",
+        "trivia",
+        "logic",
+        "daily"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/brainbite",
+      "asset": {
+        "bundleSubdirectory": "apps/games/brainbite",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "clipchoreo",
+      "title": "ClipChoreo",
+      "subtitle": "Video storyboard generator.",
+      "category": "Creator",
+      "keywords": [
+        "storyboard",
+        "video",
+        "creator"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/clipchoreo",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/clipchoreo",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "flexdesk",
+      "title": "FlexDesk",
+      "subtitle": "Micro stretch flows for desk life.",
+      "category": "Fitness",
+      "keywords": [
+        "stretch",
+        "desk",
+        "mobility",
+        "wellness"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/flexdesk",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/flexdesk",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "flowstreak",
+      "title": "FlowStreak",
+      "subtitle": "Celebrate wins, plan tomorrow.",
+      "category": "Productivity",
+      "keywords": [
+        "productivity",
+        "wins",
+        "journal"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/flowstreak",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/flowstreak",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.flowstreak.teams"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "focustiles",
+      "title": "FocusTiles",
+      "subtitle": "Adaptive focus tiles",
+      "category": "Productivity",
+      "keywords": [
+        "focus",
+        "timer",
+        "productivity",
+        "pomodoro"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/focustiles",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/focustiles",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "habitgrid",
+      "title": "HabitGrid",
+      "subtitle": "Heatmap habit tracker.",
+      "category": "Lifestyle",
+      "keywords": [
+        "habit",
+        "tracker",
+        "streak"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/habitgrid",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/habitgrid",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "hooklab",
+      "title": "HookLab",
+      "subtitle": "AI hook A/B studio",
+      "category": "Creator",
+      "keywords": [
+        "hooks",
+        "thumbnail",
+        "creator",
+        "video"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/hooklab",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/hooklab",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "inboxzen",
+      "title": "InboxZen",
+      "subtitle": "Triage email in seconds.",
+      "category": "Productivity",
+      "keywords": [
+        "email",
+        "productivity",
+        "triage"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/inboxzen",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/inboxzen",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "languageloop",
+      "title": "LanguageLoop",
+      "subtitle": "Roleplay loops on demand.",
+      "category": "Education",
+      "keywords": [
+        "language",
+        "practice",
+        "phrases"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/languageloop",
+      "asset": {
+        "bundleSubdirectory": "apps/education/languageloop",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "layoverloop",
+      "title": "LayoverLoop",
+      "subtitle": "Micro itineraries between flights.",
+      "category": "Travel",
+      "keywords": [
+        "layover",
+        "travel",
+        "airport",
+        "plan"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/layoverloop",
+      "asset": {
+        "bundleSubdirectory": "apps/travel/layoverloop",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "liftshift",
+      "title": "LiftShift",
+      "subtitle": "AI strength block builder",
+      "category": "Fitness",
+      "keywords": [
+        "fitness",
+        "strength",
+        "workout",
+        "coach"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/liftshift",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/liftshift",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.liftshift.pro"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "mealmind",
+      "title": "MealMind",
+      "subtitle": "AI meal planner",
+      "category": "Lifestyle",
+      "keywords": [
+        "meal",
+        "planner",
+        "nutrition",
+        "grocery"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/mealmind",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/mealmind",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.mealmind.unlimited"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "meetingminder",
+      "title": "MeetingMinder",
+      "subtitle": "Prep + follow-up in one swipe.",
+      "category": "Productivity",
+      "keywords": [
+        "meeting",
+        "agenda",
+        "productivity"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/meetingminder",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/meetingminder",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "moneymicro",
+      "title": "MoneyMicro",
+      "subtitle": "Micro affordability check",
+      "category": "Finance",
+      "keywords": [
+        "finance",
+        "budget",
+        "calculator",
+        "afford"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/moneymicro",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/moneymicro",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "pitchpulse",
+      "title": "PitchPulse",
+      "subtitle": "Lightning pitch coach.",
+      "category": "Career",
+      "keywords": [
+        "pitch",
+        "career",
+        "networking"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/pitchpulse",
+      "asset": {
+        "bundleSubdirectory": "apps/career/pitchpulse",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "pocketporter",
+      "title": "PocketPorter",
+      "subtitle": "AI packing buddy",
+      "category": "Travel",
+      "keywords": [
+        "packing",
+        "travel",
+        "carry-on",
+        "checklist"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/pocketporter",
+      "asset": {
+        "bundleSubdirectory": "apps/travel/pocketporter",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "prepcoach",
+      "title": "PrepCoach",
+      "subtitle": "AI interview coach",
+      "category": "Career",
+      "keywords": [
+        "interview",
+        "career",
+        "coach",
+        "mock"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/prepcoach",
+      "asset": {
+        "bundleSubdirectory": "apps/career/prepcoach",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "pulsepath",
+      "title": "PulsePath",
+      "subtitle": "HIIT stacks tuned to your energy.",
+      "category": "Fitness",
+      "keywords": [
+        "hiit",
+        "fitness",
+        "interval"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/pulsepath",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/pulsepath",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "questdash",
+      "title": "QuestDash",
+      "subtitle": "Photo-proof challenges.",
+      "category": "Games",
+      "keywords": [
+        "challenge",
+        "game",
+        "social"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/questdash",
+      "asset": {
+        "bundleSubdirectory": "apps/games/questdash",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "restnest",
+      "title": "RestNest",
+      "subtitle": "Nightly wind-down ritual.",
+      "category": "Lifestyle",
+      "keywords": [
+        "sleep",
+        "routine",
+        "wellness"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/restnest",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/restnest",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "sipsync",
+      "title": "SipSync",
+      "subtitle": "AI hydration coach",
+      "category": "Lifestyle",
+      "keywords": [
+        "hydration",
+        "wellness",
+        "reminder",
+        "water"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/sipsync",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/sipsync",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "skillsnack",
+      "title": "SkillSnack",
+      "subtitle": "5-minute skill boosts.",
+      "category": "Education",
+      "keywords": [
+        "learning",
+        "micro",
+        "education"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/skillsnack",
+      "asset": {
+        "bundleSubdirectory": "apps/education/skillsnack",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "slicesaver",
+      "title": "SliceSaver",
+      "subtitle": "Split group costs with scripts.",
+      "category": "Finance",
+      "keywords": [
+        "split",
+        "finance",
+        "bills"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/slicesaver",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/slicesaver",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "storyspark",
+      "title": "StorySpark",
+      "subtitle": "AI hook & caption studio",
+      "category": "Creator",
+      "keywords": [
+        "hooks",
+        "caption",
+        "creator",
+        "ai"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/storyspark",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/storyspark",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "studysprint",
+      "title": "StudySprint",
+      "subtitle": "Pomodoro-style study plans.",
+      "category": "Education",
+      "keywords": [
+        "study",
+        "pomodoro",
+        "education"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/studysprint",
+      "asset": {
+        "bundleSubdirectory": "apps/education/studysprint",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "tempobuddy",
+      "title": "TempoBuddy",
+      "subtitle": "Tempo cues in your pocket.",
+      "category": "Fitness",
+      "keywords": [
+        "running",
+        "pacer",
+        "tempo"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/tempobuddy",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/tempobuddy",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "tiptally",
+      "title": "TipTally",
+      "subtitle": "Instant tip + split notes.",
+      "category": "Finance",
+      "keywords": [
+        "tip",
+        "split",
+        "calculator"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/tiptally",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/tiptally",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "tripspark",
+      "title": "TripSpark",
+      "subtitle": "3-day AI itineraries with budgets & share links",
+      "category": "Travel",
+      "keywords": [
+        "travel",
+        "itinerary",
+        "planner",
+        "city guide",
+        "budget",
+        "ai",
+        "weekend",
+        "shareable"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/tripspark",
+      "asset": {
+        "bundleSubdirectory": "apps/travel/tripspark",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.tripspark.pro"
+      ],
+      "previewImageName": null
+    }
+  ]
+}

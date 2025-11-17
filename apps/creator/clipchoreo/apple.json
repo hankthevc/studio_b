@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "clipchoreo",
   "title": "ClipChoreo",
   "subtitle": "Video storyboard generator.",
-  "description": "ClipChoreo drafts three-shot storyboards with text overlays customized to platform, pace, and tone.",
+  "category": "Creator",
   "keywords": [
     "storyboard",
     "video",
     "creator"
   ],
-  "primaryCategory": "photo-video"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/clipchoreo",
+  "asset": {
+    "bundleSubdirectory": "apps/creator/clipchoreo",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

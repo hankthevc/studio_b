@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "questdash",
   "title": "QuestDash",
   "subtitle": "Photo-proof challenges.",
-  "description": "QuestDash dishes quick challenges for friends or couples with shareable prompts.",
+  "category": "Games",
   "keywords": [
     "challenge",
     "game",
     "social"
   ],
-  "primaryCategory": "games"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/questdash",
+  "asset": {
+    "bundleSubdirectory": "apps/games/questdash",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

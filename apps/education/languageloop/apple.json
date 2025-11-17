@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "languageloop",
   "title": "LanguageLoop",
   "subtitle": "Roleplay loops on demand.",
-  "description": "LanguageLoop designs quick phrase loops with accent and cultural cues.",
+  "category": "Education",
   "keywords": [
     "language",
     "practice",
     "phrases"
   ],
-  "primaryCategory": "education"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/languageloop",
+  "asset": {
+    "bundleSubdirectory": "apps/education/languageloop",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

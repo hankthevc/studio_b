@@ -1,14 +1,25 @@
 {
-  "displayName": "StorySpark",
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "storyspark",
+  "title": "StorySpark",
   "subtitle": "AI hook & caption studio",
-  "category": "creator",
-  "ageRating": "4+",
-  "iapModel": "free",
-  "priceTier": "0",
+  "category": "Creator",
   "keywords": [
     "hooks",
     "caption",
     "creator",
     "ai"
-  ]
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/storyspark",
+  "asset": {
+    "bundleSubdirectory": "apps/creator/storyspark",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

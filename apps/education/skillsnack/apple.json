@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "skillsnack",
   "title": "SkillSnack",
   "subtitle": "5-minute skill boosts.",
-  "description": "SkillSnack generates swipeable micro-lessons based on skill, time, and confidence.",
+  "category": "Education",
   "keywords": [
     "learning",
     "micro",
     "education"
   ],
-  "primaryCategory": "education"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/skillsnack",
+  "asset": {
+    "bundleSubdirectory": "apps/education/skillsnack",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

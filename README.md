@@ -13,10 +13,25 @@ Detailed expectations live in `RUNBOOK.md`:
 
 Pods must log every milestone inside `pods/` with the phase label (`P2-Polish`, `P3-Monetization`, etc.).
 
+## iOS Host Shell
+- `ios/StudioBHost` ships a SwiftUI catalog that reads `miniapps-manifest.json`, enforces Declared Age Range gating, and wraps each HTML payload inside a WKWebView with the `MiniHost` JavaScript bridge.
+- Set `MINIAPP_DEV_ROOT=/absolute/path/to/miniapps-studio-b` when running on Simulator so the host loads assets straight from the repo; omit it (or bundle the HTML under `ios/StudioBHost/Resources/MiniApps/`) before submitting to App Review.
+- The bridge exposes `window.MiniHost.requestSubscription`, `.isSubscribed`, `.getAgeRange`, `.getAgeCategory` (legacy), and `.track`. See `shared/appShell.js` plus `partner-kit/analytics/contracts.md` for event expectations.
+- Commerce mode defaults to a deterministic mock; point `STUDIOB_COMMERCE_BACKEND_URL` at `/server` (or your production backend) for Advanced Commerce initiation, or set `STUDIOB_COMMERCE_MODE=storekit` with real credentials to exercise StoreKit 2 locally.
+- Associated Domains are configured via `ios/StudioBHost/StudioBHost.entitlements`. Run `node scripts/generate_aasa.mjs` to emit the `apple-app-site-association` file whenever the manifest changes and deploy it to `https://miniapps.studio/.well-known/`.
+
+## Advanced Commerce Backend (reference)
+- The `/server` directory contains an Express bootstrap (`server/index.js`) that:
+  - Accepts purchase requests from the host (`POST /api/commerce/purchase`)
+  - Proxies App Store Server API `sendConsumptionInformation`
+  - Provides a webhook landing zone for StoreKit transaction notifications
+- Copy `server/env.sample` to `.env`, fill in Apple credentials, and run `npm start` inside `server/`. Set `STUDIOB_COMMERCE_BACKEND_URL=http://localhost:8787` before launching the host to test the full loop.
+
 ## Development Workflow
 1. **Scaffold / Refresh**
    - Use `python3 scripts/option_b_build.py --slug <slug>` for Tier 1 apps or `python3 scripts/generate_new_apps.py --slug <slug>` for the new app-shell based experiences.
    - Run `node scripts/phase2_refresh_readmes.mjs` after edits to normalize README structure + screenshots.
+   - Run `npm run manifest:generate` whenever `apple.json` metadata changes to refresh `miniapps-manifest.json`, the iOS bundle copy, and the universal-link index.
 2. **Spec + UX**
    - Update `SPEC.md` and `UX_NOTES.md` first. TripSpark is the visual + copy bar.
 3. **Deterministic Logic**
@@ -63,6 +78,10 @@ CI fails fast if READMEs drift, new apps miss shared shells, or scripts throw.
 | --- | --- |
 | `scripts/generate_new_apps.py` | Reads `docs/new-apps.yaml` + `ideas.yaml` to scaffold app-shell based mini-apps (config, logic, README, SPEC/UX, EMBED, styles, apple metadata). |
 | `scripts/phase2_refresh_readmes.mjs` | Normalizes every app README (What it does / Flow / Free vs Pro / Screenshot), generates deterministic SVG placeholders in `docs/screenshots/`, and supports a `--check` CI mode. |
+| `scripts/generate_manifest.mjs` | Validates every `apple.json` with `schema/miniapp.schema.json`, emits `miniapps-manifest.json`, copies it into `ios/StudioBHost/Resources/`, and builds `miniapps-index.html` for App Review submissions. |
+| `scripts/sync_ios_manifest.mjs` | Convenience helper to copy an existing `miniapps-manifest.json` into the iOS bundle (no regeneration). |
+| `scripts/normalize_miniapps_metadata.mjs` | One-off utility that upgrades legacy `apple.json` files into the unified schema; keep it handy when older pods migrate. |
+| `scripts/generate_aasa.mjs` | Produces a deterministic `apple-app-site-association` file using every universal link in `miniapps-manifest.json`. |
 
 Run these scripts whenever new apps land or documentation drifts so CI stays green.
 

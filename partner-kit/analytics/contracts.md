@@ -8,6 +8,8 @@ Send all events through **Segment `track`** calls using the namespaces below. Ea
 - `properties.surface` – when applicable, string describing the UI surface that triggered the event.
 - `properties.planCount`, `properties.puzzleCount`, etc. – integers representing cumulative usage during the session.
 
+> Implementation note: `shared/appShell.js` automatically calls `window.MiniHost.track(eventName, props)` for every dispatch. Host containers should map that to Segment/Mixpanel or a custom analytics bus.
+
 ## Core Event Contract (All Apps)
 Every mini-app mounted through `shared/appShell.js` emits the following events automatically:
 

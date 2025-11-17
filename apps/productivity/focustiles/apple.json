@@ -1,14 +1,25 @@
 {
-  "displayName": "FocusTiles",
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "focustiles",
+  "title": "FocusTiles",
   "subtitle": "Adaptive focus tiles",
-  "category": "productivity",
-  "ageRating": "4+",
-  "iapModel": "free",
-  "priceTier": "0",
+  "category": "Productivity",
   "keywords": [
     "focus",
     "timer",
     "productivity",
     "pomodoro"
-  ]
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/focustiles",
+  "asset": {
+    "bundleSubdirectory": "apps/productivity/focustiles",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

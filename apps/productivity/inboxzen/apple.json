@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "inboxzen",
   "title": "InboxZen",
   "subtitle": "Triage email in seconds.",
-  "description": "Get deterministic summaries, ordered priorities, and reply prompts for the inbox backlog.",
+  "category": "Productivity",
   "keywords": [
     "email",
     "productivity",
     "triage"
   ],
-  "primaryCategory": "productivity"
+  "isFeatured": true,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/inboxzen",
+  "asset": {
+    "bundleSubdirectory": "apps/productivity/inboxzen",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }

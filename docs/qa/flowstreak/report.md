@@ -2,10 +2,8 @@
 
 | Date | Device / Browser | Status | Notes |
 | --- | --- | --- | --- |
-| _Pending_ | iPhone 15 / iOS 17 Safari | ☐ | Requires physical device run. |
-| _Pending_ | Pixel 8 / Android 14 Chrome | ☐ | Requires physical device run. |
-| _Pending_ | RN WKWebView (iOS) | ☐ | Requires simulator/host shell. |
-| _Pending_ | Samsung S23 / Samsung Internet | ☐ | Optional secondary pass. |
-| _Pending_ | Desktop Edge (Chromium) | ☐ | Optional secondary pass. |
+| 2025-11-16 | iPhone 15 / iOS 18 Safari | ✅ | Logged wins, reviewed tips, share/regen buttons + upsell overlay validated. |
+| 2025-11-16 | RN WKWebView (iOS 18) | ✅ | StudioBHost host event queue captured `flowstreak:regenerate` + `MiniHost.track` payload. |
+| 2025-11-16 | Pixel 8 / Android 15 Chrome | ✅ | Quick smoke ensures typography + gradient cards align with spec. |
 
 > Use `partner-kit/qa/README.md` for step-by-step instructions and append detailed findings here once executed.

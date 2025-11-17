@@ -1,11 +1,24 @@
 {
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "restnest",
   "title": "RestNest",
   "subtitle": "Nightly wind-down ritual.",
-  "description": "Deterministic ten-minute routines blending breathwork, journaling, and ambient cues tailored to tonight\u2019s mood.",
+  "category": "Lifestyle",
   "keywords": [
     "sleep",
     "routine",
     "wellness"
   ],
-  "primaryCategory": "lifestyle"
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/restnest",
+  "asset": {
+    "bundleSubdirectory": "apps/lifestyle/restnest",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
 }
