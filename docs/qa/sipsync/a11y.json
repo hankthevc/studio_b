@@ -1,0 +1,80 @@
+{
+  "slug": "sipsync",
+  "category": "lifestyle",
+  "url": "http://127.0.0.1:8789/lifestyle/sipsync/index.html",
+  "runs": [
+    {
+      "viewport": "mobile",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"flavor-tag is-selected\" data-flavor=\"crisp\">Crisp</button>",
+          "selector": "#app > form > div:nth-child(3) > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"submit\" class=\"shared-button variant-primary sipsync-button primary-action\">Sync My Sips</button>",
+          "selector": "#app > form > button",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/lifestyle/sipsync/index.html?viewport=mobile"
+    },
+    {
+      "viewport": "desktop",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"flavor-tag is-selected\" data-flavor=\"crisp\">Crisp</button>",
+          "selector": "#app > form > div:nth-child(3) > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"submit\" class=\"shared-button variant-primary sipsync-button primary-action\">Sync My Sips</button>",
+          "selector": "#app > form > button",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/lifestyle/sipsync/index.html?viewport=desktop"
+    }
+  ],
+  "generatedAt": "2025-11-17T05:05:08.469Z"
+}

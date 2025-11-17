@@ -1,0 +1,230 @@
+{
+  "slug": "flowstreak",
+  "category": "productivity",
+  "url": "http://127.0.0.1:8789/productivity/flowstreak/index.html",
+  "runs": [
+    {
+      "viewport": "mobile",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"chip is-selected\" data-value=\"deep\">Deep work</button>",
+          "selector": "#app > div > div > section:nth-child(2) > form > label:nth-child(3) > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"chip is-selected\" data-value=\"admin\">Admin</button>",
+          "selector": "#app > div > div > section:nth-child(2) > form > label:nth-child(3) > div > button:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"submit\" class=\"btn-primary\">Build my board</button>",
+          "selector": "#app > div > div > section:nth-child(2) > form > button",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"eyebrow\">Momentum board</p>",
+          "selector": "#app > div > div > section:nth-child(1) > p:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<h1>FlowStreak</h1>",
+          "selector": "#app > div > div > section:nth-child(1) > h1",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p>Log three wins, get next micro ...</p>",
+          "selector": "#app > div > div > section:nth-child(1) > p:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<textarea name=\"wins\" placeholder=\"Ship homepage copy\nInbox zero\nWalk outside\" required=\"\"></textarea>",
+          "selector": "#app > div > div > section:nth-child(2) > form > label:nth-child(1) > textarea",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/productivity/flowstreak/index.html?viewport=mobile"
+    },
+    {
+      "viewport": "desktop",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"chip is-selected\" data-value=\"deep\">Deep work</button>",
+          "selector": "#app > div > div > section:nth-child(2) > form > label:nth-child(3) > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"chip is-selected\" data-value=\"admin\">Admin</button>",
+          "selector": "#app > div > div > section:nth-child(2) > form > label:nth-child(3) > div > button:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"submit\" class=\"btn-primary\">Build my board</button>",
+          "selector": "#app > div > div > section:nth-child(2) > form > button",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"eyebrow\">Momentum board</p>",
+          "selector": "#app > div > div > section:nth-child(1) > p:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<h1>FlowStreak</h1>",
+          "selector": "#app > div > div > section:nth-child(1) > h1",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p>Log three wins, get next micro ...</p>",
+          "selector": "#app > div > div > section:nth-child(1) > p:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<textarea name=\"wins\" placeholder=\"Ship homepage copy\nInbox zero\nWalk outside\" required=\"\"></textarea>",
+          "selector": "#app > div > div > section:nth-child(2) > form > label:nth-child(1) > textarea",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/productivity/flowstreak/index.html?viewport=desktop"
+    }
+  ],
+  "generatedAt": "2025-11-17T05:04:08.602Z"
+}

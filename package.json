@@ -10,15 +10,34 @@
     "manifest:generate": "node scripts/generate_manifest.mjs",
     "manifest:sync-ios": "node scripts/sync_ios_manifest.mjs",
     "aasa:generate": "node scripts/generate_aasa.mjs",
-    "ci": "npm run lint:js && npm run readme:check"
+    "ci": "npm run lint:js && npm run readme:check",
+    "progress:generate": "node scripts/progress-bot.mjs",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
+    "test:a11y": "node scripts/a11y-check.mjs",
+    "test:events": "node scripts/lint-analytics.mjs",
+    "manifest:check": "node scripts/manifest-check.mjs",
+    "aasa:diff": "node scripts/aasa-diff.mjs",
+    "ci:portfolio": "npm run progress:generate && npm run manifest:check && npm run aasa:diff && npm run test:a11y && npm run test:visual && npm run test:events",
+    "proof:bundle": "node scripts/package-proof.mjs",
+    "proof:clean": "node -e \"require('fs').rmSync('proof',{recursive:true,force:true})\""
   },
   "devDependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
-    "eslint": "^9.11.0",
-    "glob": "^11.0.0",
-    "htmlhint": "^1.1.4",
+    "@playwright/test": "^1.48.0",
+    "archiver": "^7.0.1",
+    "axe-core": "^4.10.0",
     "csslint": "^1.0.5",
+    "eslint": "^9.11.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^11.0.0",
+    "gray-matter": "^4.0.3",
+    "htmlhint": "^1.1.4",
+    "markdown-it": "^14.1.0",
+    "node-fetch": "^3.3.2",
+    "ora": "^8.0.1",
+    "pa11y": "^9.0.0",
     "yaml": "^2.5.0"
   }
 }
