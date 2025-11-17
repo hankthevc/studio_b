@@ -1,0 +1,170 @@
+{
+  "slug": "liftshift",
+  "category": "fitness",
+  "url": "http://127.0.0.1:8789/fitness/liftshift/index.html",
+  "runs": [
+    {
+      "viewport": "mobile",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"equipment-tag is-selected\" data-equipment=\"bodyweight\">Bodyweight</button>",
+          "selector": "#app > form > div > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<span class=\"range-value\" data-range=\"days\">4 days</span>",
+          "selector": "#app > form > label:nth-child(3) > div > span:nth-child(2)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<span class=\"range-value\" data-range=\"session\">45 min</span>",
+          "selector": "#app > form > label:nth-child(4) > div > span:nth-child(2)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"submit\" class=\"shared-button variant-primary liftshift-button primary-action\">Build My Block</button>",
+          "selector": "#app > form > button",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "aria-prohibited-attr",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must only use permitted ARIA attributes (https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI)",
+          "context": "<div class=\"equipment-field\" aria-label=\"Equipment on hand\">\n      <span>Equipment</span>\n ...</div>",
+          "selector": "#app > form > div",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "impact": "serious",
+            "help": "Elements must only use permitted ARIA attributes",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/fitness/liftshift/index.html?viewport=mobile"
+    },
+    {
+      "viewport": "desktop",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" class=\"equipment-tag is-selected\" data-equipment=\"bodyweight\">Bodyweight</button>",
+          "selector": "#app > form > div > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<span class=\"range-value\" data-range=\"days\">4 days</span>",
+          "selector": "#app > form > label:nth-child(3) > div > span:nth-child(2)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<span class=\"range-value\" data-range=\"session\">45 min</span>",
+          "selector": "#app > form > label:nth-child(4) > div > span:nth-child(2)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"submit\" class=\"shared-button variant-primary liftshift-button primary-action\">Build My Block</button>",
+          "selector": "#app > form > button",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "aria-prohibited-attr",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must only use permitted ARIA attributes (https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI)",
+          "context": "<div class=\"equipment-field\" aria-label=\"Equipment on hand\">\n      <span>Equipment</span>\n ...</div>",
+          "selector": "#app > form > div",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "impact": "serious",
+            "help": "Elements must only use permitted ARIA attributes",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/fitness/liftshift/index.html?viewport=desktop"
+    }
+  ],
+  "generatedAt": "2025-11-17T05:04:33.255Z"
+}

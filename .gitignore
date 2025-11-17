@@ -6,4 +6,6 @@ node_modules
 # Local artifact bundles
 *.zip
 server/.env
+proof/
+playwright-report/
 

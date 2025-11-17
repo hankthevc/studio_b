@@ -1,0 +1,38 @@
+name: Portfolio CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install deps
+        run: npm ci
+      - name: Existing repo checks
+        run: |
+          python -m compileall scripts
+          npm run lint:js
+          npm run readme:check
+      - name: Progress & metadata
+        run: npm run progress:generate
+      - name: Manifest/AASA drift
+        run: npm run manifest:check && npm run aasa:diff
+      - name: Playwright install browsers
+        run: npx playwright install --with-deps
+      - name: A11y + Visual
+        run: npm run test:a11y && npm run test:visual
+      - name: Analytics contract linter
+        run: npm run test:events
+      - name: Upload STATUS_SUMMARY
+        uses: actions/upload-artifact@v4
+        with:
+          name: status-summary
+          path: STATUS_SUMMARY.md

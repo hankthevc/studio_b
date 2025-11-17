@@ -1,0 +1,230 @@
+{
+  "slug": "tripspark",
+  "category": "travel",
+  "url": "http://127.0.0.1:8789/travel/tripspark/index.html",
+  "runs": [
+    {
+      "viewport": "mobile",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"eyebrow\">AI trip planner</p>",
+          "selector": "#app > section:nth-child(1) > p:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"tagline\">3-day city itineraries tailored...</p>",
+          "selector": "#app > section:nth-child(1) > p:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" data-tag=\"chill\" class=\"tag\">Chill</button>",
+          "selector": "#app > form > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" data-tag=\"balanced\" class=\"tag is-selected\">Balanced</button>",
+          "selector": "#app > form > div > button:nth-child(2)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" data-tag=\"adventurous\" class=\"tag\">Adventurous</button>",
+          "selector": "#app > form > div > button:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"placeholder\">Enter your destination to spark...</p>",
+          "selector": "#app > section:nth-child(3) > p",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "aria-prohibited-attr",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must only use permitted ARIA attributes (https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI)",
+          "context": "<div class=\"vibe-tags\" aria-label=\"Trip pace\">\n      <button type=\"button\" da...</div>",
+          "selector": "#app > form > div",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "impact": "serious",
+            "help": "Elements must only use permitted ARIA attributes",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/travel/tripspark/index.html?viewport=mobile"
+    },
+    {
+      "viewport": "desktop",
+      "issues": [
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"eyebrow\">AI trip planner</p>",
+          "selector": "#app > section:nth-child(1) > p:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"tagline\">3-day city itineraries tailored...</p>",
+          "selector": "#app > section:nth-child(1) > p:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" data-tag=\"chill\" class=\"tag\">Chill</button>",
+          "selector": "#app > form > div > button:nth-child(1)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" data-tag=\"balanced\" class=\"tag is-selected\">Balanced</button>",
+          "selector": "#app > form > div > button:nth-child(2)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<button type=\"button\" data-tag=\"adventurous\" class=\"tag\">Adventurous</button>",
+          "selector": "#app > form > div > button:nth-child(3)",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "color-contrast",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must meet minimum color contrast ratio thresholds (https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI)",
+          "context": "<p class=\"placeholder\">Enter your destination to spark...</p>",
+          "selector": "#app > section:nth-child(3) > p",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI"
+          }
+        },
+        {
+          "code": "aria-prohibited-attr",
+          "type": "error",
+          "typeCode": 1,
+          "message": "Elements must only use permitted ARIA attributes (https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI)",
+          "context": "<div class=\"vibe-tags\" aria-label=\"Trip pace\">\n      <button type=\"button\" da...</div>",
+          "selector": "#app > form > div",
+          "runner": "axe",
+          "runnerExtras": {
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "impact": "serious",
+            "help": "Elements must only use permitted ARIA attributes",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=axeAPI"
+          }
+        }
+      ],
+      "url": "http://127.0.0.1:8789/travel/tripspark/index.html?viewport=desktop"
+    }
+  ],
+  "generatedAt": "2025-11-17T05:05:33.146Z"
+}

@@ -1,0 +1,31 @@
+name: iOS Host build
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+      - name: Install xcpretty
+        run: gem install xcpretty
+      - name: Build StudioBHost (simulator)
+        run: |
+          set -e
+          xcodebuild \
+            -project ios/StudioBHost/StudioBHost.xcodeproj \
+            -scheme StudioBHost \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+            build | xcpretty
+      - name: Archive artifact
+        if: ${{ always() }}
+        run: mkdir -p build && cp -R ~/Library/Developer/Xcode/DerivedData/*/Build/Products/* build || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-build
+          path: build

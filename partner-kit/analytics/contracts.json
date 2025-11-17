@@ -1,0 +1,136 @@
+{
+  "coreEvents": [
+    {
+      "suffix": "shareCopied",
+      "props": []
+    },
+    {
+      "suffix": "regenerate",
+      "props": []
+    },
+    {
+      "suffix": "freeLimitHit",
+      "props": [
+        "count"
+      ]
+    },
+    {
+      "suffix": "upsellViewed",
+      "props": [
+        "surface"
+      ]
+    },
+    {
+      "suffix": "upsellClicked",
+      "props": [
+        "surface"
+      ]
+    }
+  ],
+  "extensions": {
+    "tripspark": [
+      {
+        "event": "tripspark:export",
+        "props": [
+          "plan"
+        ]
+      }
+    ],
+    "pocketporter": [
+      {
+        "event": "pocketporter:saveWardrobe",
+        "props": [
+          "plan"
+        ]
+      }
+    ],
+    "sipsync": [
+      {
+        "event": "sipsync:smartBottleSync",
+        "props": [
+          "plan"
+        ]
+      }
+    ],
+    "mealmind": [
+      {
+        "event": "mealmind:export",
+        "props": [
+          "plan"
+        ]
+      },
+      {
+        "event": "mealmind:savePreset",
+        "props": [
+          "plan"
+        ]
+      }
+    ],
+    "storyspark": [
+      {
+        "event": "storyspark:savePreset",
+        "props": [
+          "plan"
+        ]
+      }
+    ],
+    "hooklab": [
+      {
+        "event": "hooklab:export",
+        "props": [
+          "plan"
+        ]
+      },
+      {
+        "event": "hooklab:savePreset",
+        "props": [
+          "variant"
+        ]
+      }
+    ],
+    "focustiles": [
+      {
+        "event": "focustiles:saveRhythm",
+        "props": [
+          "plan"
+        ]
+      },
+      {
+        "event": "focustiles:logSession",
+        "props": [
+          "tile"
+        ]
+      }
+    ],
+    "prepcoach": [
+      {
+        "event": "prepcoach:export",
+        "props": [
+          "plan"
+        ]
+      }
+    ],
+    "moneymicro": [
+      {
+        "event": "moneymicro:export",
+        "props": [
+          "scenario"
+        ]
+      }
+    ],
+    "brainbite": [
+      {
+        "event": "brainbite:archiveExport",
+        "props": [
+          "puzzle"
+        ]
+      },
+      {
+        "event": "brainbite:shieldApplied",
+        "props": [
+          "streak"
+        ]
+      }
+    ]
+  }
+}
