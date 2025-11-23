@@ -37,6 +37,9 @@ function normalizeValues(fields, rawValues) {
     let value = userValue ?? defaultValue ?? "";
     if (typeof value === "string") {
       value = value.trim();
+      if (value.length > 120) {
+        value = `${value.slice(0, 117)}...`;
+      }
     }
     values[name] = value;
 

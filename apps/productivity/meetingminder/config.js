@@ -95,21 +95,42 @@ const appConfig = {
     ctaLabel: "Upgrade for sync"
   },
   plan: {
+    derive: ({ values }) => {
+      const attendees = (values.attendees || "")
+        .split(",")
+        .map((a) => a.trim())
+        .filter(Boolean);
+      
+      const count = attendees.length;
+      const primary = attendees[0] || "Team";
+      
+      let template = "General Sync";
+      if (values.meetingType === "1-1") template = "Growth & Blockers";
+      if (values.meetingType === "client") template = "Relationship & Upsell";
+      if (values.goal === "decide") template = "DACI Framework";
+
+      return {
+        primaryAttendee: primary,
+        attendeeCount: count,
+        templateName: template,
+        timeCheck: Math.floor(values.duration / 2)
+      };
+    },
     summary: {
-      title: "{{labels.meetingType}} prep",
-      subtitle: "Goal {{labels.goal}} \u00b7 Duration {{labels.duration}} min.",
+      title: "{{derived.templateName}} Agenda",
+      subtitle: "{{labels.meetingType}} \u00b7 {{labels.duration}} min \u00b7 {{derived.attendeeCount}} people",
       metrics: [
         {
-          label: "Prep items",
-          value: "3"
+          label: "Format",
+          value: "{{derived.templateName}}"
         },
         {
-          label: "Follow-ups",
-          value: "3"
+          label: "Halftime",
+          value: "@ {{derived.timeCheck}} min"
         },
         {
-          label: "Share",
-          value: "1 link"
+          label: "Key Person",
+          value: "{{derived.primaryAttendee}}"
         }
       ]
     },
@@ -120,7 +141,7 @@ const appConfig = {
         items: [
           "Scan last notes + highlight blockers.",
           "Collect metrics or artifacts tied to {{labels.goal}}.",
-          "Draft opener tailored to {{labels.attendees}}."
+          "Draft opener tailored to {{derived.attendee1}} and {{derived.attendee2}}."
         ]
       },
       {

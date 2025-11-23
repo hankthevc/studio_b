@@ -95,32 +95,62 @@ const appConfig = {
     ctaLabel: "Upgrade for presets"
   },
   plan: {
+    derive: ({ values }) => {
+      const emails = (values.emails || "")
+        .split("\n")
+        .map((e) => e.trim())
+        .filter(Boolean)
+        .slice(0, 5);
+      
+      while (emails.length < 3) {
+        emails.push("Add another subject to triage.");
+      }
+
+      // Simulated Triage Logic
+      const triage = emails.map(subject => {
+        const lower = subject.toLowerCase();
+        if (lower.includes("urgent") || lower.includes("asap") || lower.includes("fire")) return "🔥 Do Now";
+        if (lower.includes("update") || lower.includes("fyi") || lower.includes("newsletter")) return "📥 Read Later";
+        if (lower.includes("intro") || lower.includes("connect")) return "🤝 Delegate/Intro";
+        return "📅 Schedule";
+      });
+
+      return {
+        email1: emails[0],
+        action1: triage[0],
+        email2: emails[1],
+        action2: triage[1],
+        email3: emails[2],
+        action3: triage[2],
+        emailCount: emails.length
+      };
+    },
     summary: {
-      title: "Inbox triage ready",
-      subtitle: "Goal {{labels.goal}} \u00b7 Tone {{labels.tone}}.",
+      title: "Triage Plan Generated",
+      subtitle: "Goal: {{labels.goal}} \u00b7 Tone: {{labels.tone}}",
       metrics: [
         {
-          label: "Emails parsed",
-          value: "3"
+          label: "Top Priority",
+          value: "{{derived.action1}}"
         },
         {
-          label: "Delegations",
-          value: "1 suggestion"
+          label: "Batch Size",
+          value: "{{derived.emailCount}} emails"
         },
         {
-          label: "Focus block",
+          label: "Est. Time",
           value: "{{labels.time}} min"
         }
       ]
     },
     sections: [
       {
-        title: "Triage list",
-        description: "Order of attack with quick reason.",
+        title: "Action List",
+        description: "Recommended next steps based on subject keywords.",
         items: [
-          "Email #1 summary + action.",
-          "Email #2 summary + action.",
-          "Email #3 summary + action."
+          "1. {{derived.email1}} \u2192 {{derived.action1}}",
+          "2. {{derived.email2}} \u2192 {{derived.action2}}",
+          "3. {{derived.email3}} \u2192 {{derived.action3}}"
         ]
       },
       {

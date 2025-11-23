@@ -99,39 +99,66 @@ const appConfig = {
     ctaLabel: "Upgrade for household mode"
   },
   plan: {
+    derive: ({ values }) => {
+      const crewNum = values.crewSize === "5+" ? 5 : Number(values.crewSize || 4);
+      const totalRaw = (values.total || "").replace(/[^0-9.]/g, "");
+      const total = totalRaw ? Number(totalRaw) : 0;
+      
+      // Round up to nearest 5 for "lazy" fairness if chill
+      let avg = 0;
+      if (crewNum > 0) {
+        avg = total / crewNum;
+        if (values.tone === "chill") avg = Math.ceil(avg);
+        else avg = Math.ceil(avg * 100) / 100;
+      }
+
+      const scriptTone = {
+        chill: "No rush, whenever you can.",
+        direct: "Please Venmo by tomorrow!",
+        playful: "Pizza gods require tribute 🍕."
+      };
+
+      return {
+        crewNum,
+        totalClean: total ? `$${total.toFixed(2)}` : values.total || "$0",
+        avgDue: avg ? `$${avg.toFixed(2)}` : "$0",
+        toneNote: scriptTone[values.tone] || scriptTone.playful,
+        hostShare: (total - (avg * (crewNum - 1))).toFixed(2) // Host picks up the slack/rounding diff
+      };
+    },
     summary: {
-      title: "{{labels.crewSize}}-way split",
-      subtitle: "Tone {{labels.tone}} \u00b7 Due {{labels.due}}.",
+      title: "Split for {{labels.crewSize}}",
+      subtitle: "Tone: {{labels.tone}} \u00b7 Due: {{labels.due}}",
       metrics: [
         {
-          label: "Average due",
-          value: "{{values.total}} \u00f7 {{labels.crewSize}}"
+          label: "Per Person",
+          value: "{{derived.avgDue}}"
         },
         {
-          label: "Fairness tip",
-          value: "Round to friendly number"
+          label: "Total Bill",
+          value: "{{derived.totalClean}}"
         },
         {
-          label: "Reminder",
-          value: "{{labels.due}}"
+          label: "Fairness",
+          value: "Host rounds diff"
         }
       ]
     },
     sections: [
       {
-        title: "Suggested amounts",
-        description: "Deterministic math with fairness tweaks.",
+        title: "The Math",
+        description: "Simple breakdown.",
         items: [
-          "Base: {{values.total}} split evenly.",
-          "Add note about extras (wine, tip) if host covered more.",
-          "Offer round-up suggestion to nearest $5."
+          "Total: {{derived.totalClean}} / {{derived.crewNum}} people.",
+          "Share: {{derived.avgDue}} each.",
+          "Host covers: ${{derived.hostShare}} (accounts for rounding)."
         ]
       },
       {
         title: "Reminder script",
         description: "Tone-matched message to drop in chat.",
         items: [
-          "\"Hey team, dinner came to {{values.total}} so it\u2019s {{values.total}}/{{labels.crewSize}} each ({{labels.tone}} tone).\"",
+          "\"Hey team, dinner came to {{derived.totalClean}}\u2014about {{derived.avgDue}} each. {{derived.toneNote}}\"",
           "Add payment links + due date.",
           "Include thank-you or joke depending on tone."
         ]

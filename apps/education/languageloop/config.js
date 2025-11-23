@@ -104,53 +104,71 @@ const appConfig = {
     ctaLabel: "Upgrade for packs"
   },
   plan: {
+    derive: ({ values }) => {
+      const phrases = {
+        spanish: {
+          coffee: ["Quisiera un café, por favor.", "¿Tiene leche de avena?", "¡Gracias, muy amable!"],
+          taxi: ["A la estación de tren, por favor.", "¿Acepta tarjeta?", "Pare aquí, gracias."],
+          networking: ["Hola, soy [Nombre].", "¿A qué te dedicas?", "Mucho gusto en conocerte."]
+        },
+        french: {
+          coffee: ["Je voudrais un café, s'il vous plaît.", "Avez-vous du lait d'avoine ?", "Merci beaucoup !"],
+          taxi: ["À la gare, s'il vous plaît.", "Acceptez-vous la carte ?", "Arrêtez-vous ici, merci."],
+          networking: ["Bonjour, je m'appelle [Nom].", "Que faites-vous dans la vie ?", "Enchanté(e)."]
+        },
+        japanese: {
+          coffee: ["コーヒーをください (Koohii o kudasai).", "オーツミルクはありますか (Ootsu miruku wa arimasu ka)?", "ありがとう (Arigatou)."],
+          taxi: ["駅までお願いします (Eki made onegaishimasu).", "カードは使えますか (Kaado wa tsukaemasu ka)?", "ここで止めてください (Koko de tomete kudasai)."],
+          networking: ["はじめまして、[名前]です (Hajimemまして, [Namae] desu).", "お仕事は何ですか (Oshigoto wa nan desu ka)?", "よろしくおねがいします (Yoroshiku onegaishimasu)."]
+        }
+      };
+
+      const langSet = phrases[values.language] || phrases.spanish;
+      const scenarioSet = langSet[values.scenario] || langSet.coffee;
+
+      return {
+        p1: scenarioSet[0],
+        p2: scenarioSet[1],
+        p3: scenarioSet[2]
+      };
+    },
     summary: {
-      title: "{{labels.language}} loop",
-      subtitle: "Scenario {{labels.scenario}} \u00b7 Confidence {{labels.confidence}}.",
+      title: "{{labels.language}} Loop",
+      subtitle: "Scenario: {{labels.scenario}} \u00b7 Focus: {{labels.accent}}",
       metrics: [
         {
-          label: "Turns",
-          value: "3 exchanges"
+          label: "Scenario",
+          value: "{{labels.scenario}}"
         },
         {
-          label: "Accent focus",
-          value: "{{labels.accent}}"
+          label: "Difficulty",
+          value: "{{labels.confidence}}"
         },
         {
-          label: "Vocab",
-          value: "4 keywords"
+          label: "Phrases",
+          value: "3 Core"
         }
       ]
     },
     sections: [
       {
-        title: "Warm-up phrases",
-        description: "Ease in before roleplay.",
+        title: "Core Phrases",
+        description: "Repeat each 3 times.",
         items: [
-          "Greeting line with transliteration.",
-          "Polite filler or cultural note.",
-          "Confidence-specific encouragement."
+          "1. {{derived.p1}}",
+          "2. {{derived.p2}}",
+          "3. {{derived.p3}}"
         ]
       },
       {
-        title: "Roleplay loop",
-        description: "Three call-and-response prompts.",
+        title: "Practice Tips",
+        description: "Focus on {{labels.accent}}.",
         items: [
-          "Prompt 1: order/ask.",
-          "Prompt 2: clarification.",
-          "Prompt 3: closing."
+          "Record yourself and play it back.",
+          "Focus on vowel clarity.",
+          "Don't rush—speed comes later."
         ]
       },
-      {
-        title: "Accent + culture",
-        description: "How to sound natural.",
-        items: [
-          "Accent cue for {{labels.accent}} focus.",
-          "Cultural reminder for scenario.",
-          "Optional follow-up question."
-        ]
-      }
-    ],
     tips: [
       "Repeat loop twice for retention.",
       "Upgrade for offline pack before traveling.",

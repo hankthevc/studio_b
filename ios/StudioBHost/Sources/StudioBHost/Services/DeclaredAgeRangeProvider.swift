@@ -88,8 +88,8 @@ private extension DeclaredAgeRangeProvider {
                     return
                 }
 
-                if let selector = NSSelectorFromString("currentDeclaredAgeRange"),
-                   shared.responds(to: selector),
+                let selector = NSSelectorFromString("currentDeclaredAgeRange")
+                if shared.responds(to: selector),
                    let value = shared.perform(selector)?.takeUnretainedValue() {
                     let min = (value.value(forKey: "minimumAge") as? Int) ?? 0
                     let max = value.value(forKey: "maximumAge") as? Int

@@ -8,4 +8,6 @@ node_modules
 server/.env
 proof/
 playwright-report/
+ios/StudioBHost/.build/
+ios/StudioBHost/Tests/.DS_Store
 

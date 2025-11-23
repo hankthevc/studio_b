@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "beatboard",
+  "title": "BeatBoard",
+  "subtitle": "Vibe-ready audio hooks.",
+  "category": "Creator",
+  "keywords": [
+    "audio",
+    "creator",
+    "loop"
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/beatboard",
+  "asset": {
+    "bundleSubdirectory": "apps/creator/beatboard",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

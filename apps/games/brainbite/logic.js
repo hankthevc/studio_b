@@ -6,6 +6,12 @@ const categories = {
         answer: "Casey",
         hint: "Eliminate left + middle placements first.",
         choices: ["Alex", "Casey", "Jamie", "No one"]
+      },
+      {
+        prompt: "I am an odd number. Take away a letter and I become even. What number am I?",
+        answer: "Seven",
+        hint: "Think about the word itself.",
+        choices: ["Seven", "Eleven", "Nine", "Five"]
       }
     ],
     tricky: [
@@ -14,6 +20,12 @@ const categories = {
         answer: "Start both. When 2-min empties, flip it. When 5-min empties, flip it; when 2-min empties again, 7 minutes passed.",
         hint: "Use overlapping flips.",
         choices: null
+      },
+      {
+        prompt: "What comes next: O, T, T, F, F, S, S, ...",
+        answer: "E (Eight)",
+        hint: "Count up.",
+        choices: ["E", "N", "T", "O"]
       }
     ],
     spicy: [
@@ -22,6 +34,12 @@ const categories = {
         answer: "All of them",
         hint: "Assume statement true or false.",
         choices: ["0", "1", "2", "All of them"]
+      },
+      {
+        prompt: "The day before yesterday, Chris was 17. Next year, he will be 20. What date is it?",
+        answer: "Jan 1st (Birthday was Dec 31)",
+        hint: "Look for a calendar edge case.",
+        choices: ["Jan 1st", "Feb 29th", "Dec 31st", "July 4th"]
       }
     ]
   },

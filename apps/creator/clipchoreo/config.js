@@ -95,50 +95,68 @@ const appConfig = {
     ctaLabel: "Upgrade for kits"
   },
   plan: {
+    derive: ({ values }) => {
+      const concept = values.concept || "Viral Video";
+      const shots = {
+        chill: ["Static Tripod", "Slow Pan", "Handheld (Steady)"],
+        snappy: ["Whip Pan", "Crash Zoom", "Jump Cut"],
+        hyper: ["Speed Ramp", "360 Spin", "Glitch Transition"]
+      };
+      
+      const selectedShots = shots[values.pace] || shots.snappy;
+      
+      return {
+        shot1: selectedShots[0],
+        shot2: selectedShots[1],
+        shot3: selectedShots[2],
+        hook: `POV: ${concept}`,
+        cta: values.platform === "tiktok" ? "Link in bio" : "Subscribe for more"
+      };
+    },
     summary: {
-      title: "{{labels.platform}} storyboard",
-      subtitle: "Concept {{labels.concept}} \u00b7 Pace {{labels.pace}}.",
+      title: "Shot List: {{labels.concept}}",
+      subtitle: "Platform: {{labels.platform}} \u00b7 Pace: {{labels.pace}}",
       metrics: [
         {
-          label: "Shots",
-          value: "3"
+          label: "Vibe",
+          value: "{{labels.tone}}"
         },
         {
-          label: "Text beats",
-          value: "2 overlays"
+          label: "Cuts",
+          value: "3 Main"
         },
         {
-          label: "CTA",
-          value: "Deterministic"
+          label: "Audio",
+          value: "Trending"
         }
       ]
     },
     sections: [
       {
-        title: "Shot 1",
-        description: "Hook + context.",
+        title: "Shot 1: The Hook (0-3s)",
+        description: "Grab attention instantly.",
         items: [
-          "Visual treatment referencing {{labels.tone}} tone.",
-          "On-screen text suggestion.",
-          "Beat length tied to {{labels.pace}}."
+          "Camera: {{derived.shot1}}.",
+          "Action: Face camera, hold prop.",
+          "Text Overlay: \"{{derived.hook}}\""
         ]
       },
       {
-        title: "Shot 2",
-        description: "Core content.",
+        title: "Shot 2: The Value (3-15s)",
+        description: "Deliver the core message.",
         items: [
-          "List key action/camera move.",
-          "B-roll or overlay suggestion.",
-          "Transition tip."
+          "Camera: {{derived.shot2}}.",
+          "Action: Demo the process or show result.",
+          "Voiceover: Explain the \"Why\"."
         ]
       },
       {
-        title: "Shot 3",
-        description: "Payoff + CTA.",
+        title: "Shot 3: The Payoff (15s+)",
+        description: "Close the loop.",
         items: [
-          "Tie back to concept + CTA copy.",
-          "Motion or sound cue.",
-          "Optional Easter egg."
+          "Camera: {{derived.shot3}}.",
+          "Action: Reveal final result.",
+          "Text Overlay: \"{{derived.cta}}\""
         ]
       }
     ],

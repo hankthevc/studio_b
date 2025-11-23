@@ -32,6 +32,7 @@ Pods must log every milestone inside `pods/` with the phase label (`P2-Polish`, 
    - Use `python3 scripts/option_b_build.py --slug <slug>` for Tier 1 apps or `python3 scripts/generate_new_apps.py --slug <slug>` for the new app-shell based experiences.
    - Run `node scripts/phase2_refresh_readmes.mjs` after edits to normalize README structure + screenshots.
    - Run `npm run manifest:generate` whenever `apple.json` metadata changes to refresh `miniapps-manifest.json`, the iOS bundle copy, and the universal-link index.
+   - CI runs `npm run manifest:check`; run it locally before committing to ensure the manifest, category slices, and bundled HTML payloads are current.
 2. **Spec + UX**
    - Update `SPEC.md` and `UX_NOTES.md` first. TripSpark is the visual + copy bar.
 3. **Deterministic Logic**

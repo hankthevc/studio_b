@@ -1,0 +1,10 @@
+:root {
+  --primary: #ff6ad5;
+  --primary-ink: #ffffff;
+  --hero-surface: linear-gradient(135deg, #fef3ff, #e3f9ff);
+  --surface: #fff6fb;
+}
+
+body {
+  background: var(--surface);
+}

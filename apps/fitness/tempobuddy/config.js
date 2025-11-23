@@ -95,53 +95,73 @@ const appConfig = {
     ctaLabel: "Unlock adaptive pacing"
   },
   plan: {
+    derive: ({ values }) => {
+      const distanceMap = {
+        "5k": "5km",
+        "8k": "8km",
+        "long": "10km+"
+      };
+      const bpm = values.playlist || "160";
+      
+      let planName = "Base Builder";
+      let cue1 = "Steady state @ RPE 4";
+      let cue2 = "Form check: shoulders down";
+      
+      if (values.goal === "tempo") {
+        planName = "Threshold Run";
+        cue1 = "2km @ 10k race pace";
+        cue2 = "Recover 90s jog";
+      } else if (values.goal === "speed") {
+        planName = "Fartlek Fun";
+        cue1 = "1 min fast / 1 min slow x 5";
+        cue2 = "Focus on turnover (180spm)";
+      }
+
+      return {
+        planName,
+        distLabel: distanceMap[values.distance],
+        cue1,
+        cue2,
+        bpm
+      };
+    },
     summary: {
-      title: "{{labels.distance}} tempo on {{labels.route}}",
-      subtitle: "Goal: {{labels.goal}} with BPM {{labels.playlist}}.",
+      title: "{{derived.planName}}",
+      subtitle: "Dist: {{derived.distLabel}} \u00b7 Music: {{derived.bpm}} BPM",
       metrics: [
         {
-          label: "Intervals",
-          value: "4 blocks"
+          label: "Focus",
+          value: "{{labels.goal}}"
         },
         {
-          label: "Pace swing",
-          value: "\u00b110 sec"
+          label: "Terrain",
+          value: "{{labels.route}}"
         },
         {
-          label: "Playlist",
-          value: "{{labels.playlist}} BPM"
+          label: "Cadence",
+          value: "~{{derived.bpm}} spm"
         }
       ]
     },
     sections: [
       {
-        title: "Warm & prime",
-        description: "Ease into cadence and prep hills.",
+        title: "Warm Up (10 min)",
+        description: "Mobilize before you go.",
         items: [
-          "1 km conversational pace.",
-          "Drills: skips, butt kicks, quick strides.",
-          "Lock playlist volume + safety checks."
+          "Walk 5 mins.",
+          "Dynamic leg swings.",
+          "Easy jog to sync with music."
         ]
       },
       {
-        title: "Tempo wave",
-        description: "Alternating blocks tuned to {{labels.goal}}.",
+        title: "Main Set",
+        description: "The work.",
         items: [
-          "Block 1: 6 min tempo, 2 min float.",
-          "Block 2: hills or surges referencing {{labels.route}}.",
-          "Block 3: negative split push."
+          "Set 1: {{derived.cue1}}.",
+          "Cue: {{derived.cue2}}.",
+          "Repeat if feeling good."
         ]
       },
-      {
-        title: "Send-off + recap",
-        description: "Cool down and capture insights.",
-        items: [
-          "1 km easy jog/walk cooldown.",
-          "Breathing reset + hydration cue.",
-          "Dictate quick recap for future adaptive tuning."
-        ]
-      }
-    ],
     tips: [
       "Match strides to playlist BPM for steadier pacing.",
       "Use share row to text pacer to accountability buddy.",

@@ -21,7 +21,8 @@ const platformStyles = {
     hooks: [
       "{outcome} in 3 sentences",
       "Stop doing {pain} and try this",
-      "Threads aren't dead—you're just boring"
+      "Threads aren't dead—you're just boring",
+      "I curated the top 10 tools for {topic}"
     ],
     captionTemplate: "Turn this hook into a thread start, or repurpose for your next short. {cta}.",
     hashtags: ["#ship30", "#copywriting", "#audience"]
@@ -57,8 +58,8 @@ export function generateStorySpark(input = {}) {
 function normalizeForm(form = {}) {
   const platform = platformStyles[form.platform] ? form.platform : "instagram";
   const tone = toneModifiers[form.tone] ? form.tone : "playful";
-  const idea = (form.idea || "your next idea").trim();
-  const cta = (form.cta || "").trim();
+  const idea = clampText(form.idea || "your next idea");
+  const cta = clampText(form.cta || "Drop a comment");
   return { platform, tone, idea, cta };
 }
 
@@ -69,4 +70,10 @@ function fillTemplate(template, data) {
 function buildShareLink(platform) {
   const id = Math.random().toString(36).slice(2, 5);
   return `https://storyspark.app/s/${platform}-${id}`;
+}
+
+function clampText(text) {
+  const clean = (text || "").trim();
+  if (clean.length <= 120) return clean;
+  return `${clean.slice(0, 117)}...`;
 }

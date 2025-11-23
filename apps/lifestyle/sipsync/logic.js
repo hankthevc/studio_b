@@ -42,14 +42,32 @@ function normalizeForm(form = {}) {
 }
 
 function buildTimeline(form, reminderHours) {
-  return reminderHours.map((hour, index) => {
+  // Calculate awake window
+  const [wakeH, wakeM] = form.wake.split(":").map(Number);
+  const [sleepH, sleepM] = form.sleep.split(":").map(Number);
+  
+  let startHour = wakeH + 1; // First sip 1 hour after wake
+  let endHour = sleepH - 1;  // Last sip 1 hour before bed
+  if (endHour < startHour) endHour += 24; // Handle midnight crossing if needed
+
+  const awakeHours = endHour - startHour;
+  const intervals = 5; // Aim for 5-6 key hydration moments
+  const step = Math.max(1, Math.floor(awakeHours / intervals));
+
+  const dynamicReminders = [];
+  for (let h = startHour; h <= endHour; h += step) {
+    dynamicReminders.push(h % 24);
+    if (dynamicReminders.length >= 6) break;
+  }
+
+  return dynamicReminders.map((hour, index) => {
     const label = toTimeLabel(hour);
-    const ounces = form.travel ? 320 : 280;
-    const ml = ounces;
+    const baseMl = 300;
+    const ml = form.travel ? baseMl + 50 : baseMl;
     return {
       label,
       amountMl: ml,
-      flavorBoost: flavorIdeas[form.flavor][index % flavorIdeas[form.flavor].length]
+      flavorBoost: index % 2 === 0 ? "Pure Water" : flavorIdeas[form.flavor][index % flavorIdeas[form.flavor].length]
     };
   });
 }

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "tempobuddy",
+  "title": "TempoBuddy",
+  "subtitle": "Tempo cues in your pocket.",
+  "category": "Fitness",
+  "keywords": [
+    "running",
+    "pacer",
+    "tempo"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/tempobuddy",
+  "asset": {
+    "bundleSubdirectory": "apps/fitness/tempobuddy",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

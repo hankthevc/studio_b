@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "clipchoreo",
+  "title": "ClipChoreo",
+  "subtitle": "Video storyboard generator.",
+  "category": "Creator",
+  "keywords": [
+    "storyboard",
+    "video",
+    "creator"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/clipchoreo",
+  "asset": {
+    "bundleSubdirectory": "apps/creator/clipchoreo",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

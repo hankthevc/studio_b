@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "moneymicro",
+  "title": "MoneyMicro",
+  "subtitle": "Micro affordability check",
+  "category": "Finance",
+  "keywords": [
+    "finance",
+    "budget",
+    "calculator",
+    "afford"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/moneymicro",
+  "asset": {
+    "bundleSubdirectory": "apps/finance/moneymicro",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

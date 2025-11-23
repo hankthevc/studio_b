@@ -95,50 +95,85 @@ const appConfig = {
     ctaLabel: "Upgrade for projections"
   },
   plan: {
+    derive: ({ values }) => {
+      const lines = (values.bills || "").split("\n");
+      let totalBills = 0;
+      const parsedBills = [];
+      
+      lines.forEach(line => {
+        const match = line.match(/(\$?\d+)/);
+        if (match) {
+          const amount = parseInt(match[1].replace("$", ""), 10);
+          const label = line.replace(match[0], "").trim() || "Bill";
+          totalBills += amount;
+          parsedBills.push({ label, amount });
+        }
+      });
+
+      // Estimate income based on cycle (very rough heuristics for now)
+      let estimatedIncome = 0;
+      if (values.income === "biweekly") estimatedIncome = totalBills * 2.2;
+      if (values.income === "monthly") estimatedIncome = totalBills * 1.2;
+      if (values.income === "irregular") estimatedIncome = totalBills * 1.1;
+
+      const safeSpend = Math.max(0, estimatedIncome - totalBills);
+      const bufferRatio = safeSpend / (estimatedIncome || 1);
+      
+      let healthLabel = "Healthy";
+      let actionTip = "Auto-transfer $50 to savings.";
+      
+      if (bufferRatio < 0.1) {
+        healthLabel = "Tight";
+        actionTip = "Review subscriptions for cuts.";
+      } else if (bufferRatio < 0.3) {
+        healthLabel = "Balanced";
+        actionTip = "Pad your emergency fund.";
+      }
+
+      return {
+        totalBills: `$${totalBills}`,
+        safeSpend: `$${Math.round(safeSpend)}`,
+        billCount: parsedBills.length,
+        healthLabel,
+        actionTip,
+        topBill: parsedBills.sort((a, b) => b.amount - a.amount)[0]?.label || "None"
+      };
+    },
     summary: {
-      title: "{{labels.income}} lane",
-      subtitle: "Stress {{labels.stress}} \u00b7 Goal {{labels.goal}}.",
+      title: "{{labels.income}} Cash Flow",
+      subtitle: "{{derived.healthLabel}} buffer detected.",
       metrics: [
         {
-          label: "Bills mapped",
-          value: "Up to 6"
+          label: "Total Bills",
+          value: "{{derived.totalBills}}"
         },
         {
-          label: "Safe spend",
-          value: "Auto-estimated"
+          label: "Safe to Spend",
+          value: "{{derived.safeSpend}}"
         },
         {
-          label: "Alerts",
-          value: "2 upcoming"
+          label: "Status",
+          value: "{{derived.healthLabel}}"
         }
       ]
     },
     sections: [
       {
-        title: "Lane overview",
-        description: "High-level view of upcoming cash.",
+        title: "Bill Breakdown",
+        description: "Your committed costs for this cycle.",
         items: [
-          "Income drop + starting balance stub.",
-          "Bill timeline with due-date ordering.",
-          "Safe-to-spend band after each bill."
+          "Highest cost: {{derived.topBill}}",
+          "Total commitment: {{derived.totalBills}}",
+          "Bills tracked: {{derived.billCount}}"
         ]
       },
       {
-        title: "Focus bills",
-        description: "Callouts for upcoming charges.",
+        title: "Smart Actions",
+        description: "Optimize your cash flow.",
         items: [
-          "Highlight highest amount + autopay note.",
-          "List actionable steps (renegotiate, pay early).",
-          "Add nudge for emergency buffer."
-        ]
-      },
-      {
-        title: "Next best actions",
-        description: "Keep stress manageable.",
-        items: [
-          "Set alert 3 days prior to each bill.",
-          "Transfer $25 to buffer if safe.",
-          "If stress high, ping coach/expert."
+          "{{derived.actionTip}}",
+          "Check due dates for top bill.",
+          "Set calendar alert 2 days before pay."
         ]
       }
     ],

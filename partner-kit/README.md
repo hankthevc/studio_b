@@ -7,7 +7,7 @@ This directory bundles everything a host app needs to embed the first eleven min
 | Path | Purpose |
 | --- | --- |
 | `analytics/contracts.md` | Segment-ready event contract for every app with sample payloads and KPI notes. |
-| `billing/billingMock.js` | Lightweight subscription stub (`window.requestSubscription`) so partners can simulate Pro upgrades locally. |
+| `billing/billingMock.js` | Lightweight subscription stub (`window.MiniHost`) so partners can simulate Pro upgrades locally. |
 | `themes/presets.css` | Three CSS preset themes (`partner-default`, `partner-dark`, `partner-warm`) overriding shared tokens. |
 | `qa/README.md` | Device/browser matrix and step-by-step host QA checklist for iOS Safari, Android Chrome, Samsung Internet, RN WebView, and desktop Chromium. |
 | `showcase/index.html` | Demo hub linking to all eleven apps plus QR codes/instructions for easy preview. |

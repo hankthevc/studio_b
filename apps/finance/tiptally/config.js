@@ -99,32 +99,70 @@ const appConfig = {
     ctaLabel: "Upgrade for venue presets"
   },
   plan: {
+    derive: ({ values }) => {
+      const serviceTips = {
+        standard: 0.18,
+        great: 0.22,
+        meh: 0.15
+      };
+      const splitNum = values.split === "4+" ? 4 : Number(values.split || 1);
+      const billRaw = (values.bill || "").replace(/[^0-9.]/g, "");
+      const bill = billRaw ? Number(billRaw) : 0;
+      const tipRate = serviceTips[values.service] ?? 0.18;
+      
+      let rawTip = bill * tipRate;
+      let finalTip = rawTip;
+      let roundUpNote = "";
+
+      if (values.roundUp === "nearest") {
+        finalTip = Math.ceil(rawTip);
+        if (finalTip > rawTip) roundUpNote = `(Rounded up +$${(finalTip - rawTip).toFixed(2)})`;
+      } else if (values.roundUp === "generous") {
+        finalTip = Math.ceil(rawTip + 1);
+        roundUpNote = `(Boosted +$${(finalTip - rawTip).toFixed(2)})`;
+      } else {
+        finalTip = Math.round(rawTip * 100) / 100;
+      }
+
+      const totalWithTip = bill + finalTip;
+      const perPerson = splitNum > 0 ? totalWithTip / splitNum : totalWithTip;
+
+      return {
+        billClean: bill ? `$${bill.toFixed(2)}` : values.bill || "$0.00",
+        tipPercentLabel: `${Math.round(tipRate * 100)}%`,
+        tipAmount: `$${finalTip.toFixed(2)}`,
+        totalWithTip: `$${totalWithTip.toFixed(2)}`,
+        perPerson: `$${perPerson.toFixed(2)}`,
+        splitNum,
+        roundUpNote
+      };
+    },
     summary: {
-      title: "Tip + split ready",
-      subtitle: "Service {{labels.service}} \u00b7 Round {{labels.roundUp}}.",
+      title: "Tip: {{derived.tipAmount}}",
+      subtitle: "{{derived.tipPercentLabel}} based on {{labels.service}} service.",
       metrics: [
         {
-          label: "Tip suggestion",
-          value: "{{labels.service}} %"
+          label: "Total Pay",
+          value: "{{derived.totalWithTip}}"
         },
         {
-          label: "Per person",
-          value: "{{values.bill}} / {{labels.split}}"
+          label: "Per Person",
+          value: "{{derived.perPerson}}"
         },
         {
-          label: "Round up",
+          label: "Karma",
           value: "{{labels.roundUp}}"
         }
       ]
     },
     sections: [
       {
-        title: "Tip math",
-        description: "Use local norms plus vibe override.",
+        title: "The Math",
+        description: "Full breakdown.",
         items: [
-          "Base tip from service slider.",
-          "Apply round-up preference.",
-          "Show local cultural note."
+          "Bill: {{derived.billClean}}",
+          "Tip: {{derived.tipAmount}} {{derived.roundUpNote}}",
+          "Total: {{derived.totalWithTip}}"
         ]
       },
       {
@@ -140,7 +178,7 @@ const appConfig = {
         title: "Payment script",
         description: "Copy-ready note.",
         items: [
-          "\"Bill was {{values.bill}}, tip = X, so send $Y.\"",
+          "\"Bill was {{derived.billClean}}, tip {{derived.tipPercentLabel}} \u2192 send {{derived.perPerson}} each.\"",
           "Include `Tap to pay` or QR mention.",
           "Add thank-you or gentle nudge text."
         ]

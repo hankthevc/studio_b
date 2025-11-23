@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "prepcoach",
+  "title": "PrepCoach",
+  "subtitle": "AI interview coach",
+  "category": "Career",
+  "keywords": [
+    "interview",
+    "career",
+    "coach",
+    "mock"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/prepcoach",
+  "asset": {
+    "bundleSubdirectory": "apps/career/prepcoach",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

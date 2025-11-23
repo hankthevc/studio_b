@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "questdash",
+  "title": "QuestDash",
+  "subtitle": "Photo-proof challenges.",
+  "category": "Games",
+  "keywords": [
+    "challenge",
+    "game",
+    "social"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/questdash",
+  "asset": {
+    "bundleSubdirectory": "apps/games/questdash",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

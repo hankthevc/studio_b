@@ -14,8 +14,17 @@ struct MiniAppWebView: UIViewRepresentable {
         let config = WKWebViewConfiguration()
         config.allowsInlineMediaPlayback = true
         config.limitsNavigationsToAppBoundDomains = false
+        
+        // Allow local files to load other local files (needed for ES6 modules)
+        config.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+        
         context.coordinator.installBridge(into: config.userContentController)
         let webView = WKWebView(frame: .zero, configuration: config)
+        #if DEBUG
+        if #available(iOS 16.4, *) {
+            webView.isInspectable = true
+        }
+        #endif
         context.coordinator.webView = webView
         webView.navigationDelegate = context.coordinator
         return webView
@@ -27,7 +36,12 @@ struct MiniAppWebView: UIViewRepresentable {
         }
 
         if url.isFileURL {
-            uiView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+            // Allow read access to the entire repo root so mini-apps can load shared resources
+            let repoRoot = url.deletingLastPathComponent()
+                .deletingLastPathComponent() // up from app folder
+                .deletingLastPathComponent() // up from category folder  
+                .deletingLastPathComponent() // up from apps folder (now at repo root)
+            uiView.loadFileURL(url, allowingReadAccessTo: repoRoot)
         } else {
             uiView.load(URLRequest(url: url))
         }
@@ -96,14 +110,19 @@ struct MiniAppWebView: UIViewRepresentable {
             webView: WKWebView?,
             reply: @escaping (Result<[String: Any], Error>) -> Void
         ) {
+            print("🔔 MiniHostBridge received action: \(action)")
             switch action {
             case .requestSubscription:
-                Task {
+                print("💰 Starting requestSubscription for \(miniApp.slug)")
+                Task { @MainActor in
+                    print("💰 Task started on MainActor")
                     do {
+                        print("💰 Calling commerceManager.requestSubscription...")
                         let result = try await commerceManager.requestSubscription(
                             for: miniApp.slug,
                             metadata: payload["metadata"] as? [String: Any] ?? [:]
                         )
+                        print("💰 Request successful, replying with status: \(result.status)")
                         reply(.success(result.bridgePayload))
                         if result.status == .active {
                             bridge.dispatchEvent(
@@ -113,12 +132,13 @@ struct MiniAppWebView: UIViewRepresentable {
                             )
                         }
                     } catch {
+                        print("💰 Request failed with error: \(error)")
                         reply(.failure(error))
                     }
                 }
             case .isSubscribed:
-                Task {
-                    let active = subscriptionController.isSubscribed(slug: miniApp.slug)
+                Task { @MainActor in
+                    let active = await subscriptionController.isSubscribed(slug: miniApp.slug)
                     reply(.success(["isSubscribed": active]))
                 }
             case .getAgeCategory:
@@ -140,4 +160,3 @@ struct MiniAppWebView: UIViewRepresentable {
         }
     }
 }
-

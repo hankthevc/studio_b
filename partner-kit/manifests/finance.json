@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Finance",
+  "apps": [
+    {
+      "slug": "billbreeze",
+      "title": "BillBreeze",
+      "subtitle": "Cash-flow clarity in minutes.",
+      "category": "Finance",
+      "keywords": [
+        "budget",
+        "cashflow",
+        "bills"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/billbreeze",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/billbreeze",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.billbreeze.plus"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "moneymicro",
+      "title": "MoneyMicro",
+      "subtitle": "Micro affordability check",
+      "category": "Finance",
+      "keywords": [
+        "finance",
+        "budget",
+        "calculator",
+        "afford"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/moneymicro",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/moneymicro",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "slicesaver",
+      "title": "SliceSaver",
+      "subtitle": "Split group costs with scripts.",
+      "category": "Finance",
+      "keywords": [
+        "split",
+        "finance",
+        "bills"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/slicesaver",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/slicesaver",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "tiptally",
+      "title": "TipTally",
+      "subtitle": "Instant tip + split notes.",
+      "category": "Finance",
+      "keywords": [
+        "tip",
+        "split",
+        "calculator"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/tiptally",
+      "asset": {
+        "bundleSubdirectory": "apps/finance/tiptally",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    }
+  ]
+}

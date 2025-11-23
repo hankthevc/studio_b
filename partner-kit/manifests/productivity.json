@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Productivity",
+  "apps": [
+    {
+      "slug": "flowstreak",
+      "title": "FlowStreak",
+      "subtitle": "Celebrate wins, plan tomorrow.",
+      "category": "Productivity",
+      "keywords": [
+        "productivity",
+        "wins",
+        "journal"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/flowstreak",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/flowstreak",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.flowstreak.teams"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "focustiles",
+      "title": "FocusTiles",
+      "subtitle": "Adaptive focus tiles",
+      "category": "Productivity",
+      "keywords": [
+        "focus",
+        "timer",
+        "productivity",
+        "pomodoro"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/focustiles",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/focustiles",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "inboxzen",
+      "title": "InboxZen",
+      "subtitle": "Triage email in seconds.",
+      "category": "Productivity",
+      "keywords": [
+        "email",
+        "productivity",
+        "triage"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/inboxzen",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/inboxzen",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "meetingminder",
+      "title": "MeetingMinder",
+      "subtitle": "Prep + follow-up in one swipe.",
+      "category": "Productivity",
+      "keywords": [
+        "meeting",
+        "agenda",
+        "productivity"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/meetingminder",
+      "asset": {
+        "bundleSubdirectory": "apps/productivity/meetingminder",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    }
+  ]
+}

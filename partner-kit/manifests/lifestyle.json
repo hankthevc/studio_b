@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Lifestyle",
+  "apps": [
+    {
+      "slug": "habitgrid",
+      "title": "HabitGrid",
+      "subtitle": "Heatmap habit tracker.",
+      "category": "Lifestyle",
+      "keywords": [
+        "habit",
+        "tracker",
+        "streak"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/habitgrid",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/habitgrid",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "mealmind",
+      "title": "MealMind",
+      "subtitle": "AI meal planner",
+      "category": "Lifestyle",
+      "keywords": [
+        "meal",
+        "planner",
+        "nutrition",
+        "grocery"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/mealmind",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/mealmind",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.mealmind.unlimited"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "restnest",
+      "title": "RestNest",
+      "subtitle": "Nightly wind-down ritual.",
+      "category": "Lifestyle",
+      "keywords": [
+        "sleep",
+        "routine",
+        "wellness"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/restnest",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/restnest",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "sipsync",
+      "title": "SipSync",
+      "subtitle": "AI hydration coach",
+      "category": "Lifestyle",
+      "keywords": [
+        "hydration",
+        "wellness",
+        "reminder",
+        "water"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/sipsync",
+      "asset": {
+        "bundleSubdirectory": "apps/lifestyle/sipsync",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    }
+  ]
+}

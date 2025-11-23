@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Travel",
+  "apps": [
+    {
+      "slug": "layoverloop",
+      "title": "LayoverLoop",
+      "subtitle": "Micro itineraries between flights.",
+      "category": "Travel",
+      "keywords": [
+        "layover",
+        "travel",
+        "airport",
+        "plan"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/layoverloop",
+      "asset": {
+        "bundleSubdirectory": "apps/travel/layoverloop",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "pocketporter",
+      "title": "PocketPorter",
+      "subtitle": "AI packing buddy",
+      "category": "Travel",
+      "keywords": [
+        "packing",
+        "travel",
+        "carry-on",
+        "checklist"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/pocketporter",
+      "asset": {
+        "bundleSubdirectory": "apps/travel/pocketporter",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "tripspark",
+      "title": "TripSpark",
+      "subtitle": "3-day AI itineraries with budgets & share links",
+      "category": "Travel",
+      "keywords": [
+        "travel",
+        "itinerary",
+        "planner",
+        "city guide",
+        "budget",
+        "ai",
+        "weekend",
+        "shareable"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/tripspark",
+      "asset": {
+        "bundleSubdirectory": "apps/travel/tripspark",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.tripspark.pro"
+      ],
+      "previewImageName": null
+    }
+  ]
+}

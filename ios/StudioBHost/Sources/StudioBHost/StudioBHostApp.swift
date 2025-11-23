@@ -13,7 +13,8 @@ struct StudioBHostApp: App {
                 .task {
                     async let manifestTask = appState.loadManifest()
                     async let ageTask = ageProvider.refresh()
-                    _ = await (manifestTask, ageTask)
+                    async let commerceTask = CommerceManager.shared.hydrateFromBackend()
+                    _ = await (manifestTask, ageTask, commerceTask)
                 }
                 .onOpenURL { url in
                     appState.handleIncomingURL(url)

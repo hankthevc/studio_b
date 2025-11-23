@@ -95,21 +95,48 @@ const appConfig = {
     ctaLabel: "Upgrade for partner mode"
   },
   plan: {
+    derive: ({ values }) => {
+      const habits = (values.habits || "")
+        .split("\n")
+        .map((h) => h.trim())
+        .filter(Boolean)
+        .slice(0, 5);
+      
+      while (habits.length < 3) {
+        habits.push("Add another micro-habit here.");
+      }
+
+      const streakGoal = parseInt(values.streakGoal, 10) || 7;
+      const totalCheckins = habits.length * streakGoal;
+      const completionTarget = Math.floor(totalCheckins * 0.85); // 85% consistency goal
+
+      let toneMsg = "Keep it light, consistency > intensity.";
+      if (values.tone === "cheer") toneMsg = "You got this! One day at a time.";
+      if (values.tone === "accountable") toneMsg = "No excuses. Mark the box daily.";
+
+      return {
+        habits,
+        habitCount: habits.length,
+        totalCheckins,
+        completionTarget,
+        toneMsg
+      };
+    },
     summary: {
-      title: "{{labels.streakGoal}}-day grid ready",
-      subtitle: "Tone: {{labels.tone}} with reminders at {{labels.reminder}}.",
+      title: "{{labels.streakGoal}}-Day Challenge",
+      subtitle: "{{derived.toneMsg}}",
       metrics: [
         {
-          label: "Habits tracked",
-          value: "Up to 5"
+          label: "Habits",
+          value: "{{derived.habitCount}} tracked"
         },
         {
-          label: "Reminder",
-          value: "{{labels.reminder}}"
+          label: "Total Reps",
+          value: "{{derived.totalCheckins}} reps"
         },
         {
-          label: "Heatmap palette",
-          value: "Sunrise"
+          label: "Win Target",
+          value: "{{derived.completionTarget}}+"
         }
       ]
     },
@@ -120,14 +147,14 @@ const appConfig = {
         items: [
           "Name the streak + affirmation.",
           "Assign colors for low/medium/high completeness.",
-          "Pin quick-note area for reflections."
+          "Top habit: {{derived.habits.0}}"
         ]
       },
       {
         title: "Daily cadence",
         description: "Micro instructions for each habit line.",
         items: [
-          "Morning reminder at {{labels.reminder}} includes habit summary.",
+          "Morning reminder includes: {{derived.habits.1}}",
           "Tap square to mark Partial/Full per line.",
           "Log a 1-sentence recap nightly."
         ]

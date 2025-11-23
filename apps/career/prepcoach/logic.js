@@ -93,7 +93,7 @@ function normalizeForm(form = {}) {
   const role = rolePrompts[form.role] ? form.role : "product";
   const company = companyFlairs[form.company] ? form.company : "startup";
   const seniority = clamp(Number(form.seniority) || 3);
-  const strengths = (form.strengths || "").trim();
+  const strengths = clampText(form.strengths || "");
   return { role, company, seniority, strengths };
 }
 
@@ -103,10 +103,14 @@ function clamp(value) {
 
 function buildResponseHint(form, prompt, index) {
   if (!form.strengths) return `Anchor on ${prompt.angles[0].toLowerCase()} and paint the outcome.`;
-  return `Tie your strength in ${form.strengths} to ${prompt.angles[index % prompt.angles.length].toLowerCase()}.`;
+  const strength = form.strengths.toLowerCase();
+  if (index === 0) return `Open strong: "My strength in ${strength} helped me when..."`;
+  if (index === 1) return `Pivot to learning: "While I rely on ${strength}, I realized I needed to..."`;
+  return `Tie your strength in ${strength} to ${prompt.angles[index % prompt.angles.length].toLowerCase()}.`;
 }
 
 function buildFollowUp(role) {
+  const base = "Walk me through the most recent product experiment that changed your roadmap.";
   switch (role) {
     case "sales":
       return "How do you forecast accuracy when leadership pressure rises?";
@@ -115,11 +119,17 @@ function buildFollowUp(role) {
     case "engineering":
       return "Describe how you keep code quality high while shipping fast.";
     default:
-      return "Walk me through the most recent product experiment that changed your roadmap.";
+      return base;
   }
 }
 
 function buildShareLink(role) {
   const id = Math.random().toString(36).slice(2, 5);
   return `https://prepcoach.app/s/${role}-${id}`;
+}
+
+function clampText(text) {
+  const clean = (text || "").trim();
+  if (clean.length <= 120) return clean;
+  return `${clean.slice(0, 117)}...`;
 }

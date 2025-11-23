@@ -1,7 +1,7 @@
 import Foundation
 
 struct MiniApp: Identifiable, Decodable, Hashable {
-    struct AgeBand: Decodable {
+    struct AgeBand: Decodable, Hashable {
         let min: Int
         let max: Int?
 
@@ -13,7 +13,7 @@ struct MiniApp: Identifiable, Decodable, Hashable {
         }
     }
 
-    struct AssetDescriptor: Decodable {
+    struct AssetDescriptor: Decodable, Hashable {
         let bundleSubdirectory: String
         let entrypoint: String
     }

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "pulsepath",
+  "title": "PulsePath",
+  "subtitle": "HIIT stacks tuned to your energy.",
+  "category": "Fitness",
+  "keywords": [
+    "hiit",
+    "fitness",
+    "interval"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/pulsepath",
+  "asset": {
+    "bundleSubdirectory": "apps/fitness/pulsepath",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

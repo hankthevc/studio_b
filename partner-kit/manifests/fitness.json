@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Fitness",
+  "apps": [
+    {
+      "slug": "flexdesk",
+      "title": "FlexDesk",
+      "subtitle": "Micro stretch flows for desk life.",
+      "category": "Fitness",
+      "keywords": [
+        "stretch",
+        "desk",
+        "mobility",
+        "wellness"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/flexdesk",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/flexdesk",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "liftshift",
+      "title": "LiftShift",
+      "subtitle": "AI strength block builder",
+      "category": "Fitness",
+      "keywords": [
+        "fitness",
+        "strength",
+        "workout",
+        "coach"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/liftshift",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/liftshift",
+        "entrypoint": "index"
+      },
+      "skuIds": [
+        "com.studiob.liftshift.pro"
+      ],
+      "previewImageName": null
+    },
+    {
+      "slug": "pulsepath",
+      "title": "PulsePath",
+      "subtitle": "HIIT stacks tuned to your energy.",
+      "category": "Fitness",
+      "keywords": [
+        "hiit",
+        "fitness",
+        "interval"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/pulsepath",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/pulsepath",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "tempobuddy",
+      "title": "TempoBuddy",
+      "subtitle": "Tempo cues in your pocket.",
+      "category": "Fitness",
+      "keywords": [
+        "running",
+        "pacer",
+        "tempo"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/tempobuddy",
+      "asset": {
+        "bundleSubdirectory": "apps/fitness/tempobuddy",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    }
+  ]
+}

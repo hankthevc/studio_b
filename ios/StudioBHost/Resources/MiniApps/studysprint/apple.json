@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "studysprint",
+  "title": "StudySprint",
+  "subtitle": "Pomodoro-style study plans.",
+  "category": "Education",
+  "keywords": [
+    "study",
+    "pomodoro",
+    "education"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/studysprint",
+  "asset": {
+    "bundleSubdirectory": "apps/education/studysprint",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

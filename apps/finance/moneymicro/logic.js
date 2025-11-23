@@ -36,12 +36,13 @@ export function planScenario(formValues = {}) {
     summary: buildSummary(status, normalized.price, normalized.goal, financing.label),
     status,
     timelineRows: buildTimelineRows(goalContribution, monthlyPayment, timeline),
-    tip: buildTip(status.key),
+    tip: buildTip(status.key, status.delta),
     shareLink: buildShareLink(status.key)
   };
 }
 
 function calculateMonthlyPayment(amountFinanced, financing) {
+  if (amountFinanced <= 0) return 0;
   if (financing.apr === 0) {
     return Math.round(amountFinanced / financing.months);
   }
@@ -57,7 +58,7 @@ function determineStatus(remaining) {
       return { key: config.key, label: config.label, delta: remaining };
     }
   }
-  return statusConfig[statusConfig.length - 1];
+  return { ...statusConfig[statusConfig.length - 1], delta: remaining };
 }
 
 function buildSummary(status, price, goal, financingLabel) {
@@ -90,14 +91,16 @@ function buildTimelineRows(goalContribution, monthlyPayment, timeline) {
   ];
 }
 
-function buildTip(statusKey) {
+function buildTip(statusKey, delta) {
   if (statusKey === "onTrack") {
-    return "Keep an auto-transfer in place so the goal stays funded.";
+    return "Green light! Set up an auto-transfer to keep that goal secure.";
   }
   if (statusKey === "tight") {
-    return "Trim $15/week from dining or pause one subscription to stay on pace.";
+    const savingsNeeded = Math.abs(delta);
+    return `To make this work, trim roughly ${formatCurrency(savingsNeeded)} from your monthly discretionary spend (dining/subs).`;
   }
-  return "Delay 1–2 months or boost down payment by 15% to protect your goal.";
+  const gap = Math.abs(delta);
+  return `Red flag: You'd be short ${formatCurrency(gap)}/mo. Delay the purchase 2 months or double your down payment.`;
 }
 
 function buildShareLink(statusKey) {
@@ -117,5 +120,5 @@ function normalizeForm(form = {}) {
 
 function clampCurrency(value) {
   if (Number.isNaN(value)) return 0;
-  return Math.min(Math.max(value, 0), 10000);
+  return Math.min(Math.max(value, 0), 50000);
 }

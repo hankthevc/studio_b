@@ -108,32 +108,60 @@ const appConfig = {
     ctaLabel: "Upgrade for rehearsal"
   },
   plan: {
+    derive: ({ values }) => {
+      const hooks = {
+        investor: {
+          confident: "We found the secret to [Market Gap] and just hit [Metric].",
+          warm: "I'm building a team to solve [Problem] because I lived it.",
+          high: "Imagine if [Competitor] was actually fast. That's us."
+        },
+        hiring: {
+          confident: "I specialize in [Skill] and drove [Result] at my last role.",
+          warm: "I've admired your team's work on [Project] and want to contribute.",
+          high: "I'm ready to sprint on [Goal] starting day one."
+        },
+        peer: {
+          confident: "I'm working on [Project]—it's a bit wild but working.",
+          warm: "Hey, I'm [Name]. I loved your point about [Topic].",
+          high: "Let's collab! I have an idea for [Idea]."
+        }
+      };
+      
+      const selectedHook = hooks[values.audience]?.[values.tone] || hooks.investor.confident;
+      const duration = parseInt(values.time, 10) || 30;
+      
+      return {
+        hook: selectedHook,
+        proof: values.focus === "traction" ? "30% MoM growth" : values.focus === "team" ? "Ex-Google founders" : "Patent-pending tech",
+        cta: values.audience === "investor" ? "Are you open to a 15-min demo?" : "Can I send you my portfolio?"
+      };
+    },
     summary: {
-      title: "{{labels.audience}} pitch",
-      subtitle: "Tone {{labels.tone}} \u00b7 {{labels.time}} sec \u00b7 Focus {{labels.focus}}.",
+      title: "Pitch Draft: {{labels.time}} sec",
+      subtitle: "Audience: {{labels.audience}} \u00b7 Tone: {{labels.tone}}",
       metrics: [
         {
-          label: "Hook",
-          value: "3 beats"
+          label: "Opener",
+          value: "Strong Hook"
         },
         {
-          label: "Score",
-          value: "8.7 clarity"
+          label: "Proof Point",
+          value: "{{derived.proof}}"
         },
         {
-          label: "CTA",
-          value: "Deterministic"
+          label: "Close",
+          value: "Clear CTA"
         }
       ]
     },
     sections: [
       {
-        title: "Pitch draft",
-        description: "Paragraph ready to rehearse.",
+        title: "The Script",
+        description: "Read this aloud.",
         items: [
-          "Opening hook referencing {{labels.audience}} pain.",
-          "Proof point tied to {{labels.focus}}.",
-          "Call-to-action tailored to time."
+          "1. Hook: \"{{derived.hook}}\"",
+          "2. Proof: \"We have {{derived.proof}}.\"",
+          "3. Ask: \"{{derived.cta}}\""
         ]
       },
       {

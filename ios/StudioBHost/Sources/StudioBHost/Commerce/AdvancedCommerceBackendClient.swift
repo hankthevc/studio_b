@@ -1,6 +1,6 @@
 import Foundation
 
-struct AdvancedCommerceBackendClient {
+struct AdvancedCommerceBackendClient: CommerceBackendClient {
     enum BackendError: LocalizedError {
         case missingBaseURL
         case invalidResponse
@@ -64,13 +64,57 @@ struct AdvancedCommerceBackendClient {
     }
 
     static func makeDefault(from processInfo: ProcessInfo = .processInfo) -> AdvancedCommerceBackendClient? {
-        guard
-            let rawURL = processInfo.environment["STUDIOB_COMMERCE_BACKEND_URL"],
-            let url = URL(string: rawURL)
-        else {
+        let rawURL = processInfo.environment["STUDIOB_COMMERCE_BACKEND_URL"] 
+            ?? "https://studiob-ju5gpsd3k-henrys-projects-fb6e6763.vercel.app"
+        
+        guard let url = URL(string: rawURL) else {
             return nil
         }
         return AdvancedCommerceBackendClient(baseURL: url)
     }
+
+    func fetchSubscriptions() async throws -> [SubscriptionController.Result] {
+        let url = baseURL.appendingPathComponent("/api/commerce/subscriptions")
+        let (data, response) = try await urlSession.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+            throw BackendError.invalidResponse
+        }
+        let decoder = ISO8601DateDecoder()
+        let envelope = try decoder.decode(SubscriptionEnvelope.self, from: data)
+        return envelope.subscriptions.map { snapshot in
+            let status = SubscriptionController.Result.Status(rawValue: snapshot.status) ?? .active
+            return SubscriptionController.Result(
+                slug: snapshot.slug,
+                status: status,
+                activatedAt: snapshot.activatedAt ?? Date(),
+                productId: snapshot.productId,
+                transactionId: snapshot.transactionId
+            )
+        }
+    }
 }
 
+private struct SubscriptionEnvelope: Decodable {
+    let subscriptions: [SubscriptionSnapshot]
+}
+
+private struct SubscriptionSnapshot: Decodable {
+    let slug: String
+    let status: String
+    let activatedAt: Date?
+    let productId: String?
+    let transactionId: UInt64?
+}
+
+private final class ISO8601DateDecoder {
+    private let decoder: JSONDecoder
+
+    init() {
+        decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+    }
+
+    func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
+        try decoder.decode(T.self, from: data)
+    }
+}

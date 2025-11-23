@@ -104,50 +104,73 @@ const appConfig = {
     ctaLabel: "Upgrade for multi-night"
   },
   plan: {
+    derive: ({ values }) => {
+      const breathByMood = {
+        wired: { name: "4-7-8 Relax Breath", desc: "Inhale 4, hold 7, exhale 8 to calm the nervous system." },
+        meh: { name: "Box Breathing", desc: "Inhale 4, hold 4, exhale 4, hold 4 for focus." },
+        calm: { name: "Coherent Breathing", desc: "Gentle 6-second inhale, 6-second exhale." }
+      };
+      
+      const soundByRoom = {
+        bedroom: "Pink Noise or Heavy Rain",
+        living: "Lo-fi Beats or Fireplace",
+        travel: "Brown Noise (masks hotel sounds)"
+      };
+
+      const selectedBreath = breathByMood[values.eveningFeel] || breathByMood.meh;
+      const selectedSound = soundByRoom[values.room] || "Soft Rain";
+
+      return {
+        breathName: selectedBreath.name,
+        breathDesc: selectedBreath.desc,
+        sound: selectedSound,
+        journalPrompt: values.partner === "partner" ? "Share one win and one worry with your partner." : "Write down 3 things that can wait until tomorrow."
+      };
+    },
     summary: {
-      title: "{{labels.duration}} RestNest",
-      subtitle: "Mood {{labels.eveningFeel}} \u00b7 Room {{labels.room}}.",
+      title: "{{labels.duration}}-Min Wind Down",
+      subtitle: "Mood: {{labels.eveningFeel}} \u00b7 Room: {{labels.room}}",
       metrics: [
         {
-          label: "Breath cycles",
-          value: "4"
+          label: "Breathwork",
+          value: "{{derived.breathName}}"
         },
         {
-          label: "Prompts",
-          value: "3 short cues"
+          label: "Audio",
+          value: "{{derived.sound}}"
         },
         {
-          label: "Soundscape",
-          value: "Soft rain"
+          label: "Mode",
+          value: "{{labels.partner}}"
         }
       ]
     },
     sections: [
       {
-        title: "Arrival",
-        description: "Signal to your body that night mode is here.",
+        title: "1. Reset (2 min)",
+        description: "Shift gears physically.",
         items: [
-          "Dim lights + start ambient noise.",
-          "3-minute breath ladder (4-7-8).",
-          "Stretch or child\u2019s pose if tension remains."
+          "Phone away (or Do Not Disturb).",
+          "Put on {{derived.sound}}.",
+          "Do 5 cycles of {{derived.breathName}}: {{derived.breathDesc}}"
         ]
       },
       {
-        title: "Journaling + release",
-        description: "Download the day to clear mind loops.",
+        title: "2. Unload (3 min)",
+        description: "Clear mental RAM.",
         items: [
-          "Two-sentence gratitude prompt.",
-          "Parking lot note for tomorrow\u2019s brain.",
-          "If {{labels.partner}} mode, share one highlight each."
+          "{{derived.journalPrompt}}",
+          "Review tomorrow's first task so you don't loop on it.",
+          "Stretch: Neck rolls and forward fold."
         ]
       },
       {
-        title: "Drift cues",
-        description: "Close with sensory signal.",
+        title: "3. Drift (Remaining)",
+        description: "Prepare for sleep.",
         items: [
-          "Apply calming scent or lotion.",
-          "Play playlist tuned to {{labels.eveningFeel}}.",
-          "Set wake-up intention."
+          "Dim lights to 20%.",
+          "Cool the room if possible.",
+          "Read fiction (paper/Kindle, no blue light)."
         ]
       }
     ],

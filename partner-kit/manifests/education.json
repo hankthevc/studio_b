@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Education",
+  "apps": [
+    {
+      "slug": "languageloop",
+      "title": "LanguageLoop",
+      "subtitle": "Roleplay loops on demand.",
+      "category": "Education",
+      "keywords": [
+        "language",
+        "practice",
+        "phrases"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/languageloop",
+      "asset": {
+        "bundleSubdirectory": "apps/education/languageloop",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "skillsnack",
+      "title": "SkillSnack",
+      "subtitle": "5-minute skill boosts.",
+      "category": "Education",
+      "keywords": [
+        "learning",
+        "micro",
+        "education"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/skillsnack",
+      "asset": {
+        "bundleSubdirectory": "apps/education/skillsnack",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "studysprint",
+      "title": "StudySprint",
+      "subtitle": "Pomodoro-style study plans.",
+      "category": "Education",
+      "keywords": [
+        "study",
+        "pomodoro",
+        "education"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/studysprint",
+      "asset": {
+        "bundleSubdirectory": "apps/education/studysprint",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    }
+  ]
+}

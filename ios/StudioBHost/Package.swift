@@ -1,5 +1,6 @@
 // swift-tools-version: 5.9
 import PackageDescription
+import AppleProductTypes
 
 let package = Package(
     name: "StudioBHost",
@@ -16,7 +17,7 @@ let package = Package(
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),
             accentColor: .asset("AccentColor"),
-            entitlements: .file("ios/StudioBHost/StudioBHost.entitlements"),
+            // entitlements: .file("ios/StudioBHost/StudioBHost.entitlements"),
             supportedDeviceFamilies: [
                 .pad,
                 .phone
@@ -40,6 +41,11 @@ let package = Package(
                 .linkedFramework("StoreKit"),
                 .linkedFramework("WebKit")
             ]
+        ),
+        .testTarget(
+            name: "StudioBHostTests",
+            dependencies: ["StudioBHost"],
+            path: "Tests"
         )
     ]
 )

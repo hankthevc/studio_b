@@ -1,0 +1,23 @@
+{
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/DeclaredAgeRangeProvider.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.dia",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.swiftdeps"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/MiniAppAssetResolver.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.dia",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.swiftdeps"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/MiniAppManifestLoader.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.dia",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.swiftdeps"
+  }
+}

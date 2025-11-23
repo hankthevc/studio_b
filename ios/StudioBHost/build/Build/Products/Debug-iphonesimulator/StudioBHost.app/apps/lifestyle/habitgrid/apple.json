@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "habitgrid",
+  "title": "HabitGrid",
+  "subtitle": "Heatmap habit tracker.",
+  "category": "Lifestyle",
+  "keywords": [
+    "habit",
+    "tracker",
+    "streak"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/habitgrid",
+  "asset": {
+    "bundleSubdirectory": "apps/lifestyle/habitgrid",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

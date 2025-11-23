@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Games",
+  "apps": [
+    {
+      "slug": "brainbite",
+      "title": "BrainBite",
+      "subtitle": "Daily micro-puzzle",
+      "category": "Games",
+      "keywords": [
+        "puzzle",
+        "trivia",
+        "logic",
+        "daily"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/brainbite",
+      "asset": {
+        "bundleSubdirectory": "apps/games/brainbite",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "questdash",
+      "title": "QuestDash",
+      "subtitle": "Photo-proof challenges.",
+      "category": "Games",
+      "keywords": [
+        "challenge",
+        "game",
+        "social"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/questdash",
+      "asset": {
+        "bundleSubdirectory": "apps/games/questdash",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    }
+  ]
+}

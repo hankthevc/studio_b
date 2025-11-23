@@ -88,10 +88,11 @@ extension MiniHostBridge: WKScriptMessageHandler {
         let payload = body["payload"] as? [String: Any] ?? [:]
         let expectsResponse = body["expectsResponse"] as? Bool ?? true
         let messageId = body["id"] as? String
+        let targetWebView = message.webView
 
-        let reply: (Result<[String: Any], Error>) -> Void = { [weak self, weak message] result in
+        let reply: (Result<[String: Any], Error>) -> Void = { [weak self] result in
             guard expectsResponse, let id = messageId else { return }
-            self?.respond(result: result, messageId: id, webView: message?.webView)
+            self?.respond(result: result, messageId: id, webView: targetWebView)
         }
 
         delegate?.miniHostBridge(
@@ -168,6 +169,7 @@ private extension MiniHostBridge {
             __resolve(message) {
               const pendingEntry = pending.get(message.id);
               if (!pendingEntry) { return; }
+              console.debug("[MiniHost] resolve", message);
               pending.delete(message.id);
               if (message.success) {
                 pendingEntry.resolve(message.data || {});
@@ -187,4 +189,3 @@ private extension MiniHostBridge {
         return WKUserScript(source: source, injectionTime: .atDocumentStart, forMainFrameOnly: false)
     }()
 }
-

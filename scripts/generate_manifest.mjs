@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, rm, mkdir, cp, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { glob } from "glob";
@@ -18,6 +18,17 @@ const IOS_MANIFEST_PATH = path.join(
   "Resources",
   "miniapps-manifest.json"
 );
+const MINIAPP_BUNDLE_ROOT = path.join(
+  ROOT,
+  "ios",
+  "StudioBHost",
+  "Resources",
+  "MiniApps"
+);
+const CATEGORY_MANIFEST_DIR = path.join(ROOT, "partner-kit", "manifests");
+
+const CHECK_MODE = process.argv.includes("--check");
+const checkFailures = [];
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);
@@ -43,21 +54,45 @@ for (const relativePath of files) {
 }
 
 const sortedApps = apps.sort((a, b) => a.slug.localeCompare(b.slug));
+let generatedAt = new Date().toISOString();
+if (CHECK_MODE) {
+  const existingTimestamp = await readExistingManifestTimestamp();
+  if (existingTimestamp) {
+    generatedAt = existingTimestamp;
+  }
+}
+
 const manifest = {
   version: manifestVersion,
-  generatedAt: new Date().toISOString(),
+  generatedAt,
   apps: sortedApps
 };
 
-await writeJSON(MANIFEST_PATH, manifest);
-await writeJSON(IOS_MANIFEST_PATH, manifest);
-await writeFile(INDEX_PATH, buildIndexHTML(manifest), "utf-8");
+await ensureMiniAppBundles(sortedApps);
+await emitCategorySlices(manifest);
+await writeJSONArtifact(MANIFEST_PATH, manifest);
+await writeJSONArtifact(IOS_MANIFEST_PATH, manifest);
+await writeArtifact(INDEX_PATH, buildIndexHTML(manifest));
 
-console.log(
-  `✓ Generated ${sortedApps.length} entries → miniapps-manifest.json (v${manifestVersion})`
-);
-console.log(`✓ Updated iOS bundle manifest`);
-console.log(`✓ Wrote HTML index with universal links`);
+if (CHECK_MODE) {
+  if (checkFailures.length) {
+    console.error("❌ Manifest artifacts are stale:");
+    for (const failure of checkFailures) {
+      console.error(`   - ${failure}`);
+    }
+    process.exit(1);
+  } else {
+    console.log("✓ Manifest artifacts are current.");
+  }
+} else {
+  console.log(
+    `✓ Generated ${sortedApps.length} entries → miniapps-manifest.json (v${manifestVersion})`
+  );
+  console.log(`✓ Synced iOS bundle manifest`);
+  console.log(`✓ Wrote HTML index with universal links`);
+  console.log(`✓ Bundled ${sortedApps.length} mini-app payloads into Resources/MiniApps`);
+  console.log(`✓ Emitted per-category manifests to partner-kit/manifests/`);
+}
 
 function normalizeMetadata(meta) {
   return {
@@ -79,9 +114,144 @@ function normalizeMetadata(meta) {
   };
 }
 
-async function writeJSON(destination, data) {
+async function ensureMiniAppBundles(apps) {
+  if (CHECK_MODE) {
+    await verifyMiniAppBundles(apps);
+    return;
+  }
+  await rm(MINIAPP_BUNDLE_ROOT, { recursive: true, force: true });
+  await mkdir(MINIAPP_BUNDLE_ROOT, { recursive: true });
+  for (const app of apps) {
+    const sourceDir = path.join(ROOT, app.asset.bundleSubdirectory);
+    const destDir = path.join(MINIAPP_BUNDLE_ROOT, app.slug);
+    await cp(sourceDir, destDir, { recursive: true });
+  }
+}
+
+async function verifyMiniAppBundles(apps) {
+  if (!(await pathExists(MINIAPP_BUNDLE_ROOT))) {
+    checkFailures.push(`Bundle directory missing: ${MINIAPP_BUNDLE_ROOT}`);
+    return;
+  }
+  const expectedSlugs = new Set(apps.map((app) => app.slug));
+  const existingEntries = await safeReadDir(MINIAPP_BUNDLE_ROOT);
+  for (const entry of existingEntries) {
+    if (entry.isDirectory() && !expectedSlugs.has(entry.name)) {
+      checkFailures.push(`Unexpected bundle directory: ${path.join(MINIAPP_BUNDLE_ROOT, entry.name)}`);
+    }
+  }
+  for (const app of apps) {
+    const sourceDir = path.join(ROOT, app.asset.bundleSubdirectory);
+    const destDir = path.join(MINIAPP_BUNDLE_ROOT, app.slug);
+    const sourceFiles = await glob("**/*", {
+      cwd: sourceDir,
+      nodir: true
+    });
+    if (!sourceFiles.length) {
+      checkFailures.push(`No files found for ${app.slug} at ${sourceDir}`);
+      continue;
+    }
+    const destFiles = await glob("**/*", {
+      cwd: destDir,
+      nodir: true
+    }).catch(() => []);
+    const destSet = new Set(destFiles);
+    for (const relativeFile of sourceFiles) {
+      if (!destSet.has(relativeFile)) {
+        checkFailures.push(`Missing bundle file for ${app.slug}: ${path.join(destDir, relativeFile)}`);
+        continue;
+      }
+      const [sourceContent, destContent] = await Promise.all([
+        readFile(path.join(sourceDir, relativeFile)),
+        readFile(path.join(destDir, relativeFile))
+      ]);
+      if (!sourceContent.equals(destContent)) {
+        checkFailures.push(`Outdated bundle file for ${app.slug}: ${path.join(destDir, relativeFile)}`);
+      }
+      destSet.delete(relativeFile);
+    }
+    for (const extraFile of destSet) {
+      checkFailures.push(`Unexpected file in bundle for ${app.slug}: ${path.join(destDir, extraFile)}`);
+    }
+  }
+}
+
+async function emitCategorySlices(manifest) {
+  if (CHECK_MODE) {
+    await verifyCategorySlices(manifest);
+    return;
+  }
+  await rm(CATEGORY_MANIFEST_DIR, { recursive: true, force: true });
+  await mkdir(CATEGORY_MANIFEST_DIR, { recursive: true });
+  const grouped = groupByCategory(manifest.apps);
+  for (const [category, apps] of grouped) {
+    const payload = {
+      version: manifest.version,
+      generatedAt: manifest.generatedAt,
+      category,
+      apps
+    };
+    const filename = `${slugify(category)}.json`;
+    await writeJSONArtifact(path.join(CATEGORY_MANIFEST_DIR, filename), payload);
+  }
+}
+
+async function verifyCategorySlices(manifest) {
+  const grouped = groupByCategory(manifest.apps);
+  const expectedFilenames = [];
+  for (const [category, apps] of grouped) {
+    const payload = {
+      version: manifest.version,
+      generatedAt: manifest.generatedAt,
+      category,
+      apps
+    };
+    const filename = `${slugify(category)}.json`;
+    expectedFilenames.push(filename);
+    await writeJSONArtifact(path.join(CATEGORY_MANIFEST_DIR, filename), payload);
+  }
+  const existingFiles = await glob("*.json", {
+    cwd: CATEGORY_MANIFEST_DIR,
+    nodir: true
+  }).catch(() => []);
+  for (const file of existingFiles) {
+    if (!expectedFilenames.includes(file)) {
+      checkFailures.push(`Unexpected category manifest: ${path.join(CATEGORY_MANIFEST_DIR, file)}`);
+    }
+  }
+}
+
+function groupByCategory(apps) {
+  const map = new Map();
+  for (const app of apps) {
+    if (!map.has(app.category)) {
+      map.set(app.category, []);
+    }
+    map.get(app.category).push(app);
+  }
+  return map;
+}
+
+async function writeJSONArtifact(destination, data) {
   const payload = `${JSON.stringify(data, null, 2)}\n`;
-  await writeFile(destination, payload, "utf-8");
+  await writeArtifact(destination, payload);
+}
+
+async function writeArtifact(destination, contents) {
+  if (CHECK_MODE) {
+    let existing = null;
+    try {
+      existing = await readFile(destination, "utf-8");
+    } catch {
+      // File missing
+    }
+    if (existing !== contents) {
+      checkFailures.push(destination);
+    }
+    return;
+  }
+  await mkdir(path.dirname(destination), { recursive: true });
+  await writeFile(destination, contents, "utf-8");
 }
 
 function buildIndexHTML(manifest) {
@@ -140,5 +310,41 @@ function escapeHTML(input) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+async function safeReadDir(dir) {
+  try {
+    return await readdir(dir, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+}
+
+async function pathExists(targetPath) {
+  try {
+    await stat(targetPath);
+    return true;
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return false;
+    }
+    throw error;
+  }
+}
+
+async function readExistingManifestTimestamp() {
+  try {
+    const existing = JSON.parse(await readFile(MANIFEST_PATH, "utf-8"));
+    return existing.generatedAt;
+  } catch {
+    return null;
+  }
 }
 

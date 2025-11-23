@@ -1,0 +1,23 @@
+{
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Commerce/AdvancedCommerceBackendClient.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.dia",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.swiftdeps"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Commerce/AppStoreServerAPIClient.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.dia",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.swiftdeps"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Commerce/CommerceManager.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.dia",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.swiftdeps"
+  }
+}

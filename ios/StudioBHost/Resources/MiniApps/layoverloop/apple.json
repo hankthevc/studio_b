@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "layoverloop",
+  "title": "LayoverLoop",
+  "subtitle": "Micro itineraries between flights.",
+  "category": "Travel",
+  "keywords": [
+    "layover",
+    "travel",
+    "airport",
+    "plan"
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/layoverloop",
+  "asset": {
+    "bundleSubdirectory": "apps/travel/layoverloop",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "pitchpulse",
+  "title": "PitchPulse",
+  "subtitle": "Lightning pitch coach.",
+  "category": "Career",
+  "keywords": [
+    "pitch",
+    "career",
+    "networking"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/pitchpulse",
+  "asset": {
+    "bundleSubdirectory": "apps/career/pitchpulse",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

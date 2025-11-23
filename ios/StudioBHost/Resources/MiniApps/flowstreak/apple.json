@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "flowstreak",
+  "title": "FlowStreak",
+  "subtitle": "Celebrate wins, plan tomorrow.",
+  "category": "Productivity",
+  "keywords": [
+    "productivity",
+    "wins",
+    "journal"
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/flowstreak",
+  "asset": {
+    "bundleSubdirectory": "apps/productivity/flowstreak",
+    "entrypoint": "index"
+  },
+  "skuIds": [
+    "com.studiob.flowstreak.teams"
+  ],
+  "previewImageName": null
+}

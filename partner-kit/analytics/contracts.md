@@ -10,6 +10,24 @@ Send all events through **Segment `track`** calls using the namespaces below. Ea
 
 > Implementation note: `shared/appShell.js` automatically calls `window.MiniHost.track(eventName, props)` for every dispatch. Host containers should map that to Segment/Mixpanel or a custom analytics bus.
 
+### Host Bridge Delivery (Studio B reference backend)
+
+- `ios/StudioBHost` forwards every `MiniHost.track` call to `POST /api/analytics/track` on the Advanced Commerce backend (`STUDIOB_COMMERCE_BACKEND_URL`).
+- Payload schema:
+
+```json
+{
+  "eventName": "tripspark:upsellClicked",
+  "slug": "tripspark",
+  "properties": {
+    "surface": "upsell"
+  },
+  "timestamp": "2025-11-17T05:12:00.000Z"
+}
+```
+
+- The backend logs each event and exposes `GET /api/analytics/events` for automated QA. CI/device tests can hit this endpoint to verify that taps in Safari/WebView propagate through the bridge.
+
 ## Core Event Contract (All Apps)
 Every mini-app mounted through `shared/appShell.js` emits the following events automatically:
 

@@ -1,6 +1,11 @@
 import Foundation
 import StoreKit
 
+protocol CommerceBackendClient {
+    func requestSubscription(slug: String, metadata: [String: Any]) async throws -> SubscriptionController.Result
+    func fetchSubscriptions() async throws -> [SubscriptionController.Result]
+}
+
 @MainActor
 final class CommerceManager {
     enum Mode {
@@ -31,7 +36,7 @@ final class CommerceManager {
     private let subscriptionController: SubscriptionController
     private let serverAPI: AppStoreServerAPIClient
     private let mode: Mode
-    private let backendClient: AdvancedCommerceBackendClient?
+    private let backendClient: CommerceBackendClient?
     private var cachedProducts: [String: Product] = [:]
 
     init(
@@ -39,7 +44,7 @@ final class CommerceManager {
         subscriptionController: SubscriptionController = .shared,
         serverAPI: AppStoreServerAPIClient = .shared,
         mode: Mode = CommerceManager.resolveMode(),
-        backendClient: AdvancedCommerceBackendClient? = AdvancedCommerceBackendClient.makeDefault()
+        backendClient: CommerceBackendClient? = AdvancedCommerceBackendClient.makeDefault()
     ) {
         self.catalog = catalog
         self.subscriptionController = subscriptionController
@@ -48,10 +53,24 @@ final class CommerceManager {
         self.backendClient = backendClient
     }
 
+    func hydrateFromBackend() async {
+        guard let backendClient else { return }
+        do {
+            let results = try await backendClient.fetchSubscriptions()
+            await subscriptionController.replace(with: results)
+        } catch {
+            #if DEBUG
+            print("[Commerce] Failed to hydrate backend subscriptions: \(error)")
+            #endif
+        }
+    }
+
     func requestSubscription(for slug: String, metadata: [String: Any] = [:]) async throws -> SubscriptionController.Result {
         if let backendClient {
             do {
-                return try await backendClient.requestSubscription(slug: slug, metadata: metadata)
+                let backendResult = try await backendClient.requestSubscription(slug: slug, metadata: metadata)
+                await subscriptionController.apply(result: backendResult)
+                return backendResult
             } catch {
                 #if DEBUG
                 print("[Commerce] Backend request failed: \(error)")
@@ -117,7 +136,7 @@ final class CommerceManager {
         }
     }
 
-    private static func resolveMode() -> Mode {
+    private nonisolated static func resolveMode() -> Mode {
         let env = ProcessInfo.processInfo.environment["STUDIOB_COMMERCE_MODE"]?.lowercased()
         if env == "storekit" {
             return .storeKit

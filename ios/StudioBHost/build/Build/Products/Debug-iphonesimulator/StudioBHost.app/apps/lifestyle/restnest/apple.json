@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "restnest",
+  "title": "RestNest",
+  "subtitle": "Nightly wind-down ritual.",
+  "category": "Lifestyle",
+  "keywords": [
+    "sleep",
+    "routine",
+    "wellness"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/restnest",
+  "asset": {
+    "bundleSubdirectory": "apps/lifestyle/restnest",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

@@ -8,7 +8,8 @@ const platformPresets = {
     hooks: [
       "I tested {idea} so you don't have to",
       "{idea} in 5 steps (step 3 shocks people)",
-      "Stop wasting {time}—do this instead"
+      "Stop wasting {time}—do this instead",
+      "The $0 way to fix {idea}"
     ],
     thumbnail: "Big text: {keyword} + arrow at the aha moment"
   },
@@ -21,7 +22,8 @@ const platformPresets = {
     hooks: [
       "POV: you finally crack {idea}",
       "{idea} but in real life",
-      "This {time}-old myth just died"
+      "This {time}-old myth just died",
+      "Wait, did you know {keyword} could do this?"
     ],
     thumbnail: "Text bubble: \"{keyword}?\" + surprised face"
   },
@@ -70,9 +72,9 @@ export function generateHookSet(formValues = {}) {
 function normalizeForm(form = {}) {
   const platform = platformPresets[form.platform] ? form.platform : "youtube";
   const vibe = platformPresets[platform].vibeBoosts[form.vibe] ? form.vibe : "bold";
-  const idea = (form.idea || "this topic").trim();
-  const keyword = (form.keyword || "Hook").trim();
-  const time = (form.timeframe || "30-day").trim();
+  const idea = clampText(form.idea || "this topic");
+  const keyword = clampText(form.keyword || "Hook");
+  const time = clampText(form.timeframe || "30-day");
   return { platform, vibe, idea, keyword, time };
 }
 
@@ -99,4 +101,10 @@ function cycleVibe(vibe) {
   const order = ["bold", "insightful", "fun"];
   const idx = order.indexOf(vibe);
   return order[(idx + 1) % order.length];
+}
+
+function clampText(text) {
+  const clean = (text || "").trim();
+  if (clean.length <= 80) return clean;
+  return `${clean.slice(0, 77)}...`;
 }

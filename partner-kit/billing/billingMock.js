@@ -1,31 +1,58 @@
 (function () {
-  const PENDING = new Set();
+  if (window.MiniHost) return;
 
-  function activateSubscription(appSlug) {
-    const event = new CustomEvent("subscription:activated", { detail: { appSlug, timestamp: Date.now() } });
+  const PENDING = new Set();
+  const SUBSCRIPTIONS = new Set();
+
+  function activateSubscription(slug) {
+    SUBSCRIPTIONS.add(slug);
+    const event = new CustomEvent("subscription:activated", { detail: { slug, timestamp: Date.now() } });
     window.dispatchEvent(event);
-    console.info(`[BillingMock] Activated subscription for ${appSlug}`);
+    console.info(`[BillingMock] Activated subscription for ${slug}`);
   }
 
-  window.requestSubscription = function requestSubscription(appSlug) {
-    if (!appSlug) {
-      return Promise.reject(new Error("billingMock: appSlug is required"));
+  window.MiniHost = {
+    requestSubscription(slug, metadata) {
+      if (!slug) {
+        return Promise.reject(new Error("billingMock: slug is required"));
+      }
+
+      if (PENDING.has(slug)) {
+        return Promise.reject(new Error("billingMock: subscription already pending for " + slug));
+      }
+
+      if (SUBSCRIPTIONS.has(slug)) {
+        return Promise.resolve({ slug, status: "active" });
+      }
+
+      PENDING.add(slug);
+      console.info(`[BillingMock] Simulating checkout for ${slug}…`);
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          PENDING.delete(slug);
+          activateSubscription(slug);
+          resolve({ slug, status: "active" });
+        }, 900);
+      });
+    },
+
+    isSubscribed(slug) {
+      return Promise.resolve(SUBSCRIPTIONS.has(slug));
+    },
+
+    getAgeRange() {
+      return Promise.resolve({ min: 18, max: null });
+    },
+
+    getAgeCategory() {
+      return Promise.resolve("general");
+    },
+
+    track(eventName, props) {
+      console.log(`[BillingMock] Track: ${eventName}`, props);
+      return Promise.resolve();
     }
-
-    if (PENDING.has(appSlug)) {
-      return Promise.reject(new Error("billingMock: subscription already pending for " + appSlug));
-    }
-
-    PENDING.add(appSlug);
-    console.info(`[BillingMock] Simulating checkout for ${appSlug}…`);
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        PENDING.delete(appSlug);
-        activateSubscription(appSlug);
-        resolve({ appSlug, status: "activated" });
-      }, 900);
-    });
   };
 })();
 

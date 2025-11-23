@@ -41,8 +41,21 @@ struct MiniAppManifestLoader: MiniAppManifestLoading {
 
     private static func makeDecoder() -> JSONDecoder {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let dateString = try container.decode(String.self)
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+            if let date = formatter.date(from: dateString) {
+                return date
+            }
+            // Fallback for dates without fractional seconds
+            formatter.formatOptions = [.withInternetDateTime]
+            if let date = formatter.date(from: dateString) {
+                return date
+            }
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid date format: \(dateString)")
+        }
         return decoder
     }
 }

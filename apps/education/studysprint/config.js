@@ -95,50 +95,58 @@ const appConfig = {
     ctaLabel: "Upgrade for reminders"
   },
   plan: {
+    derive: ({ values }) => {
+      const topic = (values.topic || "Topic").trim();
+      return {
+        q1: `Define "${topic}" in your own words (no jargon).`,
+        q2: `How does "${topic}" connect to the previous chapter/concept?`,
+        q3: `Create a real-world analogy for "${topic}".`
+      };
+    },
     summary: {
-      title: "{{labels.topic}} sprint",
-      subtitle: "Deadline {{labels.deadline}} \u00b7 Confidence {{labels.confidence}}.",
+      title: "Sprint: {{labels.topic}}",
+      subtitle: "Format: {{labels.format}} \u00b7 Confidence: {{labels.confidence}}",
       metrics: [
         {
-          label: "Sprint length",
+          label: "Focus Block",
           value: "25 min"
         },
         {
-          label: "Break",
-          value: "5 min"
+          label: "Output",
+          value: "{{labels.format}}"
         },
         {
-          label: "Format",
-          value: "{{labels.format}}"
+          label: "Active Recall",
+          value: "3 Qs"
         }
       ]
     },
     sections: [
       {
-        title: "Focus plan",
-        description: "Structure the 25 min.",
+        title: "1. Ingest (10 min)",
+        description: "High-speed absorption.",
         items: [
-          "5 min skim + highlight unknowns.",
-          "12 min deep dive with {{labels.format}} output.",
-          "8 min recall practice."
+          "Scan headers and bold terms.",
+          "Read summary first, then details.",
+          "Don't highlight—write questions instead."
         ]
       },
       {
-        title: "Recall prompts",
-        description: "Questions to self-test.",
+        title: "2. Synthesize (10 min)",
+        description: "Create {{labels.format}}.",
         items: [
-          "Prompt 1 referencing topic.",
-          "Prompt 2 bridging concept.",
-          "Prompt 3 stretching to application."
+          "Close the book/tab.",
+          "Draft your {{labels.format}} from memory.",
+          "Only check source to fill gaps."
         ]
       },
       {
-        title: "Break + next step",
-        description: "Close the loop.",
+        title: "3. Recall (5 min)",
+        description: "Test yourself immediately.",
         items: [
-          "5 min break instructions.",
-          "Log retention feel.",
-          "Set next sprint if needed."
+          "{{derived.q1}}",
+          "{{derived.q2}}",
+          "{{derived.q3}}"
         ]
       }
     ],

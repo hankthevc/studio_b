@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "generatedAt": "2025-11-23T19:34:11.645Z",
+  "category": "Creator",
+  "apps": [
+    {
+      "slug": "beatboard",
+      "title": "BeatBoard",
+      "subtitle": "Vibe-ready audio hooks.",
+      "category": "Creator",
+      "keywords": [
+        "audio",
+        "creator",
+        "loop"
+      ],
+      "isFeatured": true,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/beatboard",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/beatboard",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "clipchoreo",
+      "title": "ClipChoreo",
+      "subtitle": "Video storyboard generator.",
+      "category": "Creator",
+      "keywords": [
+        "storyboard",
+        "video",
+        "creator"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 13,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/clipchoreo",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/clipchoreo",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "hooklab",
+      "title": "HookLab",
+      "subtitle": "AI hook A/B studio",
+      "category": "Creator",
+      "keywords": [
+        "hooks",
+        "thumbnail",
+        "creator",
+        "video"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/hooklab",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/hooklab",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    },
+    {
+      "slug": "storyspark",
+      "title": "StorySpark",
+      "subtitle": "AI hook & caption studio",
+      "category": "Creator",
+      "keywords": [
+        "hooks",
+        "caption",
+        "creator",
+        "ai"
+      ],
+      "isFeatured": false,
+      "ageBand": {
+        "min": 4,
+        "max": null
+      },
+      "universalLink": "https://miniapps.studio/storyspark",
+      "asset": {
+        "bundleSubdirectory": "apps/creator/storyspark",
+        "entrypoint": "index"
+      },
+      "skuIds": [],
+      "previewImageName": null
+    }
+  ]
+}

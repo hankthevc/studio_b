@@ -108,41 +108,70 @@ const appConfig = {
     ctaLabel: "Upgrade for stems"
   },
   plan: {
+    derive: ({ values }) => {
+      // Simulation: "Mix" instruments based on vibe
+      const vibeMap = {
+        dreamy: { bpm: "85-95", lead: "Analog Synth Pad", bass: "Sub sine", fx: "Tape hiss + Reverb" },
+        upbeat: { bpm: "115-124", lead: "Plucky Marimba", bass: "Funky slap", fx: "Vocal chop" },
+        gritty: { bpm: "130-140", lead: "Distorted 808", bass: "Reese", fx: "Bitcrusher" }
+      };
+      
+      const selectedVibe = vibeMap[values.vibe] || vibeMap.upbeat;
+      let energyMod = "";
+      if (values.energy === "high") energyMod = "(Overdriven)";
+      if (values.energy === "low") energyMod = "(Filtered)";
+
+      const timeline = [];
+      const len = parseInt(values.length, 10);
+      timeline.push(`0:00 - Intro: ${selectedVibe.lead} fade in`);
+      timeline.push(`0:${Math.floor(len / 2)} - Drop: ${selectedVibe.bass} ${energyMod}`);
+      timeline.push(`0:${len} - Cut: Hard stop for loop`);
+
+      return {
+        bpm: selectedVibe.bpm,
+        lead: selectedVibe.lead,
+        bass: selectedVibe.bass,
+        fx: selectedVibe.fx,
+        timeline1: timeline[0],
+        timeline2: timeline[1],
+        timeline3: timeline[2]
+      };
+    },
     summary: {
-      title: "{{labels.useCase}} hook",
-      subtitle: "Vibe {{labels.vibe}} \u00b7 Energy {{labels.energy}}.",
+      title: "{{labels.useCase}} Mix",
+      subtitle: "Vibe {{labels.vibe}} \u00b7 Energy {{labels.energy}}",
       metrics: [
         {
-          label: "Length",
-          value: "{{labels.length}} sec"
+          label: "Target BPM",
+          value: "{{derived.bpm}}"
         },
         {
-          label: "Tempo",
-          value: "92\u2013120 BPM"
+          label: "Key Element",
+          value: "{{derived.lead}}"
         },
         {
-          label: "Loop ready",
+          label: "Loopable",
           value: "Yes"
         }
       ]
     },
     sections: [
       {
-        title: "Sonic palette",
-        description: "Baseline instrumentation suggestions.",
+        title: "Sonic Palette",
+        description: "Instrumentation mix.",
         items: [
-          "Lead instrument referencing {{labels.vibe}}.",
-          "Bass / rhythm cues.",
-          "FX or ear candy idea."
+          "Lead: {{derived.lead}}",
+          "Bass: {{derived.bass}}",
+          "Ear Candy: {{derived.fx}}"
         ]
       },
       {
-        title: "Hook structure",
-        description: "Timeline for the {{labels.length}} sec sting.",
+        title: "Arrangement",
+        description: "Timeline for {{labels.length}} sec clip.",
         items: [
-          "Beat 1: intro swell.",
-          "Beat 2-3: motif enters.",
-          "Beat 4+: stutter/loop instructions."
+          "{{derived.timeline1}}",
+          "{{derived.timeline2}}",
+          "{{derived.timeline3}}"
         ]
       },
       {

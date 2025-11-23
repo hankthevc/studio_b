@@ -108,50 +108,81 @@ const appConfig = {
     ctaLabel: "Upgrade for tracks"
   },
   plan: {
+    derive: ({ values }) => {
+      const primers = {
+        excel: "Speed through sheets with fewer clicks.",
+        negotiation: "Handle objections with calm structure.",
+        design: "Sharpen eye for critique and feedback."
+      };
+      const steps = {
+        excel: [
+          "Win: Learn 'Ctrl+Arrow' (Jump to edge).",
+          "Why: Stops infinite scrolling.",
+          "Try: Open a sheet, hold Ctrl, tap arrows."
+        ],
+        negotiation: [
+          "Win: The 'Mirror' technique.",
+          "Why: Builds rapport without agreeing.",
+          "Try: Repeat the last 3 words they said as a question."
+        ],
+        design: [
+          "Win: The 'Squint Test'.",
+          "Why: Reveals hierarchy instantly.",
+          "Try: Squint at your screen. What stands out first? Is it the right thing?"
+        ]
+      };
+      const selectedSteps = steps[values.skill] || steps.negotiation;
+      return {
+        primer: primers[values.skill] || primers.negotiation,
+        step1: selectedSteps[0],
+        step2: selectedSteps[1],
+        step3: selectedSteps[2]
+      };
+    },
     summary: {
-      title: "{{labels.skill}} snack",
-      subtitle: "Format {{labels.format}} \u00b7 Confidence {{labels.confidence}}.",
+      title: "{{labels.skill}} Snack",
+      subtitle: "Format: {{labels.format}} \u00b7 Time: {{labels.time}} min",
       metrics: [
         {
-          label: "Total time",
-          value: "{{labels.time}} min"
+          label: "Micro-Skill",
+          value: "Unlocked"
         },
         {
-          label: "Cards",
-          value: "3 steps"
+          label: "Confidence",
+          value: "{{labels.confidence}}"
         },
         {
-          label: "Challenge",
-          value: "1 action"
+          label: "Action",
+          value: "Ready"
         }
       ]
     },
     sections: [
       {
-        title: "Primer",
-        description: "Give context quickly.",
+        title: "The Concept",
+        description: "{{derived.primer}}",
         items: [
-          "One-liner definition.",
-          "Why it matters this week.",
-          "Confidence-specific encouragement."
+          "Focus on one small mechanic.",
+          "Ignore the complex edge cases for now.",
+          "Goal: Use it once today."
         ]
       },
       {
-        title: "Snack steps",
-        description: "Three actionable beats.",
+        title: "Your Snack",
+        description: "3-beat progression:",
         items: [
-          "Step 1 tied to {{labels.skill}}.",
-          "Step 2 with tip/trick.",
-          "Step 3 with mini challenge."
+          "1. {{derived.step1}}",
+          "2. {{derived.step2}}",
+          "3. {{derived.step3}}"
         ]
       },
       {
-        title: "Apply + share",
-        description: "Prompt to use knowledge.",
+        title: "Retention",
+        description: "Make it stick.",
         items: [
-          "Real-world micro assignment.",
-          "Reflection question.",
-          "Share link to accountability friend."
+          "Teach this to one other person.",
+          "Write it on a sticky note.",
+          "Use it in your next {{labels.skill}} session."
         ]
       }
     ],

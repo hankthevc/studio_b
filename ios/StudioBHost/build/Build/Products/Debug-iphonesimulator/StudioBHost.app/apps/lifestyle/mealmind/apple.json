@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "mealmind",
+  "title": "MealMind",
+  "subtitle": "AI meal planner",
+  "category": "Lifestyle",
+  "keywords": [
+    "meal",
+    "planner",
+    "nutrition",
+    "grocery"
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/mealmind",
+  "asset": {
+    "bundleSubdirectory": "apps/lifestyle/mealmind",
+    "entrypoint": "index"
+  },
+  "skuIds": [
+    "com.studiob.mealmind.unlimited"
+  ],
+  "previewImageName": null
+}

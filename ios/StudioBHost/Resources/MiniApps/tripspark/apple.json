@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "tripspark",
+  "title": "TripSpark",
+  "subtitle": "3-day AI itineraries with budgets & share links",
+  "category": "Travel",
+  "keywords": [
+    "travel",
+    "itinerary",
+    "planner",
+    "city guide",
+    "budget",
+    "ai",
+    "weekend",
+    "shareable"
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/tripspark",
+  "asset": {
+    "bundleSubdirectory": "apps/travel/tripspark",
+    "entrypoint": "index"
+  },
+  "skuIds": [
+    "com.studiob.tripspark.pro"
+  ],
+  "previewImageName": null
+}

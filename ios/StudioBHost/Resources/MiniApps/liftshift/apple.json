@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "liftshift",
+  "title": "LiftShift",
+  "subtitle": "AI strength block builder",
+  "category": "Fitness",
+  "keywords": [
+    "fitness",
+    "strength",
+    "workout",
+    "coach"
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/liftshift",
+  "asset": {
+    "bundleSubdirectory": "apps/fitness/liftshift",
+    "entrypoint": "index"
+  },
+  "skuIds": [
+    "com.studiob.liftshift.pro"
+  ],
+  "previewImageName": null
+}

@@ -1,0 +1,209 @@
+{
+  "" : {
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHost-primary.dia",
+    "emit-module-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHost-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHost-primary-emit-module.dia",
+    "pch" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHost-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHost-primary.swiftdeps"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Commerce/AdvancedCommerceBackendClient.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AdvancedCommerceBackendClient~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Commerce/AppStoreServerAPIClient.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppStoreServerAPIClient~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Commerce/CommerceManager.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/CommerceManager~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Commerce/ProductCatalog.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/ProductCatalog~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Models/MiniApp.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniApp~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Models/MiniAppManifest.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifest~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/AgeCategoryProvider.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AgeCategoryProvider~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/AnalyticsClient.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsClient~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/AnalyticsTracker.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AnalyticsTracker~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/DeclaredAgeRangeProvider.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/DeclaredAgeRangeProvider~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/MiniAppAssetResolver.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppAssetResolver~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/MiniAppManifestLoader.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppManifestLoader~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/MiniHostBridge.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniHostBridge~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Services/SubscriptionController.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/SubscriptionController~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/StudioBHostApp.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/StudioBHostApp~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/ViewModels/AppState.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/AppState~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Views/MiniAppCatalogView.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppCatalogView~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Views/MiniAppDetailView.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppDetailView~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Views/MiniAppRow.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppRow~partial.swiftmodule"
+  },
+  "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/Sources/StudioBHost/Views/MiniAppWebView.swift" : {
+    "const-values" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView.swiftconstvalues",
+    "dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView.d",
+    "diagnostics" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView.dia",
+    "index-unit-output-path" : "/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView.o",
+    "llvm-bc" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView.bc",
+    "object" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView.o",
+    "swift-dependencies" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView.swiftdeps",
+    "swiftmodule" : "/Users/HenryAppel/miniapps-studio-b/ios/StudioBHost/build/Build/Intermediates.noindex/StudioBHost.build/Debug-iphonesimulator/StudioBHost.build/Objects-normal/arm64/MiniAppWebView~partial.swiftmodule"
+  }
+}

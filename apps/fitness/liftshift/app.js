@@ -2,7 +2,7 @@ import * as sharedUI from "../../../shared/ui.js";
 import { planProgram, formatMinutes } from "./logic.js";
 
 const MIN_PLAN_DELAY = 420;
-const FREE_PLAN_LIMIT = 1;
+const FREE_PLAN_LIMIT = 0;
 const equipmentOptions = ["bodyweight", "dumbbells", "barbell", "kettlebells", "cables", "bands"];
 
 const state = {
@@ -12,9 +12,17 @@ const state = {
   isSubscribed: false
 };
 
-export function initMiniApp(container) {
+export async function initMiniApp(container) {
   container.innerHTML = "";
   container.classList.add("liftshift-app");
+
+  // Check subscription status
+  try {
+    const isSubscribed = await window.MiniHost.isSubscribed("liftshift");
+    state.isSubscribed = isSubscribed;
+  } catch (err) {
+    console.warn("Failed to check subscription:", err);
+  }
 
   const hero = document.createElement("section");
   hero.className = "hero";
@@ -35,7 +43,23 @@ export function initMiniApp(container) {
     await startPlanning(formValues, resultsSection, upsell);
   });
 
+  const markSubscribed = () => {
+    state.isSubscribed = true;
+    upsell.classList.add("is-hidden");
+    if (state.lastPlan) {
+      renderProgram(resultsSection, state.lastPlan, upsell);
+    }
+  };
+
+  window.addEventListener("MiniHostBridge:subscriptionUpdate", (event) => {
+    const slug = event?.detail?.slug;
+    if (!slug || slug === "liftshift") {
+      markSubscribed();
+    }
+  });
+
   container.append(hero, form, resultsSection, upsell);
+  container.addEventListener("subscription:activated", markSubscribed);
 }
 
 async function startPlanning(formValues, resultsSection, upsell) {
@@ -47,7 +71,20 @@ async function startPlanning(formValues, resultsSection, upsell) {
     await loadDelay;
     state.planCount += 1;
     state.lastPlan = program;
+    
+    console.log(`[LiftShift] Plan generated. Count: ${state.planCount}, Subscribed: ${state.isSubscribed}`);
+    
     renderProgram(resultsSection, program, upsell);
+    
+    // Force check for upsell visibility
+    if (state.planCount >= 1 && !state.isSubscribed) {
+      console.log("[LiftShift] Unhiding upsell banner");
+      upsell.classList.remove("is-hidden");
+      window.dispatchEvent(new CustomEvent("liftshift:upsellViewed", { detail: { surface: "postPlan" } }));
+    } else {
+      console.log("[LiftShift] Upsell remains hidden");
+    }
+
     if (state.planCount > FREE_PLAN_LIMIT && !state.isSubscribed) {
       window.dispatchEvent(new CustomEvent("liftshift:freeLimitHit", { detail: { planCount: state.planCount } }));
       showToast("Upgrade for full cycles & exports.");
@@ -76,13 +113,13 @@ function buildForm(onSubmit) {
       <span>Equipment</span>
       <div class="equipment-tags">
         ${equipmentOptions
-          .map(
-            (eq, index) =>
-              `<button type="button" class="equipment-tag ${index === 0 ? "is-selected" : ""}" data-equipment="${eq}">${eq.replace(/^\w/, (c) =>
-                c.toUpperCase()
-              )}</button>`
-          )
-          .join("")}
+      .map(
+        (eq, index) =>
+          `<button type="button" class="equipment-tag ${index === 0 ? "is-selected" : ""}" data-equipment="${eq}">${eq.replace(/^\w/, (c) =>
+            c.toUpperCase()
+          )}</button>`
+      )
+      .join("")}
       </div>
     </div>
     <label>
@@ -214,8 +251,8 @@ function renderProgram(container, program, upsell) {
       </div>
       <div class="segments">
         ${day.segments
-          .map(
-            (segment) => `
+        .map(
+          (segment) => `
               <div class="segment">
                 <p class="segment-label">${segment.label}</p>
                 <ul>
@@ -223,8 +260,8 @@ function renderProgram(container, program, upsell) {
                 </ul>
               </div>
             `
-          )
-          .join("")}
+        )
+        .join("")}
       </div>
     `;
     container.append(dayCard);
@@ -242,7 +279,7 @@ function renderProgram(container, program, upsell) {
     })
   );
 
-  if (state.planCount >= 1) {
+  if (state.planCount >= 1 && !state.isSubscribed) {
     upsell.classList.remove("is-hidden");
     window.dispatchEvent(new CustomEvent("liftshift:upsellViewed", { detail: { surface: "postPlan" } }));
   }
@@ -323,9 +360,30 @@ function buildUpsellBanner() {
   copy.innerHTML = "Upgrade for 8-week cycles, progression tracking, and exports.";
 
   const button = createButton({ label: "Upgrade to LiftShift Pro", variant: "primary", type: "button" });
-  button.addEventListener("click", () => {
-    window.dispatchEvent(new CustomEvent("liftshift:upsellClicked"));
-    showToast("Billing flow coming soon.");
+  button.addEventListener("click", async () => {
+    button.disabled = true;
+    button.textContent = "Connecting...";
+    try {
+      const result = await window.MiniHost.requestSubscription("liftshift");
+      if (result.status === "active") {
+        state.isSubscribed = true;
+        card.classList.add("is-hidden");
+        showToast("Welcome to LiftShift Pro!");
+        const resultsSection = document.querySelector(".results");
+        if (resultsSection && state.lastPlan) {
+          renderProgram(resultsSection, state.lastPlan, card);
+        }
+        container.dispatchEvent(new Event("subscription:activated"));
+      } else {
+        showToast("Subscription cancelled.");
+      }
+    } catch (error) {
+      console.error(error);
+      showToast("Purchase failed. Try again.");
+    } finally {
+      button.disabled = false;
+      button.textContent = "Upgrade to LiftShift Pro";
+    }
   });
 
   card.append(copy, button);

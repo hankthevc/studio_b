@@ -95,53 +95,61 @@ const appConfig = {
     ctaLabel: "Unlock reminders"
   },
   plan: {
+    derive: ({ values }) => {
+      const moves = {
+        neck: ["Chin Tucks", "Ear to Shoulder", "Neck Rotations"],
+        back: ["Seated Cat-Cow", "Thoracic Twist", "Forward Fold"],
+        hips: ["Seated Figure-4", "Lunge Stretch", "Glute Squeeze"]
+      };
+      
+      const selectedMoves = moves[values.tension] || moves.neck;
+      const duration = parseInt(values.duration, 10) || 3;
+      const moveTime = Math.floor((duration * 60) / 3); // Seconds per move
+
+      return {
+        m1: selectedMoves[0],
+        m2: selectedMoves[1],
+        m3: selectedMoves[2],
+        timePerMove: `${moveTime}s`
+      };
+    },
     summary: {
-      title: "{{labels.duration}} reset for {{labels.schedule}}",
-      subtitle: "Focus on easing {{labels.tension}} while matching your {{labels.energy}} energy.",
+      title: "Desk Reset: {{labels.tension}}",
+      subtitle: "Duration: {{labels.duration}} \u00b7 Energy: {{labels.energy}}",
       metrics: [
         {
-          label: "Segment count",
-          value: "3 mobility tiles"
+          label: "Focus Area",
+          value: "{{labels.tension}}"
         },
         {
-          label: "Equipment",
-          value: "Chair + desk edge"
+          label: "Intensity",
+          value: "{{labels.energy}}"
         },
         {
-          label: "Reminder",
-          value: "Timer at {{labels.schedule}}"
+          label: "Next Break",
+          value: "{{labels.schedule}}"
         }
       ]
     },
     sections: [
       {
-        title: "Prime posture",
-        description: "Quick breath + awareness cues so your nervous system actually notices the reset.",
+        title: "The Routine",
+        description: "Hold each for {{derived.timePerMove}}.",
         items: [
-          "Box breathing for 30 seconds while rolling shoulders.",
-          "Neck cars focusing on {{labels.tension}} release.",
-          "Desk-edge chest opener for 20 seconds."
+          "1. {{derived.m1}}",
+          "2. {{derived.m2}}",
+          "3. {{derived.m3}}"
         ]
       },
       {
-        title: "Core reset",
-        description: "Bodyweight moves that counter the desk slump.",
+        title: "Ergo Check",
+        description: "Before you sit back down.",
         items: [
-          "Seated cat/cow with slow inhales.",
-          "{{labels.tension}}-focused stretch (hold 20s x 2).",
-          "Standing hip hinge pulses to fire glutes."
+          "Screen at eye level?",
+          "Feet flat on floor?",
+          "Shoulders relaxed?"
         ]
       },
-      {
-        title: "Re-entry cues",
-        description: "Light activation so you return to the meeting focused.",
-        items: [
-          "Shake out wrists and ankles.",
-          "Chair squats \u00d76 or desk pushups if energy = energized.",
-          "Re-center eyes 20ft away before looking at screen."
-        ]
-      }
-    ],
     tips: [
       "Pair each flow with water to stack hydration.",
       "Bookmark the share link for coworker nudges.",

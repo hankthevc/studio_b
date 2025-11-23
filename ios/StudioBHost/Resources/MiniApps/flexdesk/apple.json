@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "flexdesk",
+  "title": "FlexDesk",
+  "subtitle": "Micro stretch flows for desk life.",
+  "category": "Fitness",
+  "keywords": [
+    "stretch",
+    "desk",
+    "mobility",
+    "wellness"
+  ],
+  "isFeatured": true,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/flexdesk",
+  "asset": {
+    "bundleSubdirectory": "apps/fitness/flexdesk",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

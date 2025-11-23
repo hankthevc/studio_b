@@ -108,53 +108,75 @@ const appConfig = {
     ctaLabel: "Upgrade for packs"
   },
   plan: {
+    derive: ({ values }) => {
+      const challenges = {
+        city: [
+          "Find a red door and take a selfie.",
+          "Buy the cheapest item at a local bodega.",
+          "Spot a piece of street art featuring an animal."
+        ],
+        outdoors: [
+          "Find a rock shaped like a heart.",
+          "Record 10 seconds of pure bird sound.",
+          "Locate a tree you can't wrap your arms around."
+        ],
+        home: [
+          "Build a pillow fort in 3 minutes.",
+          "Find the oldest expiration date in your pantry.",
+          "Recreate a famous painting using household objects."
+        ]
+      };
+      
+      const selectedSet = challenges[values.setting] || challenges.city;
+      
+      let wildcard = "High-five a stranger (or air high-five).";
+      if (values.crew === "couple") wildcard = "Compliment your partner's eyes.";
+      if (values.crew === "family") wildcard = "Group hug for 10 seconds.";
+
+      return {
+        q1: selectedSet[0],
+        q2: selectedSet[1],
+        q3: selectedSet[2],
+        wildcard,
+        proofType: values.proof
+      };
+    },
     summary: {
-      title: "{{labels.setting}} quest",
-      subtitle: "Crew {{labels.crew}} \u00b7 Energy {{labels.energy}}.",
+      title: "Quest: {{labels.setting}} Mode",
+      subtitle: "Crew: {{labels.crew}} \u00b7 Energy: {{labels.energy}}",
       metrics: [
         {
-          label: "Challenges",
-          value: "3"
+          label: "Difficulty",
+          value: "{{labels.energy}}"
+        },
+        {
+          label: "Tasks",
+          value: "3 + Bonus"
         },
         {
           label: "Proof",
-          value: "{{labels.proof}}"
-        },
-        {
-          label: "Bonus",
-          value: "+1 wildcard"
+          value: "{{derived.proofType}}"
         }
       ]
     },
     sections: [
       {
-        title: "Kickoff",
-        description: "Prime the crew.",
+        title: "Main Objectives",
+        description: "Complete all 3 to win.",
         items: [
-          "Set timer + choose playlist.",
-          "Read rules out loud.",
-          "Assign scorekeeper."
+          "1. {{derived.q1}}",
+          "2. {{derived.q2}}",
+          "3. {{derived.q3}}"
         ]
       },
       {
-        title: "Challenges",
-        description: "Three deterministic prompts.",
+        title: "Bonus Round",
+        description: "Double points.",
         items: [
-          "Challenge A referencing {{labels.setting}}.",
-          "Challenge B referencing {{labels.energy}}.",
-          "Challenge C referencing {{labels.proof}}."
+          "🌟 {{derived.wildcard}}",
+          "Upload proof to group chat immediately."
         ]
       },
-      {
-        title: "Wildcard",
-        description: "Final surprise move.",
-        items: [
-          "Wildcard twist (loser buys treat).",
-          "Share photo proof in group chat.",
-          "Regenerate if crew wants rematch."
-        ]
-      }
-    ],
     tips: [
       "Upgrade for theme packs.",
       "Share link to scoreboard doc.",

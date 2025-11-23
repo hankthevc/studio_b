@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "storyspark",
+  "title": "StorySpark",
+  "subtitle": "AI hook & caption studio",
+  "category": "Creator",
+  "keywords": [
+    "hooks",
+    "caption",
+    "creator",
+    "ai"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 4,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/storyspark",
+  "asset": {
+    "bundleSubdirectory": "apps/creator/storyspark",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

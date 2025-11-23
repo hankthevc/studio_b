@@ -75,41 +75,72 @@ const appConfig = {
     ctaLabel: "Upgrade for sync"
   },
   plan: {
+    derive: ({ values }) => {
+      const wins = (values.wins || "")
+        .split("\n")
+        .map((w) => w.trim())
+        .filter(Boolean)
+        .slice(0, 3);
+      
+      while (wins.length < 3) {
+        wins.push("Add a quick win to fill this slot.");
+      }
+
+      // Logic: Calculate momentum score
+      let momentumScore = wins.filter(w => !w.includes("Add a quick")).length * 20;
+      if (values.energy === "fire") momentumScore += 30;
+      if (values.energy === "steady") momentumScore += 15;
+      if (values.focus === "deep") momentumScore += 10;
+
+      let nextStep = "Clear the decks for deep work.";
+      if (values.focus === "collab") nextStep = "Prep agenda for tomorrow's sync.";
+      if (values.focus === "admin") nextStep = "Batch process email for 20 mins.";
+      if (values.energy === "coasting") nextStep = "Pick one easy win and sign off.";
+
+      return {
+        win1: wins[0],
+        win2: wins[1],
+        win3: wins[2],
+        winCount: wins.filter(w => !w.includes("Add a quick")).length,
+        score: Math.min(100, momentumScore),
+        nextStep
+      };
+    },
     summary: {
-      title: "Wins locked",
-      subtitle: "Energy {{labels.energy}} \u00b7 Next focus {{labels.focus}}.",
+      title: "Momentum Score: {{derived.score}}",
+      subtitle: "Energy: {{labels.energy}} \u00b7 Focus: {{labels.focus}}",
       metrics: [
         {
-          label: "Win streak",
-          value: "3-day default"
+          label: "Wins Logged",
+          value: "{{derived.winCount}}/3"
         },
         {
-          label: "Mood",
-          value: "{{labels.energy}}"
+          label: "Flow State",
+          value: "{{derived.score}}%"
         },
         {
-          label: "Cue",
-          value: "Keep grid green"
+          label: "Next Action",
+          value: "See below"
         }
       ]
     },
     sections: [
       {
-        title: "Celebrated wins",
-        description: "Mirror back the entries with friendly copy.",
+        title: "Victory Board",
+        description: "Today's highlights locked in.",
         items: [
-          "Win #1 shoutout.",
-          "Win #2 highlight.",
-          "Win #3 celebration."
+          "🏆 {{derived.win1}}",
+          "🥈 {{derived.win2}}",
+          "🥉 {{derived.win3}}"
         ]
       },
       {
-        title: "Momentum bar",
-        description: "Encourage tomorrow\u2019s focus.",
+        title: "Tomorrow's Play",
+        description: "Based on your {{labels.focus}} focus.",
         items: [
-          "Focus suggestion referencing {{labels.focus}}.",
-          "Micro goal tied to next steps.",
-          "Accountability tip."
+          "👉 {{derived.nextStep}}",
+          "Protect your first 90 minutes.",
+          "Review calendar for conflicts."
         ]
       },
       {

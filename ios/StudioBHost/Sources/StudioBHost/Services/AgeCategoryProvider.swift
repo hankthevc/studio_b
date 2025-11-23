@@ -23,9 +23,10 @@ final class AgeCategoryProvider: ObservableObject {
     @Published private(set) var currentRange: DeclaredAgeRange
     private let declaredProvider: DeclaredAgeRangeProvider
 
-    init(declaredProvider: DeclaredAgeRangeProvider = DeclaredAgeRangeProvider()) {
-        self.declaredProvider = declaredProvider
-        self.currentRange = declaredProvider.currentRange
+    init() {
+        let provider = DeclaredAgeRangeProvider()
+        self.declaredProvider = provider
+        self.currentRange = provider.currentRange
     }
 
     var current: AgeCategory {

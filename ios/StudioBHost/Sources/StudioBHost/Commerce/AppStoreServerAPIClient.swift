@@ -111,7 +111,7 @@ struct AppStoreServerAPIClient {
         let signingInput = "\(headerData.base64URLEncodedString()).\(claimsData.base64URLEncodedString())"
 
         let privateKey = try P256.Signing.PrivateKey(pemRepresentation: configuration.privateKeyPEM)
-        let signature = try privateKey.signature(for: Data(signingInput.utf8)).derRepresentation
+        let signature = try privateKey.signature(for: Data(signingInput.utf8)).rawRepresentation
         let token = "\(signingInput).\(signature.base64URLEncodedString())"
         return token
     }

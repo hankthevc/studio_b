@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/miniapp.schema.json",
+  "slug": "slicesaver",
+  "title": "SliceSaver",
+  "subtitle": "Split group costs with scripts.",
+  "category": "Finance",
+  "keywords": [
+    "split",
+    "finance",
+    "bills"
+  ],
+  "isFeatured": false,
+  "ageBand": {
+    "min": 13,
+    "max": null
+  },
+  "universalLink": "https://miniapps.studio/slicesaver",
+  "asset": {
+    "bundleSubdirectory": "apps/finance/slicesaver",
+    "entrypoint": "index"
+  },
+  "skuIds": [],
+  "previewImageName": null
+}

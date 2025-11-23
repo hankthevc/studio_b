@@ -115,50 +115,84 @@ const appConfig = {
     ctaLabel: "Upgrade for offline cards"
   },
   plan: {
+    derive: ({ values }) => {
+      const city = (values.city || "your city").trim();
+      const durationHours = parseInt(values.duration, 10) || 3;
+      
+      // Heuristic: 90 mins needed for customs/transit/security buffer
+      const usableTime = durationHours * 60 - 90;
+      
+      let planType = "Terminal Loop";
+      let advice = "Stay airside. Not enough buffer to leave.";
+      
+      if (usableTime > 120) {
+        planType = "City Dash";
+        advice = "You have ~2 hours on the ground. Go!";
+      } else if (usableTime > 60) {
+        planType = "Near-Airport Spot";
+        advice = "Pick one spot <15 min taxi ride away.";
+      }
+
+      const vibeStops = {
+        recharge: ["Quiet park or library", "Hotel lobby bar", "Spa/Gym day pass"],
+        explore: ["Central Plaza", "Historic Old Town", "Famous viewpoint"],
+        foodie: ["Top-rated bakery", "Street food alley", "Local coffee roaster"]
+      };
+      
+      const stops = vibeStops[values.vibe] || vibeStops.explore;
+
+      return { 
+        city, 
+        planType, 
+        advice, 
+        stop1: stops[0],
+        stop2: stops[1]
+      };
+    },
     summary: {
-      title: "{{labels.duration}} loop in {{labels.city}}",
-      subtitle: "Built for a {{labels.vibe}} vibe with {{labels.transit}} transfers.",
+      title: "{{derived.planType}} in {{labels.city}}",
+      subtitle: "Buffer: {{labels.duration}} \u00b7 Vibe: {{labels.vibe}}",
       metrics: [
         {
-          label: "Stops",
-          value: "3 curated pauses"
+          label: "Strategy",
+          value: "{{derived.planType}}"
         },
         {
-          label: "Return buffer",
-          value: "{{labels.transit}} buffer locked"
+          label: "Transit",
+          value: "{{labels.transit}}"
         },
         {
-          label: "Spend",
-          value: "{{labels.budget}} pace"
+          label: "Usable Time",
+          value: "Check advice"
         }
       ]
     },
     sections: [
       {
-        title: "Arrival reset",
-        description: "Shake off the previous flight and ground yourself near the terminal.",
+        title: "Feasibility Check",
+        description: "{{derived.advice}}",
         items: [
-          "Breeze through security and stash bags at the short-term locker.",
-          "Walk to a {{labels.vibe}} friendly lounge or cafe for a 20-min recharge.",
-          "Set an alarm for boarding minus 45 minutes so you never sprint."
+          "Transit: {{labels.transit}} mode recommended.",
+          "Budget: {{labels.budget}} pace.",
+          "Hard Stop: Be back at security 60 mins before flight."
         ]
       },
       {
-        title: "City micro loop",
-        description: "Dip into the local pulse without watching the clock every five minutes.",
+        title: "The Loop",
+        description: "If you go, hit these:",
         items: [
-          "Hop into a {{labels.transit}} ride toward a distinct neighborhood.",
-          "Follow a three-stop path: landmark, quick bite, souvenir snap.",
-          "Capture a photo proof and share the short link with travel buddies."
+          "1. {{derived.stop1}} in {{derived.city}}.",
+          "2. {{derived.stop2}} (only if time permits).",
+          "3. Grab a souvenir/snack for the plane."
         ]
       },
       {
-        title: "Return glide path",
-        description: "Reenter airport mode cool, hydrated, and aligned with boarding.",
+        title: "Return Protocol",
+        description: "Don't miss the flight.",
         items: [
-          "Order a ride/walk back with 70 minutes to spare.",
-          "Grab a stretch + water refill before final security scan.",
-          "Queue the next layover idea so future you spends zero minutes planning."
+          "Set phone alarm for 'Head Back' time.",
+          "Pre-book {{labels.transit}} return if possible.",
+          "Have boarding pass screenshot ready."
         ]
       }
     ],
