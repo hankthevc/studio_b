@@ -1,3 +1,5 @@
+import { callFocusTilesLLM } from "../../../shared/llmClient.js";
+
 const themeConfigs = {
   deepwork: {
     label: "Deep work",
@@ -141,4 +143,4 @@ function normalizeTiles(rawTiles, form, config) {
     return { ...tile, type: fixedType };
   });
 }
-import { callFocusTilesLLM } from "../../../shared/llmClient.js";
+

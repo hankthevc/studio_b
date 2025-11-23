@@ -120,6 +120,7 @@ function buildForm(onSubmit) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (submit.disabled) return;
     const formData = new FormData(form);
     const vibeTag = form.querySelector(".tag.is-selected")?.dataset.tag || "balanced";
     const values = {

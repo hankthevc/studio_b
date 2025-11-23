@@ -118,7 +118,7 @@ export async function callPocketPorterLLM(payload = {}) {
 export async function callFocusTilesLLM(payload = {}) {
   const apiBase = resolveApiBase();
   if (!apiBase || typeof fetch !== "function") {
-    return simulateFocusTiles(payload);
+    return await simulateFocusTiles(payload);
   }
   try {
     const controller = new AbortController();
@@ -136,7 +136,7 @@ export async function callFocusTilesLLM(payload = {}) {
     return await response.json();
   } catch (error) {
     console.warn("FocusTiles LLM request failed, falling back to mock.", error);
-    return simulateFocusTiles(payload);
+    return await simulateFocusTiles(payload);
   }
 }
 
@@ -160,7 +160,7 @@ function simulateLiftShift(payload = {}) {
 
   let title = "Strength base";
   let mainSet = ["3 x 10 goblet squats", "3 x 12 push-ups", "3 x 12 rows"];
-  
+
   if (focus.includes("hypertrophy")) {
     title = "Volume pump";
     mainSet = ["4 x 12 DB bench press", "4 x 12 bulgarian split squats", "3 x 15 face pulls"];
@@ -258,9 +258,9 @@ function simulatePocketPorter(payload = {}) {
   }));
 }
 
-function simulateFocusTiles(payload = {}) {
+async function simulateFocusTiles(payload = {}) {
   const blockLength = payload.blockLength || 25;
-  return simulateLLMResponse(() => ({
+  return await simulateLLMResponse(() => ({
     tiles: Array.from({ length: 8 }, (_, index) => {
       const isBreak = index % 2 === 1;
       return {

@@ -55,7 +55,7 @@ async function startPlanning(formValues, resultsSection, upsell) {
   const loadDelay = delay(MIN_PLAN_DELAY);
 
   try {
-    const tiles = planTiles(formValues);
+    const tiles = await planTiles(formValues);
     await loadDelay;
     state.planCount += 1;
     state.lastPlan = tiles;

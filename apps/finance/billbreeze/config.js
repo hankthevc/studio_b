@@ -99,14 +99,25 @@ const appConfig = {
       const lines = (values.bills || "").split("\n");
       let totalBills = 0;
       const parsedBills = [];
-      
+      const warnings = [];
+
       lines.forEach(line => {
-        const match = line.match(/(\$?\d+)/);
-        if (match) {
-          const amount = parseInt(match[1].replace("$", ""), 10);
-          const label = line.replace(match[0], "").trim() || "Bill";
+        if (!line.trim()) return;
+
+        // Flexible match: looks for a number (integer or decimal) anywhere in the line
+        const amountMatch = line.match(/(\$)?\s*(\d+(?:,\d{3})*(?:\.\d{2})?)/);
+
+        if (amountMatch) {
+          const rawAmount = amountMatch[2].replace(/,/g, '');
+          const amount = parseFloat(rawAmount);
+
+          // Remove the matched amount part to get the label
+          const label = line.replace(amountMatch[0], "").trim() || "Bill";
+
           totalBills += amount;
           parsedBills.push({ label, amount });
+        } else {
+          warnings.push(`Could not read amount in: "${line}"`);
         }
       });
 
@@ -118,10 +129,10 @@ const appConfig = {
 
       const safeSpend = Math.max(0, estimatedIncome - totalBills);
       const bufferRatio = safeSpend / (estimatedIncome || 1);
-      
+
       let healthLabel = "Healthy";
       let actionTip = "Auto-transfer $50 to savings.";
-      
+
       if (bufferRatio < 0.1) {
         healthLabel = "Tight";
         actionTip = "Review subscriptions for cuts.";
@@ -136,7 +147,8 @@ const appConfig = {
         billCount: parsedBills.length,
         healthLabel,
         actionTip,
-        topBill: parsedBills.sort((a, b) => b.amount - a.amount)[0]?.label || "None"
+        topBill: parsedBills.sort((a, b) => b.amount - a.amount)[0]?.label || "None",
+        warnings
       };
     },
     summary: {
